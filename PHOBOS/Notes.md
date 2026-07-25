@@ -1,0 +1,2 @@
+- [ ] 2 by y patchs to counter spin
+- [ ] Need to idenfiy a freq - wifi band 2.4?
