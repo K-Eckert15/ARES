@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<title>Designing and testing a 2.45 GHz 4&#215;4 patch antenna array &#8211; Aboutbytes</title>
+<meta name='robots' content='max-image-preview:large' />
+<script>window._wca = window._wca || [];</script>
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Aboutbytes &raquo; Feed" href="https://aboutbytes.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Aboutbytes &raquo; Comments Feed" href="https://aboutbytes.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Aboutbytes &raquo; Designing and testing a 2.45 GHz 4&#215;4 patch antenna array Comments Feed" href="https://aboutbytes.com/patch-antenna-array/feed/" />
+<link rel="pingback" href="https://aboutbytes.com/xmlrpc.php"><script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/aboutbytes.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.12"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='font-awesome-css'  href='https://aboutbytes.com/wp-content/themes/amyra/assets/css/font-awesome.min.css?ver=1.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpiclt-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A700%7CPlayfair+Display%3A700%7COpen+Sans%3A400&#038;ver=1.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpiclt-style-css'  href='https://aboutbytes.com/wp-content/themes/amyra/style.css?ver=1.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://aboutbytes.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0.12' type='text/css' media='all' />
+<style id='wp-block-library-inline-css' type='text/css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel='stylesheet' id='mediaelement-css'  href='https://aboutbytes.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css'  href='https://aboutbytes.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.0.12' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-vendors-style-css'  href='https://aboutbytes.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=8.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-style-css'  href='https://aboutbytes.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=8.0.0' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='woocommerce-layout-css'  href='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=6.8.0' type='text/css' media='all' />
+<style id='woocommerce-layout-inline-css' type='text/css'>
+
+	.infinite-scroll .woocommerce-pagination {
+		display: none;
+	}
+</style>
+<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.8.0' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css'  href='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=6.8.0' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='stylesheet' id='jetpack_css-css'  href='https://aboutbytes.com/wp-content/plugins/jetpack/css/jetpack.css?ver=11.2.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script defer type='text/javascript' src='https://stats.wp.com/s-202630.js' id='woocommerce-analytics-js'></script>
+<link rel="https://api.w.org/" href="https://aboutbytes.com/wp-json/" /><link rel="alternate" type="application/json" href="https://aboutbytes.com/wp-json/wp/v2/posts/395" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://aboutbytes.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://aboutbytes.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.12" />
+<meta name="generator" content="WooCommerce 6.8.0" />
+<link rel="canonical" href="https://aboutbytes.com/patch-antenna-array/" />
+<link rel='shortlink' href='https://aboutbytes.com/?p=395' />
+<link rel="alternate" type="application/json+oembed" href="https://aboutbytes.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faboutbytes.com%2Fpatch-antenna-array%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://aboutbytes.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faboutbytes.com%2Fpatch-antenna-array%2F&#038;format=xml" />
+<style>img#wpstats{display:none}</style>
+	
+<style>
+.container, .featured-posts.container {max-width:1300px; }
+.header-content,.main-navigation ul ul{background: #ffffff; }
+.main-navigation ul ul li{border-bottom:#ffffff; }
+.header-search .search-field{background-color:#ffffff;  }
+.main-navigation ul li a, .header-content .wpiclt-social-networks a, .header-search__close, .header-search .search-field{color:#ff6e00;}
+.header-search .search-field:focus, .header-search .search-field:active{color:#ff6e00;}
+.main-navigation ul ul.sub-menu a:hover{background:  #ffffff;}
+.main-navigation .current-menu-item a, .header-content .wpiclt-social-networks a:hover, .header-content .wpiclt-social-networks a:focus, .header-content .wpiclt-social-networks a:active{color:#000000;} 
+.main-navigation a:hover, .main-navigation .current-menu-item .children a:hover, .main-navigation .current-menu-item .sub-menu a:hover { color: #000000;}
+.header-search > .header-search__click:hover{background:#000000;}
+
+h1, h2, h3, h4, h5, h6, blockquote {
+	font-family: Playfair Display, sans-serif;
+		font-weight: 700;
+	}
+
+body, button, input, select, textarea {
+	font-size: 16px;
+	line-height: 25px;
+	font-family: Open Sans, sans-serif;
+		font-weight: 400;
+	}
+
+.main-navigation a {
+	font-family: Open Sans, sans-serif;
+		font-weight: 700;
+	}
+
+.wpiclt-catimg-design-1 .wpiclt-catimg-post-cat-inner .wpiclt-catimg-cat-count{
+		background-color:#ff6e00;}
+
+h1,h1.entry-title{	color: #000000;	font-size: 36px;}
+h2, h2.page-title, h2.entry-title a:link, h2 a, h2 a:visited{	color: #000000;font-size: 24px;}
+h2.widget-title{font-size: 18px;}
+.page-header h2.page-title{font-size: 36px;}
+h3, footer h3{color: #000000;font-size: 24px;}
+.featured-posts h3.entry-title{font-size: 19px;}
+h4{	color: #000000;font-size: 18px;}
+h5{	color: #000000;font-size: 12px;}
+h6{	color: #000000;font-size: 10px;}
+.entry-content .link-more a.more-link{	color: #000000}
+.entry-content .link-more a.more-link:hover{color: #ff6e00;}
+.site-content a:link, .site-content a:visited {color: #ff6e00;}
+h2.entry-title a:hover, .site-content a:hover, .site-content a:active {color: #000000;}
+.wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid .wpiclt-post-grid-content.no-thumb-image .wpiclt-post-content-wrap .entry-title a {color: #ff6e00;}
+.wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid .wpiclt-post-grid-content.no-thumb-image .wpiclt-post-content-wrap .entry-title a:hover {color: #000000;}
+.wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .posted-on a, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .cat-links a, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .comments-link a, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .tags-links a, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .byline a {color: #ff6e00;}
+.wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .posted-on a:hover, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .cat-links a:hover, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .comments-link a:hover, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .tags-links a:hover, .wpiclt-post-grid-main.wpiclt-design-7 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .byline a:hover {color: #000000;}
+.wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid .wpiclt-post-grid-content.no-thumb-image .wpiclt-post-content-wrap .entry-title a {color: #ff6e00;}
+.wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid .wpiclt-post-grid-content.no-thumb-image .wpiclt-post-content-wrap .entry-title a:hover {color: #000000;}
+.wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .posted-on a, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .cat-links a, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .comments-link a, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .tags-links a, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .byline a {color: #ff6e00;}
+.wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .posted-on a:hover, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .cat-links a:hover, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .comments-link a:hover, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .tags-links a:hover, .wpiclt-post-grid-main.wpiclt-design-9 .wpiclt-post-grid-content.no-thumb-image .entry-header .entry-meta .byline a:hover {color: #000000;}
+
+.wpiclt-gridbox-main.wpiclt-design-3 .no-thumb-image .wpiclt-grid-box-title-wrap .entry-title a:link, 
+.wpiclt-gridbox-main.wpiclt-design-3 .no-thumb-image .wpiclt-grid-box-title-wrap a, 
+.wpiclt-gridbox-main.wpiclt-design-4 .no-thumb-image .wpiclt-grid-box-title-wrap .entry-title a:link, 
+.wpiclt-gridbox-main.wpiclt-design-4 .no-thumb-image .wpiclt-grid-box-title-wrap a, 
+.wpiclt-gridbox-main.wpiclt-design-5 .no-thumb-image .wpiclt-grid-box-title-wrap .entry-title a:link, 
+.wpiclt-gridbox-main.wpiclt-design-5 .no-thumb-image .wpiclt-grid-box-title-wrap a, 
+.wpiclt-gridbox-main.wpiclt-design-6 .no-thumb-image .wpiclt-grid-box-title-wrap .entry-title a:link, 
+.wpiclt-gridbox-main.wpiclt-design-6 .no-thumb-image .wpiclt-grid-box-title-wrap a, 
+.wpiclt-gridbox-main.wpiclt-design-7 .no-thumb-image .wpiclt-grid-box-title-wrap .entry-title a:link, 
+.wpiclt-gridbox-main.wpiclt-design-7 .no-thumb-image .wpiclt-grid-box-title-wrap a, 
+.wpiclt-gridbox-main.wpiclt-design-8 .no-thumb-image .wpiclt-grid-box-title-wrap .entry-title a:link, 
+.wpiclt-gridbox-main.wpiclt-design-8 .no-thumb-image .wpiclt-grid-box-title-wrap a, 
+.wpiclt-gridbox-main.wpiclt-design-9 .no-thumb-image .wpiclt-grid-box-title-wrap .entry-title a:link, 
+.wpiclt-gridbox-main.wpiclt-design-9 .no-thumb-image .wpiclt-grid-box-title-wrap a {color: #ff6e00;}
+
+.wpiclt-gridbox-main.wpiclt-design-3 .no-thumb-image .wpiclt-grid-box-title-wrap a:hover, 
+.wpiclt-gridbox-main.wpiclt-design-4 .no-thumb-image .wpiclt-grid-box-title-wrap a:hover, 
+.wpiclt-gridbox-main.wpiclt-design-5 .no-thumb-image .wpiclt-grid-box-title-wrap a:hover, 
+.wpiclt-gridbox-main.wpiclt-design-6 .no-thumb-image .wpiclt-grid-box-title-wrap a:hover, 
+.wpiclt-gridbox-main.wpiclt-design-7 .no-thumb-image .wpiclt-grid-box-title-wrap a:hover, 
+.wpiclt-gridbox-main.wpiclt-design-8 .no-thumb-image .wpiclt-grid-box-title-wrap a:hover, 
+.wpiclt-gridbox-main.wpiclt-design-9 .no-thumb-image .wpiclt-grid-box-title-wrap a:hover {color: #000000;}
+
+.wpiclt-news-slider-main .wpiclt-slider-title-wrap .entry-title a:link, 
+.wpiclt-news-slider-main .wpiclt-slider-title-wrap a {color: #ffffff;}
+.wpiclt-news-slider-main.wpiclt-design-6 .no-thumb-image .wpiclt-slider-title-wrap .entry-title a:link, 
+.wpiclt-news-slider-main.wpiclt-design-6 .no-thumb-image .wpiclt-slider-title-wrap a {color: #ffffff;}
+.wpiclt-news-slider-main.wpiclt-design-6 .no-thumb-image .wpiclt-slider-title-wrap .entry-title a:hover, 
+.wpiclt-news-slider-main.wpiclt-design-6 .no-thumb-image .wpiclt-slider-title-wrap a:hover {color: #ffffff;}
+.wpiclt-news-slider-main .format-quote .wpiclt-slider-title-wrap .entry-title a:link, 
+.wpiclt-news-slider-main .format-quote .wpiclt-slider-title-wrap a {color: #ffffff;}
+.wpiclt-news-slider-main .no-thumb-image .wpiclt-slider-title-wrap .entry-title a:link, 
+.wpiclt-news-slider-main .no-thumb-image .wpiclt-slider-title-wrap a {color: #ff6e00;}
+.wpiclt-news-slider-main .no-thumb-image .wpiclt-slider-title-wrap .entry-title a:hover, 
+.wpiclt-news-slider-main .no-thumb-image .wpiclt-slider-title-wrap a:hover {color: #000000;}
+
+</style>
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<link rel="icon" href="https://aboutbytes.com/wp-content/uploads/2022/07/cropped-cropped-icons8-transistor-96-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://aboutbytes.com/wp-content/uploads/2022/07/cropped-cropped-icons8-transistor-96-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://aboutbytes.com/wp-content/uploads/2022/07/cropped-cropped-icons8-transistor-96-180x180.png" />
+<meta name="msapplication-TileImage" content="https://aboutbytes.com/wp-content/uploads/2022/07/cropped-cropped-icons8-transistor-96-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.site-content .content-area { width:53%;
+margin-left: 9%;
+margin-right: 0%;
+}
+.site-content .widget-area { width:28%;
+margin-left: 0%;
+margin-right: 8%;
+}
+
+.home .site-content .content-area {width: 75%;margin-left: 0;margin-right: 0;}
+.home .site-content .widget-area {width: 25%;margin-left: 0;margin-right: 0;}
+
+@media only screen and (max-width: 40em) {
+     
+      .site-content .content-area { width: 100% !important; margin: 0 !important; }
+      .site-content .widget-area { width: 100% !important; margin-top: 70px !important; margin-right: 0 !important; }
+     
+}
+
+.widget-area .tagcloud a { font-size: 14px !important; }		</style>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8307981478566003",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body class="post-template-default single single-post postid-395 single-format-standard theme-amyra woocommerce-no-js header-style-1 logo-position-center wpiclt-template-right single-sidebar-right">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<header id="masthead" class="site-header" role="banner">
+			 
+
+<div class="header-content">		
+            <div class="header-content__container container">
+                    <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+                            <div id="primary-menu" class="menu"><ul>
+<li class="page_item page-item-665"><a href="https://aboutbytes.com/about/">About</a></li>
+<li class="page_item page-item-1458"><a href="https://aboutbytes.com/my-account/">My account</a></li>
+<li class="page_item page-item-1455 page_item_has_children"><a href="https://aboutbytes.com/shop/">Shop</a>
+<ul class='children'>
+	<li class="page_item page-item-1456"><a href="https://aboutbytes.com/shop/cart/">Cart</a></li>
+	<li class="page_item page-item-1457"><a href="https://aboutbytes.com/shop/checkout/">Checkout</a></li>
+</ul>
+</li>
+</ul></div>
+                    </nav><!-- #site-navigation -->
+
+                    			
+                            <div class="wpiclt-social-networks wpiclt-social-networks-header">
+                                    	
+                                            <a href="http://twitter.com/aboutbytes" title="Twitter" target="_blank" class="wpiclt-social-network-icon wpiclt-twitter-icon"><i class="fa fa-twitter"></i></a>
+                                    		
+                                            <a href="http://instagram.com/aboutbytes" title="instagram" target="_blank" class="wpiclt-social-network-icon wpiclt-instagram-icon"><i class="fa fa-instagram"></i></a>				
+                                    				
+                            </div>
+                    	
+                                        <div class="header-search">
+                            <button class="header-search__click">
+                                    <i class="fa fa-search"></i>
+                                    <span class="screen-reader-text">Open Search Popup</span>
+                            </button>
+                            <div class="header-search__wrapper">
+                                    
+<form role="search" method="get" class="search-form" action="https://aboutbytes.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Enter your Keyword" value="" name="s">
+	</label>
+	<button type="submit" class="search-submit">
+		<i class="fa fa-search"></i>
+		<span class="screen-reader-text">Search</span>
+	</button>
+</form>
+                                    <button class="header-search__click header-search__close">
+                                            <i class="fa fa-close"></i>
+                                            <span class="screen-reader-text">Close Search Popup</span>
+                                    </button>
+                            </div>
+                    </div><!-- .header-search -->
+                    
+            </div>
+    </div><!-- .header-content -->
+    <div class="site-branding container">
+                                                    <h1 class="site-title"><a href="https://aboutbytes.com/" title="Aboutbytes" rel="home">Aboutbytes</a></h1>
+                                <h2 class="site-description">Network and Electrical Engineering Blog</h2>
+                    
+    </div><!-- .logo -->		
+	</header><!-- #masthead -->
+	
+			<div id="content" class="site-content container"><div class="content-row">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main wpiclt-col-12 wpiclt-columns" role="main">			
+		
+<article id="post-395" class="post-395 post type-post status-publish format-standard has-post-thumbnail hentry category-project-guide tag-antenna wpiclt-has-thumbnail">
+    
+			               <div class="entry-media" >
+                   <a href="https://aboutbytes.com/patch-antenna-array/" title="Designing and testing a 2.45 GHz 4&#215;4 patch antenna array"><img width="870" height="500" src="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_patch-870x500.gif" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" /></a>   
+               </div>
+             
+	<header class="entry-header">
+		<h1 class="entry-title">Designing and testing a 2.45 GHz 4&#215;4 patch antenna array</h1>		<div class="entry-meta">
+			<div class="entry-meta"><span class="posted-on"><i class="fa fa-clock-o"></i><a href="https://aboutbytes.com/patch-antenna-array/" rel="bookmark"><time class="entry-date published" datetime="2022-07-26T09:43:47+00:00">July 26, 2022</time><time class="updated" datetime="2022-08-08T21:49:30+00:00">August 8, 2022</time></a></span><span class="byline"><i class="fa fa-user"></i><span class="author vcard"><a class="url fn n" href="https://aboutbytes.com/author/oskar/">Oskar Von Heideken</a></span></span><span class="cat-links"><i class="fa fa-folder-open"></i><span class="screen-reader-text">Categories </span><a href="https://aboutbytes.com/category/project-guide/" rel="category tag">Project/Guide</a></span></div>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p>I saw a video on <a href="https://www.youtube.com/watch?v=g3LT_b6K0Mc&amp;t=260s">youtube </a>a while back, and inspiration struck: “I could make a smaller version of that!”.</p>
+
+
+
+<p>At the time, I was working as a radio firmware engineer on one of the largest semiconductor companies in the world, so naturally the radio part of the hardware I had covered, and knew that it could do this. But this project also scratched my computer vision itch, as it produces an actual image of radio signals.</p>
+
+
+
+<p>It should be noted that I’ve already made a similar project at a hackathon at the above-mentioned semiconductor company, but we were using a ruler with some hot-glued copper rods attached at specific points, see image below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="230" src="https://aboutbytes.com/wp-content/uploads/2022/07/ruler_antenna-1024x230.png" alt="" class="wp-image-1328" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/ruler_antenna-1024x230.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/ruler_antenna-600x135.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/ruler_antenna-300x67.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/ruler_antenna-768x172.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/ruler_antenna-870x195.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/ruler_antenna.png 1488w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Ruler antenna used in the first iteration of this project.&nbsp;</em></figcaption></figure></div>
+
+
+<p>We even tested the gain in the antenna chamber, where the results have been lost to time at this point, but I do remember the gain being around 12 dB.</p>
+
+
+
+<p>So the idea here is to remake the results of the video, but with a smaller system. I already have a good idea on how to make the radio part, I’ll just use some of the cheap, low-power radios of my previous employer. But the antenna is the real unknown for me here. Antennas are black magic for me, but I am willing to give it a go.</p>
+
+
+
+<p>I will (probably) not be able to test the antenna in an antenna chamber, as I don’t have access to one, and I would like to minimize the number of hardware iterations, which means that simulation is my best bet. I have access to Keysights Advanced Design Systems, which is the simulation software that I used for this.</p>
+
+
+
+<p>So to the antenna design itself: I have opted for a 4&#215;4 patch array antenna, which is an array of patch antennas fed with a distribution network from a single source.</p>
+
+
+
+<h3>Designing a patch antenna</h3>
+
+
+
+<p>A patch antenna is one of the simpler antenna designs, and has <a href="https://en.wikipedia.org/wiki/Microstrip_antenna#Advantages">a maximum gain around 6-9 dBi</a>. It’s as its name suggests, a patch which is fed by a single port, on a PCB.</p>
+
+
+
+<p>Moreover, to control the input impedance of the antenna, it’s common to use an inset feed, which depending on the inset depth will determine the input impedance.</p>
+
+
+
+<p>For this design, I will aim for a 50 Ω input impedance and a resonance frequency of 2.45 GHz. The design will be made on a 1.6mm thick FR4 PCB with 35 um copper.</p>
+
+
+
+<p>A quick excursion on google yielded a couple of results, which naturally all were different.</p>
+
+
+
+<p>There are antenna calculators, e.g. <a href="https://www.pasternack.com/t-calculator-microstrip-ant.aspx">this one</a> or <a href="http://www.emtalk.com/mpacalc.php?er=4.6&amp;h=1.6&amp;h_units_list=hmm&amp;fr=2.45&amp;Operation=Analyze&amp;La=28.203818631898&amp;L_units_list=Lmm&amp;Wa=36.588630897992&amp;W_units_list=Wmm&amp;Rin=252">this one</a>, or do-your-own-math <a href="http://www.microwavetools.com/inset-fed-microstrip-patch-antenna/">examples</a>, along with some youtube <a href="https://www.youtube.com/watch?v=wtHhacvNFiU&amp;t=186s">tutorials</a>.</p>
+
+
+
+<p>To begin with, the antenna calculators both yield the same results: a width of 36.56 mm and a length of 28.18 mm.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="412" height="526" src="https://aboutbytes.com/wp-content/uploads/2022/07/w_l_params_patch.png" alt="" class="wp-image-1329" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/w_l_params_patch.png 412w, https://aboutbytes.com/wp-content/uploads/2022/07/w_l_params_patch-235x300.png 235w" sizes="(max-width: 412px) 100vw, 412px" /><figcaption><em>Width and length parameter of antenna.&nbsp;</em></figcaption></figure></div>
+
+
+<p>However, analyzing the input impedance of these antennas, which is missing the inset feed, yields an input impedance of around 252 Ω, which is a factor 5 higher than the required input. We could make a matching network, but that will take up valuable space on the PCB, so instead an<a href="https://ijcsmc.com/docs/papers/February2016/V5I2201662.pdf"> inset feed</a> can be used to match the input impedance. This makes the antenna design a bit more complex however:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="462" height="589" src="https://aboutbytes.com/wp-content/uploads/2022/07/inset_fed_antenna_params.png" alt="" class="wp-image-1330" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/inset_fed_antenna_params.png 462w, https://aboutbytes.com/wp-content/uploads/2022/07/inset_fed_antenna_params-235x300.png 235w" sizes="(max-width: 462px) 100vw, 462px" /><figcaption><em>Inset feed patch antenna.&nbsp;</em></figcaption></figure></div>
+
+
+<p>With the inset feed antenna, the antenna calculations are:</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[W = {c \over 2f_{0} \sqrt{(\varepsilon_{r} + 1})/2}\]<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/dist/hooks.min.js?ver=7c7c64c1a380ae3538b979fca8879698' id='wp-hooks-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/dist/i18n.min.js?ver=697b2b06517cf39185c74b01457a19bd' id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script  async type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML' id='mathjax-js'></script>
+</div>
+
+
+
+<p>Where c is the free space velocity of light, f0 is the resonant frequency and ε<sub>r</sub> is the dielectric constant of the FR4. This is incidentally the same equation as for the regular patch antenna, which means that we can re-use the width of 36.56 mm. </p>
+
+
+
+<p>From here it gets a bit more complicated, the next step is to calculate the effective permittivity of the substrate, shown in Equation 2.&nbsp;</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[\varepsilon_{reff} = {\varepsilon_{r}+1 \over 2} + \left( {\varepsilon_{r}-1 \over 2} (1 + 12)({a\over b})^{-1/2}\right)   \]</div>
+
+
+
+<p>The ε<sub>r</sub> is 4.6 for <a href="https://docs.oshpark.com/resources/two-layer-substrate-Kingboard-KB6167F.pdf">OSH park FR4</a>, the height h is the thickness of the substrate, which is determined as 1.6mm, and w is the width of the trace that we just calculated. </p>
+
+
+
+<p>You could either put the numbers into the equation, or do like the cool engineers and use the <a href="https://saturnpcb.com/saturn-pcb-toolkit/">Saturn PCB Toolkit</a> to calculate the effective permittivity, which would give you ε<sub>reff</sub>=4.357. </p>
+
+
+
+<p>For the length of the antenna, the following equation are used:</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[L = {c \over 2f_{0} \sqrt{(\varepsilon_{reff}})} &#8211; 0.824h\left( {(\varepsilon_{reff}+0.3)(w/h+0.264) \over (\varepsilon_{reff}-0.258)(w/h+0.9)} \right)   \]</div>
+
+
+
+<p>Again, this the same equation as used in the non-inset feed patch antenna, which gave us a length of 28.18 mm. Note that this is a combination of the effective length of the antenna and a length correction factor.&nbsp;</p>
+
+
+
+<p>Now, the final piece of the puzzle of the inset feed length and the gap for the inset feed.&nbsp;</p>
+
+
+
+<p>The inset feed length, as I understand it, is a method of matching the impedance of a point in the standing wave occurring in the antenna. If the edge impedance was 252 Ω, the center point (at L/2) of the antenna has an impedance of 0 Ω.&nbsp;Using <a href="https://www.antenna-theory.com/antennas/patches/patch3.php">equation 4</a>, the inset length can be calculated.</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[Z(L_{if}) = cos^2({\pi L_{if} \over L})Z_{in}\]</div>
+
+
+
+<p>According to one of the calculator tools, Z<sub>in</sub>=252, but equation 4 only gives us the input impedance at a given point, and we have to solve that equation in order to find the input impedance of 50 Ω. This <a href="https://ijcsmc.com/docs/papers/February2016/V5I2201662.pdf">paper’s</a> equation 6 has already solved this, but it isn’t too hard to figure out:</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[Z(L_{if}) = cos^2({\pi L_{if} \over L})Z_{in} \rightarrow \sqrt{Z(L_{if}) \over Z_{in}} = cos({\pi L_{if} \over L}) \rightarrow {L \over \pi} cos^{-1} \sqrt{Z(L_{if}) \over Z(in)} \rightarrow \\ 
+L_{if} = {28.18 \over \pi}cos^{-1}\sqrt{50 \over 252} = 9.949mm \]</div>
+
+
+
+<p>Interestingly enough, this seems to be the same point as would have been if we were feeding the patch with a via, according to <a href="https://www.antenna-theory.com/antennas/patches/patch3.php">some sources</a>. This could then lead to an interesting design with the feed network on the secondary side of the PCB. An important factor is then however to keep the ground plane relatively intact on the secondary side, which would be tricky if a via is used, since one would like to feed that via with a signal from a trace, which would of course introduce a slot in the ground plane. However, for a single patch, one could attach an SMA connector on the secondary side.</p>
+
+
+
+<p>This leaves us with the inset feed gap and the inset feed line width. From this <a href="https://www.researchgate.net/post/What_is_the_optimized_gap_size_of_an_inset-fed_Rectangular_Microstrip_Patch_Antenna">small thread</a>, this <a href="http://article.sapub.org/10.5923.j.ijea.20201001.02.html">publication</a>, and a few more internet sources, this seems to be a debated topic.&nbsp;The gap in the antenna that the feedline leaves would introduce a parasitic capacitance, and break up the patch. There is some literature on this, for example <a href="https://ieeexplore.ieee.org/abstract/document/1552657">this one</a>, which claims that the optimum inset depth decreases as the notch width increases, which sounds scary.</p>
+
+
+
+<p>However, I will make a couple of assumptions here: I will start with the stripline impedance of the feed line, and then try to calculate the gap. We can calculate the dimensions of a 50 Ω stripline using PCB toolkit, which gives a width of 3.1 mm.&nbsp;</p>
+
+
+
+<p>The length of the feedline I have seen should be a quarter wavelength, which makes the length 14.65 mm.</p>
+
+
+
+<p>According to <a href="https://www.researchgate.net/publication/228897496_A_design_rule_for_inset-fed_rectangular_microstrip_patch_antenna">Matin and Sayeed</a>, the gap can be calculated with Equation 5.</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[W_{g} = {c*4.64*10^{-12} \over f \sqrt{2 \varepsilon_{reff}}}\]</div>
+
+
+
+<p>Using equation 5, the gap width can be calculated to be 0.193 mm. Note that C is meters/mm, F is frequency in GHz, otherwise the result of Equation 5 is silly.&nbsp;</p>
+
+
+
+<p>These calculations/evaluations give the following parameters related to the second figure, also shown below for convenience.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="462" height="589" src="https://aboutbytes.com/wp-content/uploads/2022/07/inset_fed_antenna_params-1.png" alt="" class="wp-image-1340" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/inset_fed_antenna_params-1.png 462w, https://aboutbytes.com/wp-content/uploads/2022/07/inset_fed_antenna_params-1-235x300.png 235w" sizes="(max-width: 462px) 100vw, 462px" /></figure></div>
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Parameter</strong></td><td><strong>Value</strong></td></tr><tr><td>W</td><td>36.56 mm</td></tr><tr><td>L</td><td>28.18 mm</td></tr><tr><td>Wf</td><td>3.1 mm</td></tr><tr><td>L_if</td><td>9.949 mm</td></tr><tr><td>Wg</td><td>0.193 mm</td></tr><tr><td>Length of inset feed (L_in)</td><td>14.65 mm</td></tr><tr><td>Resonant frequency</td><td>2.45 GHz</td></tr></tbody></table></figure>
+
+
+
+<h3>Simulating the designed patch antenna</h3>
+
+
+
+<p>Using ADS, it’s possible to make a schematic using the parameters calculated in the previous section, see the schematic below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="653" src="https://aboutbytes.com/wp-content/uploads/2022/07/ads_schem_patch-1024x653.png" alt="" class="wp-image-1341" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/ads_schem_patch-1024x653.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_schem_patch-600x383.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_schem_patch-300x191.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_schem_patch-768x490.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_schem_patch-870x555.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_schem_patch.png 1485w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>ADS schematic using the parameters found by calculations.</em></figcaption></figure></div>
+
+
+<p>The nice thing about designing a schematic in ADS is that you can easily change the parameters and update the layout quickly. However Tee3 and Tee4 is a bit of a hack, but seems to work with the third port unconnected in the T-junctions.&nbsp;</p>
+
+
+
+<p>Layout can be generated automatically by using this function in the schematic tool.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="720" height="385" src="https://aboutbytes.com/wp-content/uploads/2022/07/ads_generate_layout.png" alt="" class="wp-image-1342" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/ads_generate_layout.png 720w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_generate_layout-600x321.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_generate_layout-300x160.png 300w" sizes="(max-width: 720px) 100vw, 720px" /><figcaption><em>Generate layout in ADS.&nbsp;</em></figcaption></figure></div>
+
+
+<p>This generates a really nice layout with everything connected:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="945" src="https://aboutbytes.com/wp-content/uploads/2022/07/ads_auto_gen_patch-1024x945.png" alt="" class="wp-image-1343" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/ads_auto_gen_patch-1024x945.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_auto_gen_patch-600x553.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_auto_gen_patch-300x277.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_auto_gen_patch-768x708.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_auto_gen_patch-870x803.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_auto_gen_patch.png 1187w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>ADS auto-generated antenna layout.&nbsp;</em></figcaption></figure></div>
+
+
+<div class="wp-block-mathml-mathmlblock"></div>
+
+
+
+<h4>Making mistakes</h4>
+
+
+
+<p>Mistakes are common, we are only human after all. At the time of writing this piece, I was on the fourth iteration of the patch antenna, trying to figure out the best approach to simulate.&nbsp;</p>
+
+
+
+<p>My mistake was to include the L parameter of an old design (L=29.1589 instead of L=28.18), which introduced an error in both the input resistance (50% error) and the resonant frequency (3% error).&nbsp;</p>
+
+
+
+<p>As irritating as this is, they say you learn from your mistakes, and this mistake led me down a rabbit hole of research, checking everything besides the parameters themselves. I picked up some knowledge about momentum simulation, inset feed tuning and antenna tuning in general. Moreover, the error introduced made sense, as the frequency is inversely proportional to the length.&nbsp;</p>
+
+
+
+<p>I had already written a 3 page essay on why and how these results could be wrong, but after I changed the length to the correct value, everything looked so much better, so the essay was essentially useless. Anyway, I’ve learned some things, so let’s carry on!</p>
+
+
+
+<h4>Simulating the antenna</h4>
+
+
+
+<p>The design is now ready to be simulated. I do not have a license to do FEM analysis, so I have to set up a momentum microwave simulation to try to compensate for this.&nbsp;</p>
+
+
+
+<p>The substrate setup is as follows:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="878" height="166" src="https://aboutbytes.com/wp-content/uploads/2022/07/ads_substrate.png" alt="" class="wp-image-1344" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/ads_substrate.png 878w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_substrate-600x113.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_substrate-300x57.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_substrate-768x145.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_substrate-870x164.png 870w" sizes="(max-width: 878px) 100vw, 878px" /><figcaption>The secondary layer is a cover plane, but using copper with 35 micron thickness.&nbsp;The frequency plan is linear between 2.3 and 2.6 GHz at 21 steps.&nbsp;<br>In order to get a more granular simulation, we have to change some settings in Options/Mesh/Global, see image below.</figcaption></figure></div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="695" src="https://aboutbytes.com/wp-content/uploads/2022/07/ads_sim_mesh_settings-1024x695.png" alt="" class="wp-image-1345" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/ads_sim_mesh_settings-1024x695.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_sim_mesh_settings-600x407.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_sim_mesh_settings-300x204.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_sim_mesh_settings-768x522.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_sim_mesh_settings-870x591.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/ads_sim_mesh_settings.png 1181w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Mesh settings in ADS.</em></figcaption></figure></div>
+
+
+<p>Otherwise, the default settings for Momentum Microwave are used.&nbsp;</p>
+
+
+
+<p>To start with, I simulated the patch only with no inset feed line, see the image below, in order to double check that the calculated parameters make sense.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="963" height="774" src="https://aboutbytes.com/wp-content/uploads/2022/07/layout_without_feedline.png" alt="" class="wp-image-1346" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/layout_without_feedline.png 963w, https://aboutbytes.com/wp-content/uploads/2022/07/layout_without_feedline-600x482.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/layout_without_feedline-300x241.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/layout_without_feedline-768x617.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/layout_without_feedline-870x699.png 870w" sizes="(max-width: 963px) 100vw, 963px" /><figcaption><em>Layout of the antenna without the feed line.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The result of the simulation is shown below, however note that the port and the input impedance are mismatched, so the insertion loss is not optimal due to the reflection at the input to the antenna.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="404" src="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed-1024x404.png" alt="" class="wp-image-1349" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed-1024x404.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed-600x237.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed-300x118.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed-768x303.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed-870x343.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed.png 1113w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Simulation results of patch antenna without the inset feed line.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The simulation results reveal that the resonant frequency is 2.465 GHz, which is not far from the wanted center frequency.&nbsp;</p>
+
+
+
+<p>According to the Smith chart above, the input impedance is 5.1 times 50 Ω, and according to the online calculator used, the theoretical input impedance is 252 Ω.&nbsp;</p>
+
+
+
+<p>Just to try it out, we can adjust the port impedance to 255.25 Ω in the layout port editor just to see if this is the case. Simulation results below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="388" src="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed_impedance_match-1024x388.png" alt="" class="wp-image-1350" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed_impedance_match-1024x388.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed_impedance_match-600x227.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed_impedance_match-300x114.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed_impedance_match-768x291.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed_impedance_match-870x330.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_without_inset_feed_impedance_match.png 1114w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Simulation results with input port impedance matching.</em></figcaption></figure></div>
+
+
+<p>With the impedance matched, it’s clear that the S(1,1) amplitude and phase is corresponding to a patch antenna. The visualization tool shows a very nice standing wave in the patch.</p>
+
+
+
+<p>MISSING PICTURE IN ZIP!!!</p>
+
+
+
+<p>Next step is to simulate the antenna with the inset feed line, so the layout is updated accordingly and the simulation results are shown below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="385" src="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line-1-1024x385.png" alt="" class="wp-image-1351" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line-1-1024x385.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line-1-600x226.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line-1-300x113.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line-1-768x289.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line-1-870x327.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line-1.png 1390w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Simulation result of patch antenna with inset feed line.&nbsp;</em></figcaption></figure></div>
+
+
+<p>From the initial simulation results of the entire antenna, we can see that the resonant frequency of the antenna shifted downward a bit, which makes a bit of sense since we’ve introduced a capacitive element with the inset feed line.&nbsp;</p>
+
+
+
+<p>According to Figure 4 in <a href="https://ieeexplore.ieee.org/abstract/document/910528">this study</a>, the resonant frequency is dependent on the inset feed position, although the variations were less than 1%. Looking at the patch with and without the inset feed line, this corresponds with the simulation results that I’ve found. The above mentioned paper however mentioned that the normal function (see Equation 4) used for inset feed line placement is not optimal, and they suggest a cos<sup>4</sup> function instead. Moreover, there seems to be a discussion regarding the distance between the inset feed line and the patch on the side of the feed line, i.e. parameter Wg. </p>
+
+
+
+<p>In short, this means that some tuning is required. Looking at the results with the inset feed line, I am quite happy with the resonant frequency, but the inset feed line impedance needs some attention. But first, we need a closer look at the exact center frequency, so for the image below I have reduced the simulation span to [2.4 2.5] GHz.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="389" src="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line_2-1024x389.png" alt="" class="wp-image-1352" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line_2-1024x389.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line_2-600x228.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line_2-300x114.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line_2-768x292.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line_2-870x330.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_with_inset_feed_line_2.png 1388w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Simulation results with the inset feed line, 2.4 to 2.5 GHz.</em></figcaption></figure></div>
+
+
+<p>A bit of difference can be seen here where the minima of the insertion loss (2.55 GHz) is not at the real point in the smith chart (2.46 GHz). This is most likely due to the capacitive element between the patch and the feed line.&nbsp;</p>
+
+
+
+<p>My first suspicion is that the feed line gap is too small, I’ve seen Wf/10, Wf/20 and Wf/40 as options, and equation 5 was an attempt to find a model for this feed line gap.&nbsp;</p>
+
+
+
+<p>So increasing that gap would decrease the capacitance, but also decrease the effective area of the patch.&nbsp;</p>
+
+
+
+<p>So to try to characterize this somewhat, let’s increase the Wg to 1 mm, just to see if we can see a difference.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="380" src="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_1mm-1024x380.png" alt="" class="wp-image-1353" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_1mm-1024x380.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_1mm-600x222.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_1mm-300x111.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_1mm-768x285.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_1mm-870x323.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_1mm.png 1370w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Wg = 1 mm simulation results.&nbsp;</em></figcaption></figure></div>
+
+
+<p>Looking at the results above, it’s almost like choosing 1 mm almost magically worked. Note that the impedance changed drastically, which is the reason why the insertion loss increased. Moreover, the center frequency moved a bit, which also makes sense. However, I think 1 mm is a bit of an over compensation, so from here I will go down a little bit in Wg, trying to find an optimal value. I will spare you all of the simulation results, but I’m basically playing around with the Wg.&nbsp;</p>
+
+
+
+<p>After some simulation (only simulating the center frequency of 2.45 GHz to speed up the process), I found that a gap of 0.93 mm gives me the following result.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="396" src="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_0p93mm-1024x396.png" alt="" class="wp-image-1354" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_0p93mm-1024x396.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_0p93mm-600x232.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_0p93mm-300x116.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_0p93mm-768x297.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_0p93mm-870x337.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/sim_res_patch_inset_feed_wg_0p93mm.png 1228w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Simulation results of inset feed gap of 0.93 mm.&nbsp;</em></figcaption></figure></div>
+
+
+<p>I would say this is a home run. We don’t even have to trim the inset, and we have an insertion loss of -41 dB, a phase of 90 degrees and a slam bang in the middle impedance match.&nbsp;</p>
+
+
+
+<p>Regarding the phase shift, I would assume that it’s due to the capacitance, which would introduce a 90 degree phase shift at full tilt. Looking at the EM visualization (see gif below) and the antenna far field visualization, I would say we have designed an antenna!</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="1024" height="619" src="https://aboutbytes.com/wp-content/uploads/2022/07/Animation-1024x619.gif" alt="" class="wp-image-1355" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/Animation-1024x619.gif 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/Animation-600x363.gif 600w, https://aboutbytes.com/wp-content/uploads/2022/07/Animation-300x181.gif 300w, https://aboutbytes.com/wp-content/uploads/2022/07/Animation-768x464.gif 768w, https://aboutbytes.com/wp-content/uploads/2022/07/Animation-870x526.gif 870w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="663" height="565" src="https://aboutbytes.com/wp-content/uploads/2022/07/far_field_one_patch.png" alt="" class="wp-image-1356" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/far_field_one_patch.png 663w, https://aboutbytes.com/wp-content/uploads/2022/07/far_field_one_patch-600x511.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/far_field_one_patch-300x256.png 300w" sizes="(max-width: 663px) 100vw, 663px" /><figcaption><em>3D far-field visualization.</em></figcaption></figure></div>
+
+
+<p>To recap, the final dimensions of the antenna are shown below.&nbsp;</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="670" height="362" src="https://aboutbytes.com/wp-content/uploads/2022/07/final_patch_params.png" alt="" class="wp-image-1357" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/final_patch_params.png 670w, https://aboutbytes.com/wp-content/uploads/2022/07/final_patch_params-600x324.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/final_patch_params-300x162.png 300w" sizes="(max-width: 670px) 100vw, 670px" /><figcaption><em>Final parameters of patch antenna.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The antenna gain and directivity is shown in the image below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="599" height="710" src="https://aboutbytes.com/wp-content/uploads/2022/07/gain_dir_one_patch.png" alt="" class="wp-image-1358" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/gain_dir_one_patch.png 599w, https://aboutbytes.com/wp-content/uploads/2022/07/gain_dir_one_patch-253x300.png 253w" sizes="(max-width: 599px) 100vw, 599px" /><figcaption><em>Gain and directivity of patch antenna.&nbsp;</em></figcaption></figure></div>
+
+
+<h2>Distribution network</h2>
+
+
+
+<p>With the patch antenna done, we have to figure out a way to connect all antennas together. There are <a href="https://www.researchgate.net/publication/4364395_Antenna_array_at_24_GHz_for_wireless_LAN_system_using_point_to_point_communication">two main ways</a> to do this; corporate feed or series feed. There is also the combination of the two, called series-corporate feed, but it’s basically parallel series feeds connected together at the antenna input. Since we have gone through the trouble of making our antenna 50 Ω, it’s not really worth considering series feed.&nbsp;</p>
+
+
+
+<p>So corporate feed it is. Not only because it suits the antenna designed in the previous section, but also because the <a href="https://www.researchgate.net/publication/309673437_Design_and_Simulation_of_Microstrip_Patch_Array_Antenna_with_High_Directivity_for_10_GHz_Applications">literature </a>points to it having higher gain.&nbsp;</p>
+
+
+
+<p>The connection type between the antennas can however look a bit different. I’ve seen <a href="http://www.emagtech.com/wiki/index.php/Application_Note_3:_Designing_A_Slot-Coupled_Patch_Antenna_Array_With_A_Corporate_Feed_Network_Using_EM.Picasso">examples using wilkinson power dividers</a> or<a href="https://ieeexplore.ieee.org/document/6528560"> microstrip quarter wavelength matching</a>. Moreover, it’s critical to keep the lengths of the feed lines the same for all patches, to ensure that the antennas are in phase.&nbsp;</p>
+
+
+
+<p>I do not know what the optimum method is, so I’ll simulate both options.</p>
+
+
+
+<h3>Wilkinson power divider</h3>
+
+
+
+<p>The nice thing about the wilkinson power divider is that all inputs are 50 Ω which makes the scalability easy, but it takes up some space, and needs one discrete component per power divider. A diagram of a Wilkinson power divider is shown below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="953" height="621" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider.png" alt="" class="wp-image-1359" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider.png 953w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider-600x391.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider-300x195.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider-768x500.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider-870x567.png 870w" sizes="(max-width: 953px) 100vw, 953px" /><figcaption><em>Anatomy of a Wilkinson power divider.</em></figcaption></figure></div>
+
+
+<p>The physical layout of the Wilkinson power divider requires the striplines of the 1.41*Z0 striplines to be quarter of a wavelength of the target frequency. There are also different layout possibilities which I won’t show here, but a quick google image search should show the different possibilities.&nbsp;</p>
+
+
+
+<p>To generate the layout, we can reuse the strategy from the patch antenna, by auto generating a layout from the schematic tool. The parameters needed for this are shown in the table below.</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Parameter</strong></td><td><strong>Value</strong></td></tr><tr><td>Width of 50 Ω trace</td><td>3.1 mm</td></tr><tr><td>Width of 1.41*Z0 = 70.7 Ω trace</td><td>1.635 mm</td></tr><tr><td>Effective permittivity for 70 ohm trace (used in wavelength calculation)</td><td>3.3043</td></tr><tr><td>Wavelength</td><td>67.3155 mm</td></tr><tr><td>Quarter wavelength</td><td>16.8289 mm</td></tr></tbody></table><figcaption>Note that the effective permittivity and wavelength were calculated using the Saturn PCB toolkit.</figcaption></figure>
+
+
+
+<p>With these parameters, we can make the schematic. Note that for the resistor in the schematic, I am using “lumped-with artwork”, which will create a pad for us as well.&nbsp;</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img loading="lazy" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_sch.png" alt="" class="wp-image-1360" width="840" height="618" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_sch.png 916w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_sch-600x442.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_sch-300x221.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_sch-768x566.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_sch-870x641.png 870w" sizes="(max-width: 840px) 100vw, 840px" /><figcaption><em>Wilkinson power divider schematic.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The schematic above is using an 0805 resistor, and will produce the layout shown below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="980" height="898" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_layout_1.png" alt="" class="wp-image-1361" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_layout_1.png 980w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_layout_1-600x550.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_layout_1-300x275.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_layout_1-768x704.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_layout_1-870x797.png 870w" sizes="(max-width: 980px) 100vw, 980px" /><figcaption><em>Generated Wilkinson power divider layout.&nbsp;</em></figcaption></figure></div>
+
+
+<p>If we now try to simulate this using the same setup as before, it will not work. This is because of the lumped component, which does not simulate in layout simulation. To get around this, an EM Cosimulation setup is needed. This will generate a component and symbol to be simulated in the schematic tool. To set this up, I will reuse the settings from the antenna simulation, but using the EM cosimulation instead.&nbsp;</p>
+
+
+
+<p>Once cosimulation is set up, the design is ready to simulate.&nbsp;</p>
+
+
+
+<p>When the simulation is done, a new cell will pop up in the ADS main window, called &lt;cell_name&gt;_emCosim, see image below.&nbsp;</p>
+
+
+
+<p>The last step is to create a symbol for the cosimulation layout to be used in the schematic being simulated, which is done by clicking the symbol button in the layout simulation setup window. I recommend using the layout as the source view.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="229" height="201" src="https://aboutbytes.com/wp-content/uploads/2022/07/cosim_layout_and_emmodel.png" alt="" class="wp-image-1364"/><figcaption><em>Cosimulation creates a new layout and emModel.</em></figcaption></figure></div>
+
+
+<p>The symbol can then be used in a new schematic to do the simulation. Note: you need to generate the symbol from the coSim layout in order to get the ports for the resistor!&nbsp;</p>
+
+
+
+<p>Import the new symbol into a new schematic and attach the S-parameter terminations and 100 Ω resistor, and set up the S-parameter simulation to match the layout simulation:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="838" src="https://aboutbytes.com/wp-content/uploads/2022/07/cosimulation_ads-1024x838.png" alt="" class="wp-image-1365" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/cosimulation_ads-1024x838.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/cosimulation_ads-600x491.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/cosimulation_ads-300x246.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/cosimulation_ads-768x628.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/cosimulation_ads-870x712.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/cosimulation_ads.png 1167w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>ADS cosimulation schematic for Wilkinson power divider.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The initial results are shown below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="566" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_1_result-1-1024x566.png" alt="" class="wp-image-1366" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_1_result-1-1024x566.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_1_result-1-600x332.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_1_result-1-300x166.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_1_result-1-768x425.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_1_result-1-870x481.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_1_result-1.png 1230w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Initial cosimulation results for the wilkinson power divider.</em></figcaption></figure></div>
+
+
+<p>As seen in the results above, we can see that the impedance isn’t a full on home run, but close. Moreover, it’s quite interesting that port 2 and 3 are quite well isolated, with around -18 dB.&nbsp;</p>
+
+
+
+<p>Since we know from the antenna simulations that the impedance of the transmissions lines themselves are well behaved (i.e. 50 Ω calculated is pretty much 50 Ω in simulation), my initial thought is that this slight mismatch is due to capacitance.&nbsp;</p>
+
+
+
+<p>It could also be a matter of controlling the wavelength. I was a bit surprised that the effective permittivity was so far off the relative permittivity, but I’ve been wrong before. However, to test the effect of this is simply a matter of changing the wavelength in the layout calculations, which is easy to do. So let’s simulate a slightly shorter wavelength of say 16 mm.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="577" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_shorter_wavelen_result-1024x577.png" alt="" class="wp-image-1367" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_shorter_wavelen_result-1024x577.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_shorter_wavelen_result-600x338.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_shorter_wavelen_result-300x169.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_shorter_wavelen_result-768x433.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_shorter_wavelen_result-870x490.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_shorter_wavelen_result.png 1401w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Shorter wavelength simulation results.&nbsp;</em></figcaption></figure></div>
+
+
+<p>And look at this. A stroke of luck again! I would argue that the peak in the S(1,2) and S(1,3) parameters suggest that we are in the ballpark of tuning the wavelength. I would like to say that the wavelength might not have been the entire issue here, as we’re adding some copper at the end in the T-junctions where the resistor is mounted. These were not a part of the calculation to begin with, but I assumed that the length would be a bit long.&nbsp;</p>
+
+
+
+<p>Moreover, a final optimization to remove some parasitics would be to embed the resistor instead of having a dedicated footprint. Fixing that, and some more tuning results in the following result.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="645" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_trimmed_footprint-1024x645.png" alt="" class="wp-image-1368" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_trimmed_footprint-1024x645.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_trimmed_footprint-600x378.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_trimmed_footprint-300x189.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_trimmed_footprint-768x484.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_trimmed_footprint-870x548.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_div_2_trimmed_footprint.png 1377w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>After trimming the length of the divider and footprint of the resistor.&nbsp;</em></figcaption></figure></div>
+
+
+<p>For now, I’m pretty happy with that. The result is not perfect, but then again the production of the PCB will not be perfect either, so this is good enough as a first pass.&nbsp;</p>
+
+
+
+<p>At 2.45 GHz, we have an attenuation of -3.1 dB between ports 1-3 and 1-2, and an input impedance of 48.35+3.35j Ω at the input (port 1), and 46.5-2.25j Ω at ports 2 and 3.&nbsp;</p>
+
+
+
+<h3>Stripline impedance matching</h3>
+
+
+
+<p>Stripline impedance matching is based on quarter wavelength microstrips, and there is a great guide to this from <a href="https://www.keysight.com/zz/en/assets/7018-05297/technical-overviews/5992-1632.pdf">Keysight</a>. The idea is fairly similar to the Wilkinson power divider, but without the resistor. The Keysight guide is using the LineCalc tool to design this, but I’ve seen that I get slightly different results for the width of the copper trace for 50 Ω compared to the Saturn PCB toolkit. For now though, I’m mostly interested in the length of the trace.&nbsp;</p>
+
+
+
+<p>For OSHpark’s two-layer PCB substrate, these are the LineCalc parameters:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="363" height="471" src="https://aboutbytes.com/wp-content/uploads/2022/07/linecalc.png" alt="" class="wp-image-1369" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/linecalc.png 363w, https://aboutbytes.com/wp-content/uploads/2022/07/linecalc-231x300.png 231w" sizes="(max-width: 363px) 100vw, 363px" /><figcaption><em>LineCalc parameters for Kingboard KB6167F.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The basic idea of the layout is shown in the diagram below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="177" src="https://aboutbytes.com/wp-content/uploads/2022/07/t-junc-1024x177.png" alt="" class="wp-image-1370" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/t-junc-1024x177.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/t-junc-600x104.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/t-junc-300x52.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/t-junc-768x133.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/t-junc-870x150.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/t-junc.png 1244w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>T-junction for impedance matching.&nbsp;</em></figcaption></figure></div>
+
+
+<p>All of the traces shown above are quarter wavelength long. So using LineCalc and PCB toolkit to calculate these, I get the following:</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td>Parameter</td><td>LineCalc result</td><td>PCB toolkit result</td></tr><tr><td>Width, 50 Ω</td><td>2.94 mm</td><td>3.1 mm</td></tr><tr><td>Width, 70.7 Ω</td><td>1.52 mm</td><td>1.6 mm</td></tr><tr><td>Length /4, 70 Ω</td><td>16.93 mm</td><td>16.45 mm</td></tr></tbody></table></figure>
+
+
+
+<p>Starting with the LineCalc results, we can set up the following schematic in order to make an automated layout.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="601" src="https://aboutbytes.com/wp-content/uploads/2022/07/tjunc_ads_sch-1024x601.png" alt="" class="wp-image-1371" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/tjunc_ads_sch-1024x601.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/tjunc_ads_sch-600x352.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/tjunc_ads_sch-300x176.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/tjunc_ads_sch-768x451.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/tjunc_ads_sch-870x511.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/tjunc_ads_sch.png 1443w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Schematic for T-junction splitter in ADS, using LineCalc values.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The above schematic generates the following layout:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="237" src="https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_layout-1024x237.png" alt="" class="wp-image-1372" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_layout-1024x237.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_layout-600x139.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_layout-300x69.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_layout-768x177.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_layout-870x201.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_layout.png 1264w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Generated layout for the T-line junction splitter.&nbsp;</em></figcaption></figure></div>
+
+
+<p>Now, for the simulation results, we can see something interesting.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="533" src="https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_sim_res-1024x533.png" alt="" class="wp-image-1373" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_sim_res-1024x533.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_sim_res-600x312.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_sim_res-300x156.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_sim_res-768x400.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_sim_res-870x453.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/tline_junc_sim_res.png 1341w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Simulation results for the T-line junction.&nbsp;</em></figcaption></figure></div>
+
+
+<p>An interesting observation can be made here: This is basically a Wilkinson power divider but without the discrete component. And all of a sudden we have a lot of reflections on the outputs (port 2 and 3). The input looks great, but the output suffers from reflection, which isn’t nice and it reduces the efficiency.&nbsp;</p>
+
+
+
+<p>However, put a 100 ohm resistor between port 2 and 3, and you have a wilkinson power divider! I think it’s clear that the Wilkinson power divider is the best option for this application, so after some tweaking of the parameters, this is what I end up with.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="947" height="955" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch.png" alt="" class="wp-image-1374" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch.png 947w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch-100x100.png 100w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch-600x605.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch-297x300.png 297w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch-150x150.png 150w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch-768x774.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_sch-870x877.png 870w" sizes="(max-width: 947px) 100vw, 947px" /><figcaption><em>Finished wilkinson power divider schematic.</em></figcaption></figure></div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="827" height="914" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_layout.png" alt="" class="wp-image-1375" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_layout.png 827w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_layout-600x663.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_layout-271x300.png 271w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_layout-768x849.png 768w" sizes="(max-width: 827px) 100vw, 827px" /><figcaption><em>Wilkinson power divider layout.&nbsp;</em></figcaption></figure></div>
+
+
+<p>You might have noticed a change in the look of the layout here. The main reason is that the mesh calculation isn’t really that good in ADS; it doesn’t follow the curve, instead it breaks the corner down into small pieces. Therefore, the length is always smaller than what is expected, which is not the case in the real world. So I changed to corners instead, which made the mesh fit the layout better, and it was a bit easier to tune.&nbsp;</p>
+
+
+
+<p>I played around a bit with the mesh size, increasing the frequency for which the mesh is made, which made a big difference in the round shape, but not really for the square one shown above. I ended up with the following simulation results:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="661" src="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_res-1024x661.png" alt="" class="wp-image-1376" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_res-1024x661.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_res-600x387.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_res-300x194.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_res-768x495.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_res-870x561.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/wilkinson_power_divider_final_res.png 1065w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Simulation results of finished Wilkinson power divider.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The input and output impedances are OK matched which hopefully should minimize the reflections. I have a loss between the inputs and outputs of ~3dB, which is near enough perfect, if you think about the power being distributed equally between the two ports, meaning the power at one of the ports is half of the input power, i.e. -3 dB.</p>
+
+
+
+<p>I would like to note here that there most likely is a third option: an integrated RF splitter IC, such as the <a href="https://www.minicircuits.com/pdfs/BP2U1+.pdf">BP2U1+ from Minicircuits</a>. Moreover, it would be a neat project to try to make this type of antenna using chip antennas with integrated splitters as dividers. I haven’t looked into this, but if it doesn’t exist there is maybe a good reason for that. Otherwise I’ll come back to that. But regarding the power divider, since we’re trying to simulate the entire patch array, I will use the stripline method.</p>
+
+
+
+<p>With the Wilkinson power divider now done, it’s time to put the patch antenna and the power divider together.&nbsp;</p>
+
+
+
+<h2>Putting it all together</h2>
+
+
+
+<p>I’m down to the last variables, which is putting it all together, hoping that it all fits, and doing the last pieces of tuning.</p>
+
+
+
+<p>The plan is to attach two patches together with the Wilkinson power divider, and then connect two of those to another pair with a Wilkinson power divider etc. See the image below for a diagram.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="701" height="717" src="https://aboutbytes.com/wp-content/uploads/2022/07/connecting_patches_2x2.png" alt="" class="wp-image-1377" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/connecting_patches_2x2.png 701w, https://aboutbytes.com/wp-content/uploads/2022/07/connecting_patches_2x2-600x614.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/connecting_patches_2x2-293x300.png 293w" sizes="(max-width: 701px) 100vw, 701px" /><figcaption><em>Diagram of connecting the patches with power dividers.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The distance between the patches needs to be controlled, where the aim is to receive as high directional gain as possible. According to <a href="https://www.analog.com/en/analog-dialogue/articles/phased-array-antenna-patterns-part1.html">this article from Analog Devices</a>, a typical spacing is half of the wavelength spacing between the element centers. Moreover, the wavelength here is referring to the free space wavelength, i.e. 12.24 cm for 2.45 GHz.&nbsp;</p>
+
+
+
+<p>Following the schematic above, we can use the earlier schematics to make a model. The Wilkinson power dividers and antennas are connected with 50 Ω transmission lines, with lines calculated such that the distance both horizontally and vertically is half a wavelength.&nbsp;</p>
+
+
+
+<p>Since the size of the schematic is getting a bit ridiculous right now, I’ll only show the generated layout. I’m still using the schematic tool to generate the layout for this, as it’s easy to tweak parameters, should (or rather when) it be needed.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="498" height="509" src="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_layout.png" alt="" class="wp-image-1378" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_layout.png 498w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_layout-294x300.png 294w" sizes="(max-width: 498px) 100vw, 498px" /><figcaption><em>Initial generated layout for a 2&#215;2 patch antenna array using the previously found parameters for power divider and patch antenna, 0.5λ spacing between radiating elements.</em></figcaption></figure></div>
+
+
+<p>As a first pass, I simulated the four patches without the resistor in the wilkinson power dividers, just as a test to see if the center frequency was maintained.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img loading="lazy" src="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_res.png" alt="" class="wp-image-1379" width="840" height="578" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_res.png 869w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_res-600x413.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_res-300x206.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_res-768x528.png 768w" sizes="(max-width: 840px) 100vw, 840px" /><figcaption><em>S(1,1) of 2&#215;2 patch antenna without resistors in Wilkinson power divider.&nbsp;</em></figcaption></figure></div>
+
+
+<p>Mainly because it’s cool, but also as a check, I plotted the waves in the Momentum Visualization tool, see gif below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="1024" height="729" src="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_patch.gif" alt="" class="wp-image-1380"/><figcaption><em>Momentum visualization of 2&#215;2 patch antenna, without resistors in Wilkinson power divider.</em></figcaption></figure></div>
+
+
+<p>The antenna gain is shown in the image below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="601" height="714" src="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_gain_res.png" alt="" class="wp-image-1381" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_gain_res.png 601w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_gain_res-253x300.png 253w" sizes="(max-width: 601px) 100vw, 601px" /><figcaption><em>Gain and directivity of 2&#215;2 patch antenna, without resistors in Wilkinson power divider.</em></figcaption></figure></div>
+
+
+<p>Note that there is indeed an increase in directivity, where one patch produced a simulated maximum directivity of 6.4 dB, the 2&#215;2 patch antenna array has a simulated maximum directivity of 11.2 dB.&nbsp;</p>
+
+
+
+<p>So let’s get into the tweaking shall we? As we have our baseline, we should go from here.&nbsp;</p>
+
+
+
+<p>From a practical point of view, I’d like to investigate the impact of shortening the antenna feed line a bit (not the input to the antenna, but the length of the actual trace), as it’s a bit tight where the three power dividers are located. For future me, it might be a good idea to look into a 1-4 power divider instead, but we have what we have for now.&nbsp;</p>
+
+
+
+<p>Moreover, I’ve seen some <a href="https://ieeexplore.ieee.org/document/8311993">literature </a>and <a href="https://www.researchgate.net/post/What_should_be_the_spacing_between_elements_in_4x4_patch_antenna_array_at_4GHz">discussion </a>regarding the spacing between the antenna elements, and how that affects the antenna parameter.&nbsp;</p>
+
+
+
+<p>Looking at the <a href="https://ieeexplore.ieee.org/document/8311993">literature</a> mentioned above, increased spacing isn’t such a bad idea for directivity, which is what we’re going for here. To test this, I simulated the same 2&#215;2 setup for 0.5λ (results above), 0.6λ, 0.7λ and 0.75λ. This is why I’ve opted to use the schematic tool, as I only need to change one number instead of recalculating the lengths of each stripline.</p>
+
+
+
+<p>However, at this stage, the simulations take quite a while and makes my ultrabook quite toasty, so even if I save time in generating the layout, the simulation time is up in the 10 minute range. Although, that is small potatoes (poorly translated swedish saying) compared to the overnight simulations we made back at Uni.</p>
+
+
+
+<p>Anyhow, the simulation results are shown below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="853" height="1024" src="https://aboutbytes.com/wp-content/uploads/2022/07/lambda_variable_sim_res_2x2-853x1024.png" alt="" class="wp-image-1382" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/lambda_variable_sim_res_2x2-853x1024.png 853w, https://aboutbytes.com/wp-content/uploads/2022/07/lambda_variable_sim_res_2x2-600x721.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/lambda_variable_sim_res_2x2-250x300.png 250w, https://aboutbytes.com/wp-content/uploads/2022/07/lambda_variable_sim_res_2x2-768x922.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/lambda_variable_sim_res_2x2-870x1045.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/lambda_variable_sim_res_2x2.png 1185w" sizes="(max-width: 853px) 100vw, 853px" /><figcaption><em>Directivity versus radiating element distance. Top left is 0.5λ, top right is 0.6λ, bottom left is 0.7λ and bottom right is 0.75λ.&nbsp;</em></figcaption></figure></div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="719" src="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res-1024x719.png" alt="" class="wp-image-1383" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res-1024x719.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res-600x421.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res-300x211.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res-768x539.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res-1536x1079.png 1536w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res-870x611.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/2x2_s11_res.png 1619w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>S(1,1) versus radiating element distance. Top left is 0.5λ, top right is 0.6λ, bottom left is 0.7λ and bottom right is 0.75λ.&nbsp;</em></figcaption></figure></div>
+
+
+<p>What is interesting, I think, is that the input reflection is affected by the increased spacing. I would assume that it would be affected much for the first few iterations, as the power divider was quite near the radiating elements. But it seemed to move downwards for each iteration, which was a bit surprising to be honest.&nbsp;</p>
+
+
+
+<p>Moreover, I thought it was very cool seeing the side lobes of the antenna start appearing in the larger spacings. It was also visible in the 3D far-field visualization, but I didn’t include it here, as I already have a lot of images.&nbsp;</p>
+
+
+
+<p>So which spacing should you choose? In my mind, the gain from 0.7 to 0.75 λ isn’t that great, which seems to correspond to the literature as well. I gain ~0.6 dB going from 0.6 to 0.7 λ, but the input reflection is less for 0.6λ.&nbsp;</p>
+
+
+
+<p>That being said, I have done these simulations without the resistors in the Wilkinson power dividers, so I would suspect these being lower in actuality.&nbsp;</p>
+
+
+
+<p>For the aim here, I am going to go with 0.7λ to get that extra 0.6 dB gain, but I do want to redo that simulation for the full 4&#215;4 array, just as a double check. And believe or not, I’m at the stage where I can actually make the full 4&#215;4 array!&nbsp;</p>
+
+
+
+<p>Again, the schematic is a bit silly, see below. I am not even able to see the whole thing without ADS blurring the details. I mean, look at the image below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="983" height="780" src="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_schematic.png" alt="" class="wp-image-1384" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_schematic.png 983w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_schematic-600x476.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_schematic-300x238.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_schematic-768x609.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_schematic-870x690.png 870w" sizes="(max-width: 983px) 100vw, 983px" /><figcaption><em>A very blurry schematic of a 4&#215;4 patch antenna array.&nbsp;</em></figcaption></figure></div>
+
+
+<p>This produces a layout that looks like this:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="524" height="508" src="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_layout.png" alt="" class="wp-image-1385" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_layout.png 524w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_layout-300x291.png 300w" sizes="(max-width: 524px) 100vw, 524px" /><figcaption><em>Layout of 4&#215;4 patch antenna array, using 0.6λ.</em></figcaption></figure></div>
+
+
+<p>Note that I had to do a couple of squiggly (correct engineering term) lines in order for the traces to have matched length, but not collide into each other.&nbsp;</p>
+
+
+
+<p>I think it’s fair to say, this will be a monstrous simulation. Just calculating the mesh took a minute. The simulation ended up at approximately 3 hours, so I spent some time making sure that the setup was OK before starting the simulation.&nbsp;</p>
+
+
+
+<p>The final results for directivity and gain are shown below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="634" src="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_gain_directivity-1024x634.png" alt="" class="wp-image-1386" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_gain_directivity-1024x634.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_gain_directivity-600x371.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_gain_directivity-300x186.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_gain_directivity-768x475.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_gain_directivity-870x538.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_gain_directivity.png 1175w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Gain and directivity of 4&#215;4 antenna, 0.6λ on the left, 0.7λ on the right.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The antenna 3D view is shown below.&nbsp;</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="438" src="https://aboutbytes.com/wp-content/uploads/2022/07/FE_lobe_4x4_0_6_0_7_lambda_compare-1024x438.png" alt="" class="wp-image-1387" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/FE_lobe_4x4_0_6_0_7_lambda_compare-1024x438.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/FE_lobe_4x4_0_6_0_7_lambda_compare-600x256.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/FE_lobe_4x4_0_6_0_7_lambda_compare-300x128.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/FE_lobe_4x4_0_6_0_7_lambda_compare-768x328.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/FE_lobe_4x4_0_6_0_7_lambda_compare-870x372.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/FE_lobe_4x4_0_6_0_7_lambda_compare.png 1254w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Visualization of lobes for 4&#215;4 antenna, 0.6λ on the left, 0.7λ on the right.&nbsp;</em></figcaption></figure></div>
+
+
+<p>A gif of the standing waves can be seen below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="638" src="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_patch-1024x638.gif" alt="" class="wp-image-1388" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/4x4_patch-1024x638.gif 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_patch-600x374.gif 600w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_patch-300x187.gif 300w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_patch-768x479.gif 768w, https://aboutbytes.com/wp-content/uploads/2022/07/4x4_patch-870x542.gif 870w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>EM visualization of patch antenna array, 0.6λ.</em></figcaption></figure></div>
+
+
+<p>The far field cut tool is reporting the following max gain for the two antennas:</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Antenna spacing</strong></td><td><strong>0.6λ</strong></td><td><strong>0.7λ</strong></td></tr><tr><td><strong>Max gain</strong></td><td>14.489 dBi</td><td>14.840 dBi</td></tr><tr><td><strong>Max Directivity</strong></td><td>18.427 dB</td><td>19.365 dB</td></tr></tbody></table></figure>
+
+
+
+<p>The scale on the gain and directivity plots are quite large, making the gain look larger than what it is. But it’s clear that both antennas work quite nicely in my opinion. It might not be the insane gain that I had maybe hoped for, but note that the Wilkinson power dividers were not using the resistors between port 2 and 3, which in my mind would affect gain a bit.&nbsp;</p>
+
+
+
+<p>The real test is however the manufactured antenna, and the design is almost complete, it’s missing an SMA connector and board outline.&nbsp;</p>
+
+
+
+<p>The board outline is important in order for the antennas to radiate as intended, and <a href="https://www.emcos.com/?application-examples=modeling-of-patch-antennas">it needs to be extended</a> by at least 6 times the height of the substrate, in our case 9.6mm. To have some margin, I will extend the ground plane a bit more, also to have mounting holes for support structures.&nbsp;</p>
+
+
+
+<p>I intend to place the SMA connector on the secondary side of the PCB, and to minimize stub length I have opted for a vertically mounted through hole SMA connector which connects to the ground plane on the secondary side, and has the feedline come through a hole in the PCB at the port location. However, it’s kind of hard to find an SMA connector with a through hole mount without supporting legs, which I cannot use as the legs would be in the way of the power divider.&nbsp;Another alternative is to go with a surface mount SMA connector, but then I would need to control the via properties. Having a quick think about this, I think the best solution is to mod a <a href="https://www.amphenolrf.com/901-144.html">through hole mount SMA connecto</a>r, removing the supporting legs and solder the shortened legs on the secondary side of the PCB, and the pin sticking through a hole in the PCB and soldered to a pad on the primary side. The hole is then a non-plated through hole, but with a pad on the primary side, and a bit of clearing on the.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="821" height="689" src="https://aboutbytes.com/wp-content/uploads/2022/07/sma_mounting_via.png" alt="" class="wp-image-1391" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sma_mounting_via.png 821w, https://aboutbytes.com/wp-content/uploads/2022/07/sma_mounting_via-600x504.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sma_mounting_via-300x252.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sma_mounting_via-768x645.png 768w" sizes="(max-width: 821px) 100vw, 821px" /><figcaption><em>SMA mounting via.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The pin size for the SMA connector is 1.27 mm, and the center hole size is 1.5 mm as per the recommended mounting hole dimensions.&nbsp;</p>
+
+
+
+<p>The mounting holes I have made are 3 mm in diameter, which then should accept a jig should I need it. The layout ready for manufacturing is shown below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="896" height="884" src="https://aboutbytes.com/wp-content/uploads/2022/07/final_layout.png" alt="" class="wp-image-1392" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/final_layout.png 896w, https://aboutbytes.com/wp-content/uploads/2022/07/final_layout-100x100.png 100w, https://aboutbytes.com/wp-content/uploads/2022/07/final_layout-600x592.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/final_layout-300x296.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/final_layout-768x758.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/final_layout-870x858.png 870w" sizes="(max-width: 896px) 100vw, 896px" /><figcaption><em>Layout with defined ground plane and holes for mounting and SMA connector.&nbsp;</em></figcaption></figure></div>
+
+
+<p>One final time then, let’s simulate the antenna again, using the final layout. Note that this is then using a non-ideal ground plane, which should affect the parameters.&nbsp;</p>
+
+
+
+<p>The negative side of port one is now feeding the ground plane where the SMA connector is connected.&nbsp;The gerber files and ADS workspace can be found on my <a href="https://github.com/oskarvh/patchAntennaArray">GitHub</a>.</p>
+
+
+
+<h2>Ordering the real antenna</h2>
+
+
+
+<p>I ended up using PCBway instead of OSHpark, mainly due to price. OSHpark is in general a very good manufacturer, but the antenna ended up much larger than anticipated, it’s approximately 30x30cm. Moreover, the dielectric that OSHpark and PCBway uses are pretty much interchangeable, so it shouldn’t have an impact on quality. I ended up ordering 5 antennas for ~$250, and the result can be seen in the image below, and looks pretty cool if you ask me.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="986" src="https://aboutbytes.com/wp-content/uploads/2022/07/manufactured_antenna-1024x986.png" alt="" class="wp-image-1393" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/manufactured_antenna-1024x986.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/manufactured_antenna-600x578.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/manufactured_antenna-300x289.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/manufactured_antenna-768x739.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/manufactured_antenna-870x837.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/manufactured_antenna.png 1202w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>The manufactured antenna.&nbsp;</em></figcaption></figure></div>
+
+
+<p>I had some female SMA connectors laying around, from which I snipped off the legs and soldered to the backside. The soldering here is a real bodge-job, so I’m sorry in advance. The main reason is that the SMA ground connects to a massive ground plane on the backside, which is a real thermal sink. Luckily I had access to both hot air and soldering iron, and I don’t think it would have been possible to solder this without both. So using four hands, I heated the backside and SMA connector with the hot air, and soldered using the soldering iron. Below you can see my sorry excuse for a soldering job.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" width="831" height="651" src="https://aboutbytes.com/wp-content/uploads/2022/07/sma_soldered.png" alt="" class="wp-image-1394" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/sma_soldered.png 831w, https://aboutbytes.com/wp-content/uploads/2022/07/sma_soldered-600x470.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/sma_soldered-300x235.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/sma_soldered-768x602.png 768w" sizes="(max-width: 831px) 100vw, 831px" /><figcaption><em>SMA connector soldered to the back side of the antenna (sorry for poor soldering).&nbsp;</em></figcaption></figure></div>
+
+
+<p>But at least it’s on there now.&nbsp;</p>
+
+
+
+<p>The final job is soldering the 100 ohm resistors to the Wilkinson power dividers. I’m unsure if 0805 resistors will fit in the space, as the spacing between the output terminals is 2mm, and the length of an 0805 resistor is also 2mm. But just to be sure, I also ordered 1206 resistors.&nbsp;</p>
+
+
+
+<p>However, I am interested in testing the antenna with and without the resistors soldered on there, just to see if my thesis that it affects gain is correct. That leads us into testing the antennas.</p>
+
+
+
+<h2>Testing the antennas</h2>
+
+
+
+<p>The best way to test antenna parameters would be to have an anechoic chamber. But those are heavy, and expensive, and take up a lot of room, and the only one I have somewhat access to is currently not working. So, that leaves me with testing the antenna myself.&nbsp;</p>
+
+
+
+<p>I had a chat with a good friend of mine who works with antennas for Ericsson in Sweden, so it’s safe to assume that he knows his way around testing antennas. He suggested testing it outside, to minimize reflections. I have access to the roof on my apartment building, which isn’t ideal since it’s in the central area of Oslo, but since I don’t really have much of a choice, that’s what I will have to go with.&nbsp;</p>
+
+
+
+<p>So to test the gain of the antenna, I will have to compare the measured RSSI for the same setup as an antenna with known gain. It’s far from ideal, but I have little choice. If I have access to an antenna chamber in the future, it would be cool to test this. And if you, the reader, happens to have an antenna chamber and is willing to try this, please leave a comment and we could maybe make something happen.</p>
+
+
+
+<h3>Testing antenna gain</h3>
+
+
+
+<p>To test the antenna gain at home, I have to cut some corners. I have an antenna from a Jetson TX2 platform, which is an omnidirectional WiFi antenna, which according to the <a href="https://developer.nvidia.com/embedded/downloads#?search=OEM%20Wireless%20Compliance%20Guide">Jetson TX1 and TX2 OEM Wireless Compliance Guide</a> has a peak gain of 2.81 dBi at 2.44 GHz (values from Table 2).&nbsp;</p>
+
+
+
+<p>The antenna that comes with the Jetson TX2 developer kit is a <a href="https://productfinder.pulseeng.com/product/W1043">Pulse Electronics W1043</a> blade antenna, and according to the datasheet, the average gain in the XY plane is 1.03 dBi at 2500 MHz, and a peak gain of 2.65 dBi. One slightly annoying thing about these antennas however, are that the interface is using a normal SMA male connector, but missing the pin. I have had this issue before, so I just took a regular pin from a header connector, cut that to size and put it in there. I’m aware that this isn’t the best way to do this, but I would argue that I have made approximations in my test setup that most likely is affecting the measurement more than this. So if we lose a dB due to this, it’s well within the range of uncertainty. Otherwise, the system was kept as similar as possible between the two antenna setups &#8211; with the same length of cable.&nbsp;</p>
+
+
+
+<p>So which value should I use? It differs a few dB between peak gain and average gain from 2.4 to 2.5 GHz, but seeing as we don’t know the exact which point the maximum gain is, I’m inclined to use the average gain. Moreover, the best way would be to rotate the W1043 antenna and take measurements for each measurement.&nbsp;</p>
+
+
+
+<p>So why do I care about this antenna? I plan to use this as a reference antenna to perform the gain measurement. To do this, I need to take care to keep the center of my patch antenna array in the XY plane of the W1043 antenna. So my plan is to use the follow test setup:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="525" src="https://aboutbytes.com/wp-content/uploads/2022/07/measurement_setup-1024x525.png" alt="" class="wp-image-1395" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/measurement_setup-1024x525.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/measurement_setup-600x307.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/measurement_setup-300x154.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/measurement_setup-768x393.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/measurement_setup-870x446.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/measurement_setup.png 1054w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Antenna gain measurements, DIY version.&nbsp;</em></figcaption></figure></div>
+
+
+<p>For the RF RX and RF TX, I plan to use the <a href="https://www.ti.com/tool/LAUNCHXL-CC1352P">CC1352P-2 LaunchPad</a> from Texas Instruments. It’s a really neat tool that I’ve used quite extensively. It has support for both 2.4GHz and sub-1-G bands, but for this I am using only the 2.4 GHz part of the radio.&nbsp;The idea here is to first make a reference measurement using two of the Pulse W1043 antennas, sweeping from 2400 to 2480 MHz, measuring the RSSI at a set distance. Assuming that the orientation of the antenna isn’t affecting the gain too much, I only need to do this with the antennas oriented in the XY plane to each other. I then need to correct for the different average gain of these antennas, giving me a reference measurement with an antenna with a known gain. Noteworthy here is that I will most likely have multipath, but I will try to minimize that by minimizing the structures near the measurement. The distance between the antennas needs to be large enough to be in the far field/Fraunhofer region, which according to <a href="https://www.everythingrf.com/community/what-are-near-field-and-far-field-regions-of-an-antenna">this article</a>, is given by equation 6 below.</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[far field &gt; = {2D^2 \over \lambda}\]</div>
+
+
+
+<p>D is the largest radiating element of the antenna, and is the wavelength. Using the approximation that the antenna is 40 cm and the wavelength is 12.5 cm, this gives me.</p>
+
+
+
+<div class="wp-block-mathml-mathmlblock">\[far field &gt; {2*0.4^2 \over 0.125} = 2.56 m\]</div>
+
+
+
+<p>To ensure that the distance isn’t too near the limit of the far field, I set the distance between the antennas to 3 meters.&nbsp;</p>
+
+
+
+<p>When the RSSI between the reference antennas has been measured, I can switch out one of the Pulse W1043 antennas to my own antenna design and compare.&nbsp;</p>
+
+
+
+<p>Since I cannot control the multipath, I think it would be hard to measure the lobe pattern, but I will try. The aim is to measure the RSSI with the patch antenna array pointed in different directions, sweeping the frequency range for each measurement. But the really interesting measurement is straight on.&nbsp;</p>
+
+
+
+<p>I will also have to control the transmitted power of the CC1352P to ensure that the RX is not in saturation. I will however have to tune that parameter when performing the test.&nbsp;</p>
+
+
+
+<p>When I have my measurements, I should be able to compare the gain in each direction to the reference measurement, and simply calculate how many extra dB’s I got (if any) in each direction compared to the reference measurement. The reference measurement is assumed to be omnidirectional.&nbsp;</p>
+
+
+
+<p>For the data acquisition part, I’m simply using a python script to control the two CC1352P boards via UART, and then saving the data to a CSV file. The code can be found on my <a href="https://github.com/oskarvh/CC1352PAntennaMeasurement">GitHub</a>. I’m using <a href="https://www.ti.com/tool/CCSTUDIO">code composer studio 11.2</a> from TI with the SimpleLink CC13xx and 26xx SDK 6.10, and basing the code on the UART and packet RX/TX examples.&nbsp;</p>
+
+
+
+<p>Note that the CC1352P launchpads need a cap resoldering before external antennas can be used.&nbsp;</p>
+
+
+
+<p>When the weather in Oslo had a pause between rain storms, I headed up to the roof terrace of my apartment building early one Saturday to not spook the other tenants, and set up my antenna measurements. See the images below for the setup.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="768" src="https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup-1024x768.png" alt="" class="wp-image-1396" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup-1024x768.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup-600x450.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup-300x225.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup-768x576.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup-1536x1152.png 1536w, https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup-870x653.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/blade_antenna_test_setup.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>Test setup, two blade antennas I used for the reference measurement.&nbsp;</em></figcaption></figure></div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="546" src="https://aboutbytes.com/wp-content/uploads/2022/07/orientation-1024x546.png" alt="" class="wp-image-1399" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/orientation-1024x546.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/orientation-600x320.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/orientation-300x160.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/orientation-768x410.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/orientation-1536x819.png 1536w, https://aboutbytes.com/wp-content/uploads/2022/07/orientation-870x464.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/orientation.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>0 degree rotation in the Z plane to the left, and 90 degree rotation in the Z plane on the right.&nbsp;</em></figcaption></figure></div>
+
+
+<p>The setup is far from ideal, as there is a lot of concrete and metal around, but I figured it’s slightly better than inside my apartment. I also turned off WiFi and Bluetooth on my phone and computer during the measurements, to not influence the measurements too much. I do expect the results to be quite noisy as well, but I hope I can draw a couple of conclusions from this test at least.</p>
+
+
+
+<h3>Antenna test results</h3>
+
+
+
+<p>So with the setup shown in the last chapter, I did three measurements per test, which were:</p>
+
+
+
+<ol><li>Two blade antennas (reference measurement)</li><li>One blade antenna, one patch array antenna without the resistors for the Wilkinson power dividers, 0 degree rotation in the Z plane</li><li>One blade antenna, one patch array antenna without the resistors for the Wilkinson power dividers, 90 degree rotation in the Z plane</li><li>One blade antenna, one patch array antenna with the resistors mounted for the Wilkinson power dividers, 0 degree rotation in the Z plane</li><li>One blade antenna, one patch array antenna with the resistors mounted for the Wilkinson power dividers, 90 degree rotation in the Z plane</li></ol>
+
+
+
+<p>I also repeated the measurements where I transmitted either from the blade antenna, or the patch antenna. The RSSI measurements are shown below, only for the 0 degree rotation, as the loss in RSSI at 90 degrees was ~-14 dB. The results of the transmission from blade and patch antenna are concatenated, to average 6 runs per measurement.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="633" src="https://aboutbytes.com/wp-content/uploads/2022/07/rssi_measurement-1024x633.png" alt="" class="wp-image-1400" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/rssi_measurement-1024x633.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/rssi_measurement-600x371.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/rssi_measurement-300x186.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/rssi_measurement-768x475.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/rssi_measurement-870x538.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/rssi_measurement.png 1200w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>RSSI measurements comparison of antennas, transmission in both directions.</em></figcaption></figure></div>
+
+
+<p>The difference in RSSI increase is shown in the figure below.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" width="1024" height="633" src="https://aboutbytes.com/wp-content/uploads/2022/07/gain_increase_measurements-1024x633.png" alt="" class="wp-image-1401" srcset="https://aboutbytes.com/wp-content/uploads/2022/07/gain_increase_measurements-1024x633.png 1024w, https://aboutbytes.com/wp-content/uploads/2022/07/gain_increase_measurements-600x371.png 600w, https://aboutbytes.com/wp-content/uploads/2022/07/gain_increase_measurements-300x186.png 300w, https://aboutbytes.com/wp-content/uploads/2022/07/gain_increase_measurements-768x475.png 768w, https://aboutbytes.com/wp-content/uploads/2022/07/gain_increase_measurements-870x538.png 870w, https://aboutbytes.com/wp-content/uploads/2022/07/gain_increase_measurements.png 1200w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>RSSI difference between two blade antennas (reference measurement) and measurements with patch antennas, with and without the resistors for the Wilkinson power dividers mounted.&nbsp;</em></figcaption></figure></div>
+
+
+<p>This gives a median and average gain increase over the reference antenna as given by the table below.</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Configuration</strong></td><td><strong>Average [dB]</strong></td><td><strong>Median [dB]</strong></td></tr><tr><td><strong>Gain increase, no resistors mounted</strong></td><td>7,540650407</td><td>7,333333333</td></tr><tr><td><strong>Gain increase, resistors mounted</strong></td><td>7,178861789</td><td>7,166666667</td></tr></tbody></table></figure>
+
+
+
+<p>If the reference antenna had an average gain of 1 dB, that means that the average maximum gain of the antenna is around 8dBi.&nbsp;</p>
+
+
+
+<h2>Discussion</h2>
+
+
+
+<p>With the tests on my roof terrace, I was able to estimate the gain of the manufactured antenna to 8 dBi. However, I would take those measurements with quite a big grain of salt, but I do think it’s neat that such a big gain increase could be measured.&nbsp;</p>
+
+
+
+<p>It’s far from the simulated 14 dBi, but some losses are expected. Now the setup, again, is far from ideal and it would be very cool to test this antenna in an antenna chamber, but I have not been able to borrow one, so these measurements will suffice. In reality, I think the gain is somewhere in the middle of the measured result and the simulated result.&nbsp;</p>
+
+
+
+<p>One observation pointing in the direction on how poor the test setup actually worked is the RSSI measurements of the two blade antennas. that measurement is all over the place, and as a matter of fact, these are the standard deviations of the three setups:</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Configuration</strong></td><td><strong>Standard deviation of RSSI measurements</strong></td></tr><tr><td><strong>RSSI, blade antennas</strong></td><td>4,980787711</td></tr><tr><td><strong>RSSI, one blade antenna, one patch antenna without resistors</strong></td><td>2,876335076</td></tr><tr><td><strong>RSSI, one blade antenna, one patch antenna with resistors</strong></td><td>3,263071504</td></tr></tbody></table></figure>
+
+
+
+<p>I believe that the omnidirectional nature of the blade antennas caused them to pick up a lot of noise and multipath measurements, which in turn was reduced when the directional patch array antenna was measured instead. I didn’t perform measurements between the patch antennas themselves, since it wouldn’t help in measuring the gain, but I would guess that the standard deviation of the RSSI measurements would decrease, as the directionality of the antennas would cause less pickup of multipath signals.&nbsp;</p>
+
+
+
+<p>Another observation is the slight decrease in gain on the antenna which had the resistors mounted on the Wilkinson power divider. This is somewhat confusing to me as the resistors would help in reducing reflections by matching all interconnects to 50+0jΩ. On the other hand, the improvement of adding those resistors is probably small all together.&nbsp;</p>
+
+
+
+<p>Then there is the final option of me messing up the whole thing and thinking that it worked when it actually didn’t. I would assume that the bandwidth is quite small looking at the S(1,1) parameters, and if the center frequency is shifted due to manufacturing tolerances, the measurements would be out of bounds. A way to measure this would be to test the S(1,1) parameter with a VNA, but again, I don’t have access to one.</p>
+
+
+
+<h2>Conclusions</h2>
+
+
+
+<p>I am able to send messages wirelessly at 2.4 GHz with an average 7dB increase with the new patch array antenna, compared to a reference blade antenna.&nbsp;</p>
+
+
+
+<p>The simulated gain was 14.84 dBi with a directivity of 19.365 dB, and the measured gain was 8 dBi, but with a suboptimal test setup.</p>
+
+
+
+<h2>Future work</h2>
+
+
+
+<p>I have gained a lot of cool ideas from this project, and it was nice going back to RF design for a bit. I would really like to test the parameters of this antenna design in a real lab, not only to see what the actual gain is, but also to see how far off the real antenna is from the simulations. So if anyone tries this either using the design files I’ve provided, or has any other input, please let me know by commenting in the comment section below.&nbsp;</p>
+
+
+
+<p>The antenna is quite large, and I think it would be hard to mount this on a small phy-theta robot design as I mentioned in the introduction to this post. So as far as making a smaller version, I think the ruler-antenna is actually a better fit, and to be quite honest I shifted my focus from that project to designing the antenna and all that it includes, as the project went on. This is especially noticeable in the design itself, as I intended to cut out a whole to fit a camera through the center of the antenna, but forgot it as I was simulating.&nbsp;</p>
+
+
+
+<p>As far as future antenna designs for me, I would like to try out a modular patch antenna design next. I am however moving, and have a few other ideas I’d like to try out, so it could be a while before I try this.&nbsp;</p>
+
+
+
+<p>But the idea is to make one patch antenna design with an inset feed using via and having a micro SMA connector on the secondary side, which connects to a coaxial cable to another PCB. This other PCB could then consist of phase shifter and/or discrete splitters, and the antennas themselves could be steerable physically. I don’t know if this is theoretically possible, as the ground plane would be split between each antenna, and I haven’t really gotten a feeling for how the ground plane interacts between the patches. Moreover, with a modular design you could reconfigure the antennas, and if there is a design error you wouldn’t necessarily need to re-order the whole thing.</p>
+
+
+
+<h2>Final thoughts</h2>
+
+
+
+<p>So, I hope you enjoyed reading my lengthy project log, and I would like to stress that this is technically my first antenna design, so I would bet there are wrong assumptions and bad decisions in this post. This project has been funded by myself and made in my own free time, and the intention is to share what I’ve learned and maybe spark some ideas of your own.&nbsp;</p>
+	</div><!-- .entry-content -->
+	<div class="entry-meta entry-footer-meta">
+		<div class="entry-meta"><span class="tags-links"><i class="fa fa-tags"></i><a href="https://aboutbytes.com/tag/antenna/" rel="tag">Antenna</a></span></div>	</div><!-- .entry-meta -->
+
+		<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://aboutbytes.com/making-a-sturdy-cnc-laser/" rel="prev"><span class="meta-nav">Previous Post</span> <span class="post-title">Making A Sturdy CNC Laser</span></a></div><div class="nav-next"><a href="https://aboutbytes.com/updates-on-the-cnc-laser/" rel="next"><span class="meta-nav">Next Post</span> <span class="post-title">Updates on the CNC laser</span></a></div></div>
+	</nav>
+<div id="comments" class="comments-area">
+
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/patch-antenna-array/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://aboutbytes.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message" aria-hidden="true">Required fields are marked <span class="required" aria-hidden="true">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required" aria-hidden="true">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required" aria-hidden="true">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required" aria-hidden="true">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='395' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+	
+					
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+<aside id="secondary" class="widget-area add_sticky_sidebar" role="complementary">
+	<section id="block-5" class="widget widget_block">
+<figure class="wp-block-embed is-type-rich is-provider-spotify wp-block-embed-spotify wp-embed-aspect-21-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Spotify Embed: About Bytes Podcast" style="border-radius: 12px" width="100%" height="152" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" src="https://open.spotify.com/embed/show/2fV22xlR32NA7PiBv1dyhA?si=hkcsfEOVQFq53q2TSAXOLg&fbclid=IwAR282mWVYnMpH8KFU-PPbY31c213VDhG-vbFX5838hpD59azEwzv2hVeB0g&nd=1&utm_source=oembed"></iframe>
+</div></figure>
+</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>
+			<ul>
+					<li class="cat-item cat-item-20"><a href="https://aboutbytes.com/category/article/" title="Articles is default">Article</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="https://aboutbytes.com/category/news/" title="News are content of things happened recently">News</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://aboutbytes.com/category/project-guide/" title="A guide is an article which is structured in a way that it helps you accomplish a specific thing">Project/Guide</a>
+</li>
+			</ul>
+
+			</section><section id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><a href="https://aboutbytes.com/tag/5g/" class="tag-cloud-link tag-link-25 tag-link-position-1" style="font-size: 1em;">5G</a>
+<a href="https://aboutbytes.com/tag/antenna/" class="tag-cloud-link tag-link-26 tag-link-position-2" style="font-size: 1em;">Antenna</a>
+<a href="https://aboutbytes.com/tag/electromagnetism/" class="tag-cloud-link tag-link-59 tag-link-position-3" style="font-size: 1em;">Electromagnetism</a>
+<a href="https://aboutbytes.com/tag/iot/" class="tag-cloud-link tag-link-32 tag-link-position-4" style="font-size: 1em;">IoT</a>
+<a href="https://aboutbytes.com/tag/mmimo/" class="tag-cloud-link tag-link-40 tag-link-position-5" style="font-size: 1em;">mMIMO</a>
+<a href="https://aboutbytes.com/tag/radio/" class="tag-cloud-link tag-link-33 tag-link-position-6" style="font-size: 1em;">Radio</a>
+<a href="https://aboutbytes.com/tag/ran/" class="tag-cloud-link tag-link-31 tag-link-position-7" style="font-size: 1em;">RAN</a>
+<a href="https://aboutbytes.com/tag/rf/" class="tag-cloud-link tag-link-60 tag-link-position-8" style="font-size: 1em;">RF</a>
+<a href="https://aboutbytes.com/tag/simulation/" class="tag-cloud-link tag-link-61 tag-link-position-9" style="font-size: 1em;">Simulation</a></div>
+</section><section id="search-2" class="widget widget_search"><h2 class="widget-title">Search</h2>
+<form role="search" method="get" class="search-form" action="https://aboutbytes.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Enter your Keyword" value="" name="s">
+	</label>
+	<button type="submit" class="search-submit">
+		<i class="fa fa-search"></i>
+		<span class="screen-reader-text">Search</span>
+	</button>
+</form>
+</section><section id="wpiclt_social_widget-3" class="widget wpiclt-social-widget"><h2 class="widget-title">Social Icons</h2>            <div class="wpiclt-social-network-widget design-1">
+                                <a href="http://twitter.com/aboutbytes" title="Twitter" target="_blank" class="wpiclt-social-icon wpiclt-twitter-icon"><i class="fa fa-twitter"></i></a>
+                                <a href="http://instagram.com/aboutbytes" title="Instagram" target="_blank" class="wpiclt-social-icon wpiclt-instagram-icon"><i class="fa fa-instagram"></i></a>
+                            </div>
+    </section><section id="text-5" class="widget widget_text"><h2 class="widget-title">Subscribe</h2>			<div class="textwidget"><script>(function() {
+	window.mc4wp = window.mc4wp || {
+		listeners: [],
+		forms: {
+			on: function(evt, cb) {
+				window.mc4wp.listeners.push(
+					{
+						event   : evt,
+						callback: cb
+					}
+				);
+			}
+		}
+	}
+})();
+</script><!-- Mailchimp for WordPress v4.8.7 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-775" method="post" data-id="775" data-name="" ><div class="mc4wp-form-fields"><p>
+	<label>Email address: </label>
+	<input type="email" name="EMAIL" required />
+</p>
+
+<p>
+    <label>First Name:</label>
+    <input type="text" name="FNAME">
+</p>
+
+<p>
+    <label>Last Name: </label>
+    <input type="text" name="LNAME">
+</p>
+
+<p>
+	<input type="submit" value="Sign up" />
+</p>
+<p>
+    <label>- No spam, only great news and articles!</label>
+</p></div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1785043831" /><input type="hidden" name="_mc4wp_form_id" value="775" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin -->
+</div>
+		</section><section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>
+			<ul>
+					<li><a href='https://aboutbytes.com/2024/07/'>July 2024</a></li>
+	<li><a href='https://aboutbytes.com/2024/03/'>March 2024</a></li>
+	<li><a href='https://aboutbytes.com/2023/10/'>October 2023</a></li>
+	<li><a href='https://aboutbytes.com/2022/07/'>July 2022</a></li>
+	<li><a href='https://aboutbytes.com/2022/06/'>June 2022</a></li>
+	<li><a href='https://aboutbytes.com/2021/12/'>December 2021</a></li>
+	<li><a href='https://aboutbytes.com/2019/01/'>January 2019</a></li>
+			</ul>
+
+			</section></aside><!-- #secondary -->
+</div> <!-- Content-row -->
+
+	</div><!-- #content -->
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+								<div class="site-info">
+			<div class="container">
+					
+				<div class="wpiclt-social-networks wpiclt-social-networks-footer">
+                        	
+							<a href="http://twitter.com/aboutbytes" title="Twitter" target="_blank" class="wpiclt-social-network-icon wpiclt-twitter-icon"><i class="fa fa-twitter"></i> <span class="wpiclt-social-text">Twitter</span></a>
+								
+							<a href="http://instagram.com/aboutbytes" title="instagram" target="_blank" class="wpiclt-social-network-icon wpiclt-instagram-icon"><i class="fa fa-instagram"></i> <span class="wpiclt-social-text">instagram</span></a>				
+											
+				</div>
+				
+				
+			<div class="site-copyright clearfix"> 
+				<div class="wpiclt-col-12 wpiclt-columns copyright">&copy 2026 Amyra WordPress Blog Theme</div>	
+					
+			</div>				
+		</div><!-- .site-info -->
+		</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<nav class="mobile-navigation" role="navigation">
+	<div class="mobile-menu clearfix"><ul>
+<li class="page_item page-item-665"><a href="https://aboutbytes.com/about/">About</a></li>
+<li class="page_item page-item-1458"><a href="https://aboutbytes.com/my-account/">My account</a></li>
+<li class="page_item page-item-1455 page_item_has_children"><a href="https://aboutbytes.com/shop/">Shop</a>
+<ul class='children'>
+	<li class="page_item page-item-1456"><a href="https://aboutbytes.com/shop/cart/">Cart</a></li>
+	<li class="page_item page-item-1457"><a href="https://aboutbytes.com/shop/checkout/">Checkout</a></li>
+</ul>
+</li>
+</ul></div>
+</nav>
+<a href="#" class="scroll-to-top hidden"><i class="fa fa-angle-up"></i></a>
+
+<script>(function() {function maybePrefixUrlField() {
+	if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
+		this.value = "http://" + this.value;
+	}
+}
+
+var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
+if (urlFields) {
+	for (var j=0; j < urlFields.length; j++) {
+		urlFields[j].addEventListener('blur', maybePrefixUrlField);
+	}
+}
+})();</script>	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/comment-reply.min.js?ver=6.0.12' id='comment-reply-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/imagesloaded.min.js?ver=4.1.4' id='imagesloaded-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-includes/js/masonry.min.js?ver=4.2.2' id='masonry-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/themes/amyra/assets/js/navigation.js?ver=1.1.2' id='wpiclt-navigation-js-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/themes/amyra/assets/js/skip-link-focus-fix.js?ver=1.1.2' id='wpiclt-skip-link-js-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/themes/amyra/assets/js/theia-sticky-sidebar.js?ver=1.1.2' id='wpiclt-sticky-sidebar-js-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/themes/amyra/assets/js/slick.min.js?ver=1.1.2' id='wpos-slick-js-js'></script>
+<script type='text/javascript' id='wpiclt-public-js-js-extra'>
+/* <![CDATA[ */
+var Wpiclt = {"is_mobile":"0","is_rtl":"0","ajaxurl":"https:\/\/aboutbytes.com\/wp-admin\/admin-ajax.php","post_view_count":"395"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/themes/amyra/assets/js/public.js?ver=1.1.2' id='wpiclt-public-js-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.8.0' id='jquery-blockui-js'></script>
+<script type='text/javascript' id='wc-add-to-cart-js-extra'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/aboutbytes.com\/shop\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.8.0' id='wc-add-to-cart-js'></script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.8.0' id='js-cookie-js'></script>
+<script type='text/javascript' id='woocommerce-js-extra'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.8.0' id='woocommerce-js'></script>
+<script type='text/javascript' id='wc-cart-fragments-js-extra'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_7b44d9318c09a23ed55543999844430c","fragment_name":"wc_fragments_7b44d9318c09a23ed55543999844430c","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://aboutbytes.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.8.0' id='wc-cart-fragments-js'></script>
+<script type='text/javascript' id='wc-cart-fragments-js-after'>
+		jQuery( 'body' ).bind( 'wc_fragments_refreshed', function() {
+			var jetpackLazyImagesLoadEvent;
+			try {
+				jetpackLazyImagesLoadEvent = new Event( 'jetpack-lazy-images-load', {
+					bubbles: true,
+					cancelable: true
+				} );
+			} catch ( e ) {
+				jetpackLazyImagesLoadEvent = document.createEvent( 'Event' )
+				jetpackLazyImagesLoadEvent.initEvent( 'jetpack-lazy-images-load', true, true );
+			}
+			jQuery( 'body' ).get( 0 ).dispatchEvent( jetpackLazyImagesLoadEvent );
+		} );
+		
+</script>
+<script type='text/javascript' defer src='https://aboutbytes.com/wp-content/plugins/mailchimp-for-wp/assets/js/forms.js?ver=4.8.7' id='mc4wp-forms-api-js'></script>
+<script src='https://stats.wp.com/e-202630.js' defer></script>
+<script>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:11.2.2',blog:'155449918',post:'395',tz:'0',srv:'aboutbytes.com'} ]);
+	_stq.push([ 'clickTrackerInit', '155449918', '395' ]);
+</script>
+
+</body>
+</html>

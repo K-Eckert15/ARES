@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+    <script src="https://cdn-shared.altium.com/production/altium-user/index.min.js"></script>
+    <script src="https://cdn-shared.altium.com/production/salesforce/chat.js" defer></script>
+    <meta charset="utf-8" />
+<script>'use strict'; (function() {var abjs = {"tests":[{"name":"t_8","conditions":["return true;"],"experiences":[{"name":"e_8","fraction":"1\/3","script":"document.addEventListener(\"DOMContentLoaded\", function(event) { \r\n  setTimeout(function(){\r\n          \r\n\t  jQuery('.ab-test4-b').remove();\r\n\t  jQuery('.ab-test4-c').remove();\r\n\t  jQuery('.ab-test4-a').removeAttr('style');\r\n  \r\n  }, 150);\r\n});"},{"name":"e_9","fraction":"1\/3","script":"document.addEventListener(\"DOMContentLoaded\", function(event) { \r\n  setTimeout(function(){\r\n          \r\n\t  jQuery('.ab-test4-a').remove();\r\n\t  jQuery('.ab-test4-c').remove();\r\n\t  jQuery('.ab-test4-b').removeAttr('style');\r\n  \r\n  }, 150);\r\n});"},{"name":"e_10","fraction":"1\/3","script":"document.addEventListener(\"DOMContentLoaded\", function(event) { \r\n  setTimeout(function(){\r\n          \r\n\t  jQuery('.ab-test4-a').remove();\r\n\t  jQuery('.ab-test4-b').remove();\r\n\t  jQuery('.ab-test4-c').removeAttr('style');\r\n  \r\n  }, 150);\r\n});"}]},{"name":"t_9","conditions":["return true;"],"experiences":[{"name":"e_11","fraction":"0.5","script":"document.addEventListener(\"DOMContentLoaded\", function(event) { \r\n  setTimeout(function(){\r\n          \r\n\t  jQuery('.ab-test5-a').remove();\r\n\t  jQuery('.ab-test5-b').removeAttr('style');\r\n  \r\n  }, 150);\r\n});"},{"name":"e_12","fraction":"0.5","script":"document.addEventListener(\"DOMContentLoaded\", function(event) { \r\n  setTimeout(function(){\r\n          \r\n\t  jQuery('.ab-test5-b').remove();\r\n\t  jQuery('.ab-test5-a').removeAttr('style');\r\n  \r\n  }, 150);\r\n});"}]}],"cookiePrefix":"abjs_","cookieDomain":"","cookieLifetime":30,"cookieSecure":""};
+/**
+ * @file
+ * Adds common javascript functionality.
+ *
+ * Note that this file does not stand alone, and is included as an inline
+ * script along with the dynamic tests, experiences, and conditions.
+ */
+
+// Cookie functions for getting and setting abjs cookies.
+var abCookies = {
+  getCookie: function (sKey) {
+    'use strict';
+    if (!sKey) {
+      return null;
+    }
+    var abKey = abjs.cookiePrefix + sKey;
+    return decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(abKey).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
+  },
+  setCookie: function (sKey, sValue) {
+    'use strict';
+    var abKey = abjs.cookiePrefix + sKey;
+    document.cookie = encodeURIComponent(abKey) + '=' + encodeURIComponent(sValue) + '; max-age=' + abjs.cookieLifetime * 24 * 60 * 60 + abjs.cookieDomain + '; path=/' + abjs.cookieSecure;
+    return true;
+  }
+};
+
+var i;
+var j;
+var fracArray;
+
+// Convert condition and experience function strings into real functions,
+// and convert experience fraction strings into numbers.
+for (i = 0; i < abjs.tests.length; i++) {
+  for (j = 0; j < abjs.tests[i].conditions.length; j++) {
+    abjs.tests[i].conditions[j] = new Function(abjs.tests[i].conditions[j] + '\r\n');
+  }
+  for (j = 0; j < abjs.tests[i].experiences.length; j++) {
+    abjs.tests[i].experiences[j].script = new Function(abjs.tests[i].experiences[j].script + '\r\n');
+    if (abjs.tests[i].experiences[j].fraction.match('/')) {
+      fracArray = abjs.tests[i].experiences[j].fraction.split('/');
+      abjs.tests[i].experiences[j].fraction = fracArray[0] / fracArray[1];
+    }
+    abjs.tests[i].experiences[j].fraction = isNaN(1 * abjs.tests[i].experiences[j].fraction) ? 0 : 1 * abjs.tests[i].experiences[j].fraction;
+  }
+}
+
+// First, for each test, check if all conditions evaluate to true. If any
+// condition evaluates to false, remove that test from the abjs.tests array.
+for (i = 0; i < abjs.tests.length; i++) {
+  for (j = 0; j < abjs.tests[i].conditions.length; j++) {
+    if (!abjs.tests[i].conditions[j]()) {
+      abjs.tests.splice(i, 1);
+      i--;
+      break;
+    }
+  }
+}
+
+// For each test that passses all conditions, determine the experience for this
+// user.
+for (i = 0; i < abjs.tests.length; i++) {
+  // First, check if a cookie exists for this test by checking the cookie's name.
+  // If so, the value of the cookie is the index of the experience that this
+  // user should have.
+  if (abCookies.getCookie(abjs.tests[i].name)) {
+    for (j = 0; j < abjs.tests[i].experiences.length; j++) {
+      if (abCookies.getCookie(abjs.tests[i].name) === abjs.tests[i].experiences[j].name) {
+        abjs.tests[i].activeExperience = j;
+        break;
+      }
+    }
+  }
+  // If a cookie does not yet exist for this test, generate a random number to
+  // determine what experience this user should have by comparing the random
+  // number to the fractions assigned for each experience. Set a cookie for
+  // this test and experience.
+  else {
+    var randomNum = Math.random();
+    var fractionSum = 0;
+    for (j = 0; j < abjs.tests[i].experiences.length; j++) {
+      if (randomNum >= fractionSum && randomNum < fractionSum + abjs.tests[i].experiences[j].fraction) {
+        abCookies.setCookie(abjs.tests[i].name, abjs.tests[i].experiences[j].name);
+        abjs.tests[i].activeExperience = j;
+        break;
+      }
+      fractionSum += abjs.tests[i].experiences[j].fraction;
+    }
+  }
+}
+
+// Run all experience scripts for this user.
+for (i = 0; i < abjs.tests.length; i++) {
+  if (typeof abjs.tests[i].activeExperience !== 'undefined') {
+    abjs.tests[i].experiences[abjs.tests[i].activeExperience].script();
+  }
+}
+})();</script>
+<style>/* @see https://github.com/aFarkas/lazysizes#broken-image-symbol */.js img.lazyload:not([src]) { visibility: hidden; }/* @see https://github.com/aFarkas/lazysizes#automatically-setting-the-sizes-attribute */.js img.lazyloaded[data-sizes=auto] { display: block; width: 100%; }/* Transition effect. */.js .lazyload, .js .lazyloading { opacity: 0; }.js .lazyloaded { opacity: 1; -webkit-transition: opacity 2000ms; transition: opacity 2000ms; }</style>
+<meta name="description" content="5G is here; are your antenna designs ready? Here’s how you can easily create phased array antennas for 5G wireless communication." />
+<meta name="abstract" content="As the 5G rollout progresses and researchers continue to discuss 6G, many new 5G-capable products operating in sub-GHz and mmWave bands are reaching the marketplace. Devices that will include a 5G-compatible front-end, whether small stations/repeaters or handheld devices, use phased arrays as high-gain antenna systems to provide high data throughput without losing range at higher frequencies." />
+<meta name="keywords" content="RF Design" />
+<link rel="canonical" href="https://resources.altium.com/p/phased-array-antenna-design-5g-applications" />
+<link rel="image_src" href="https://resources.altium.com/sites/default/files/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg" />
+<meta property="og:site_name" content="Altium" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://resources.altium.com/p/phased-array-antenna-design-5g-applications" />
+<meta property="og:title" content="Phased Array Antenna Design for 5G Applications" />
+<meta property="og:description" content="As the 5G rollout progresses and researchers continue to discuss 6G, many new 5G-capable products operating in sub-GHz and mmWave bands are reaching the marketplace. Devices that will include a 5G-compatible front-end, whether small stations/repeaters or handheld devices, use phased arrays as high-gain antenna systems to provide high data throughput without losing range at higher frequencies." />
+<meta property="og:image:url" content="https://files.resources.altium.com/sites/default/files/styles/opengraph/public/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg?VersionId=Tn4t_WpC3zX1k2fsrILAJSb6_w6oceOe&amp;itok=5fWfn5WW" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:alt" content="5G phased array" />
+<meta property="og:updated_time" content="2026-03-13" />
+<meta property="article:published_time" content="2022-11-17" />
+<meta property="article:modified_time" content="2026-03-13" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="As the 5G rollout progresses and researchers continue to discuss 6G, many new 5G-capable products operating in sub-GHz and mmWave bands are reaching the marketplace. Devices that will include a 5G-compatible front-end, whether small stations/repeaters or handheld devices, use phased arrays as high-gain antenna systems to provide high data throughput without losing range at higher frequencies." />
+<meta name="twitter:site" content="@altium" />
+<meta name="twitter:title" content="Phased Array Antenna Design for 5G Applications" />
+<meta name="twitter:site:id" content="38044199" />
+<meta name="twitter:image" content="https://resources.altium.com/sites/default/files/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg" />
+<meta name="twitter:image:alt" content="5G phased array" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="Generator" content="Drupal 11 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="text/javascript">
+(function() {
+   function processForm(form) {    
+       const formEl = form.getFormElem()[0];
+       if (!formEl) return;
+
+       const gdprRow = Array.from(formEl.querySelectorAll('.mktoFormRow')).find(row => {
+           return row.textContent.includes('Privacy Policy') && 
+                  row.textContent.includes('consent') && 
+                  row.querySelector('input[type="checkbox"]');
+       });
+       if (!gdprRow) return;
+
+       const submitButtonRow = formEl.querySelector('.mktoButtonRow');
+       if (!submitButtonRow) return;
+
+       let currentElement = gdprRow.nextElementSibling;
+       const progProFields = [];
+
+       while (currentElement && currentElement !== submitButtonRow) {
+           if (currentElement.classList.contains('mktoFormRow')) {
+               progProFields.push(currentElement);
+           }
+           currentElement = currentElement.nextElementSibling;
+       }
+
+       progProFields.forEach(field => {
+           if (field && gdprRow.parentNode) {
+               gdprRow.parentNode.insertBefore(field, gdprRow);
+           }
+       });
+   }
+
+   if (typeof MktoForms2 !== 'undefined') {
+       MktoForms2.whenReady(processForm);
+   } else {
+       var script = document.createElement('script');
+       script.src = 'https://go.altium.com/js/forms2/js/forms2.js';
+       
+       script.onload = function() {
+           MktoForms2.whenReady(processForm);
+       };
+       
+       document.head.appendChild(script);
+   }
+})();
+</script>
+<script>
+/* FormComplete - Normalization Utility Script */
+window._zi_fc = window._zi_fc || {};
+window._zi_fc.utility = window._zi_fc.utility || {};
+window._zi_fc.utility.normalize = (function(){
+
+	var version = 3, normalize = [], contexts = [], mappedDataTypes = [];
+	
+	/* Public method to set Normalization rules. Rules can be object with key+value pairs or function which returns normalizaed value. */
+	function set(dataType, rules) {
+		if (normalize[dataType]) {console.warn('Normalize rule replaced with new rule for data type:', dataType)}
+		normalize[dataType] = rules
+	}
+
+	function updateField(field, dataType, fieldValue) {
+		
+		try {
+
+			/* If function is set, run it passing in field and value as arguments, otherwise try to find new value, and if not found and fallback value defined, return that otherwise return empty string. */
+			var fieldValueNew = typeof normalize[dataType] === 'function' ? normalize[dataType]({field, fieldValue}) : normalize[dataType][fieldValue] || normalize[dataType]['*'] || '';
+
+			/* If a normalized value is not defined or option not found then set enrich to false. */
+			var enrich = !(!fieldValueNew || (field.nodeName === 'SELECT' && !field.querySelector('option[value="' + fieldValueNew + '"]')));
+
+			/* Get field container, if used. */
+			var fieldContainer = field.closest('[data-zi-field-enriched]');
+
+		} catch (e) {console.error('An error occured.\n', {field, dataType, fieldValue})}
+
+		/* Hide or show field container or field. */
+		(fieldContainer || field).style.display = (enrich ? 'none' : '');
+
+		/* Update ZI attribute on field and if used, the field container. */
+		field.setAttribute('data-zi-input-enriched', enrich);
+		if (fieldContainer) {fieldContainer.setAttribute('data-zi-field-enriched', enrich)}
+
+		field.value = fieldValueNew ? fieldValueNew : ''
+
+	}
+
+	/* Public method to aid in configuration; Call through Console to get table of data types and coresponding details. */
+	function getMappedDataTypes() {
+		console.info('FormComplete Mapped Fields:');
+		console.table(mappedDataTypes.map(function(field) {
+			return {
+				DataType: field,
+				IsNormalized: !!normalize[field],
+				DefaultValue: normalize[field] && normalize[field]['*'] ? normalize[field]['*'] : '-'
+			}
+		}))
+	}
+
+	try {
+
+		/* Store onReady callback if defined and define a new callback. */
+		var onReadyClone = window._zi_fc.onReady;
+		window._zi_fc.onReady = function(data) {
+
+			/* If onReady was defined, run first. */
+			if (typeof onReadyClone === 'function') {onReadyClone.bind(this)(data)}
+
+			/* Push all data types used in mapping to mappedDataTypes for easier configuration. */
+			this.inputs.forEach(function(i) {mappedDataTypes.push(i.mappedField)});
+
+			/* Update contexts to include only locations where enriched forms reside. */
+			contexts = [document];
+			document.querySelectorAll('iframe:not([src]), iframe[src=""]').forEach(function(el){
+				try {var context = el.contentDocument || el.contentWindow.document;context.querySelector('[data-zi-mapped-form]') && contexts.push(context)} catch {}
+			})
+
+		};
+		
+		/* Store onMatch callback if defined and define a new callback. */
+		var onMatchClone = window._zi_fc.onMatch;
+		window._zi_fc.onMatch = function(data) {
+			
+			var self = this;
+
+			/* If onMatch was defined, run first. */
+			if (typeof onMatchClone === 'function') {onMatchClone.bind(this)(data)}
+
+			/* Locate all instances of form and confirm enrichment occured. */
+			contexts.forEach(function(context){
+				
+				/* Does form exist? */
+				var form = context.querySelector(self.selector);
+				if (!form) {return}
+			
+				/* Iterate over each field and value returned by onMatch callback. */
+				Object.keys(data).forEach(function(fieldName) {
+
+					/* Locate field and if not found or user provided their own value, do not normalize. */
+					var field = form.querySelector('[name="' + fieldName + '"]');
+					if (!field || field.hasAttribute('data-hasusertyped')) {return}
+
+					/* Determine data type by field name and check if normalization is set. */
+					var dataType = (self.inputs.find(function(i) {return i.nameAttr === fieldName})).mappedField;
+					if (!normalize[dataType]) {return}
+
+					/* Update field. */
+					updateField(field, dataType, data[fieldName])
+
+				})
+
+			})
+
+		}
+
+	} catch (e) {console.error('FormComplete utility script encountered an issue...\n', e)}
+
+	return {
+		version: version,
+		normalize: normalize,
+		getMappedDataTypes: getMappedDataTypes,
+		set: set
+	}
+
+})();
+</script>
+<script>
+/* FormComplete - Normalization Utility Script - Configuration Examples */
+
+
+/* Format First Name data - make fully uppercase. */
+window._zi_fc.utility.normalize.set('firstName', function(data){return data.fieldValue.toUpperCase()});
+
+
+/* Select Contact Country by option text instead of option value. Case-insensitive. Useful for Pardot picklist fields. */
+window._zi_fc.utility.normalize.set('contactCountry', function(data){
+    var match = Array.prototype.find.call(data.field.options, function(opt) {return opt.text.toLowerCase() === data.fieldValue.toLowerCase()});
+    return match ? match.value : null;
+});
+
+
+/* Map ZI Values to Company State field's Alpha-2 formatted values. */
+window._zi_fc.utility.normalize.set('companyState', {
+
+	/* CA Provinces */
+	'Alberta': 'AB',
+	'British Columbia': 'BC',
+	'Manitoba': 'MB',
+	'New Brunswick': 'NB',
+	'Newfoundland and Labrador': 'NL',
+	'Northwest Territories': 'NT',
+	'Nova Scotia': 'NS',
+	'Nunavut': 'NU',
+	'Ontario': 'ON',
+	'Prince Edward Island': 'PE',
+	'Quebec': 'QC',
+	'Saskatchewan': 'SK',
+	'Yukon': 'YT',
+
+	/* US States/Territories */
+	'Alabama': 'AL',
+	'Alaska': 'AK',
+	'Arizona': 'AZ',
+	'Arkansas': 'AR',
+	'California': 'CA',
+	'Colorado': 'CO',
+	'Connecticut': 'CT',
+	'Delaware': 'DE',
+	'Florida': 'FL',
+	'Georgia': 'GA',
+	'Hawaii': 'HI',
+	'Idaho': 'ID',
+	'Illinois': 'IL',
+	'Indiana': 'IN',
+	'Iowa': 'IA',
+	'Kansas': 'KS',
+	'Kentucky': 'KY',
+	'Louisiana': 'LA',
+	'Maine': 'ME',
+	'Maryland': 'MD',
+	'Massachusetts': 'MA',
+	'Michigan': 'MI',
+	'Minnesota': 'MN',
+	'Mississippi': 'MS',
+	'Missouri': 'MO',
+	'Montana': 'MT',
+	'Nebraska': 'NE',
+	'Nevada': 'NV',
+	'New Hampshire': 'NH',
+	'New Jersey': 'NJ',
+	'New Mexico': 'NM',
+	'New York': 'NY',
+	'North Carolina': 'NC',
+	'North Dakota': 'ND',
+	'Ohio': 'OH',
+	'Oklahoma': 'OK',
+	'Oregon': 'OR',
+	'Pennsylvania': 'PA',
+	'Rhode Island': 'RI',
+	'South Carolina': 'SC',
+	'South Dakota': 'SD',
+	'Tennessee': 'TN',
+	'Texas': 'TX',
+	'Utah': 'UT',
+	'Vermont': 'VT',
+	'Virginia': 'VA',
+	'Washington': 'WA',
+	'West Virginia': 'WV',
+	'Wisconsin': 'WI',
+	'Wyoming': 'WY',
+	'District of Columbia': 'DC',
+	'Puerto Rico': 'PR',
+
+});
+
+</script>
+<script>window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'tagList','tagSlugs': 'altium-designer|pcb-design|pcb-design-layout|pcb-layout|rf-pcb-design|simulation-and-analysis'});</script>
+<script data-ot-ignore="" type="text/javascript" src="/modules/custom/altium_onetrust/js/altium_onetrust.js" class="optanon-category-C0001"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'functionality_storage': 'denied',
+    'personalization_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'region': ['US-CA']
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted',
+    'ad_storage': 'granted',
+    'functionality_storage': 'granted',
+    'personalization_storage': 'granted',
+    'ad_user_data': 'granted',
+    'ad_personalization': 'granted',
+    'region': ['US']
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'functionality_storage': 'denied',
+    'personalization_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'wait_for_update': 500
+  });
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5LFC7W');</script>
+<!-- End Google Tag Manager -->
+
+<script src="https://cdn.cookielaw.org/consent/043a2c97-19b3-47d5-a965-246500b3e006/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="043a2c97-19b3-47d5-a965-246500b3e006" ></script>
+<script src="https://cdn-shared.altium.com/production/onetrust/onetrust.js" type="text/javascript"></script>
+<!--
+<PageMap>
+  <DataObject type="document">
+    <Attribute name="space">resources</Attribute>
+    <Attribute name="langcode">en</Attribute>
+    <Attribute name="summary">5G is here; are your antenna designs ready? Here’s how you can easily create phased array antennas for 5G wireless communication.</Attribute>
+    <Attribute name="image">https://files.resources.altium.com/sites/default/files/styles/opengraph/public/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg?VersionId=Tn4t_WpC3zX1k2fsrILAJSb6_w6oceOe&itok=5fWfn5WW</Attribute>
+  </DataObject>
+</PageMap>
+-->
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Article",
+            "headline": "Phased Array Antenna Design for 5G Applications",
+            "name": "Phased Array Antenna Design for 5G Applications",
+            "about": [
+                "Altium Designer",
+                "PCB Layout",
+                "RF Design"
+            ],
+            "description": "As the 5G rollout progresses and researchers continue to discuss 6G, many new 5G-capable products operating in sub-GHz and mmWave bands are reaching the marketplace. Devices that will include a 5G-compatible front-end, whether small stations/repeaters or handheld devices, use phased arrays as high-gain antenna systems to provide high data throughput without losing range at higher frequencies.",
+            "image": {
+                "@type": "ImageObject",
+                "representativeOfPage": "False",
+                "url": "https://resources.altium.com/sites/default/files/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg"
+            },
+            "datePublished": "2022-11-17",
+            "dateModified": "2026-03-13",
+            "isAccessibleForFree": "True",
+            "author": {
+                "@type": "Person",
+                "@id": "https://resources.altium.com/experts/zachariah-peterson",
+                "name": "Zachariah Peterson",
+                "url": "https://resources.altium.com/experts/zachariah-peterson",
+                "logo": {
+                    "@type": "ImageObject",
+                    "representativeOfPage": "True",
+                    "url": "https://files.resources.altium.com/sites/default/files/styles/max_width_2600/public/user_pictures/headshot-small-350.jpg?VersionId=mWIBysPeyDlPeABP8HB68IHhVIKO8wJO\u0026itok=jOI_Tmrt",
+                    "width": "351",
+                    "height": "351"
+                }
+            },
+            "publisher": {
+                "@type": "Corporation",
+                "@id": "https://www.altium.com",
+                "name": "Altium Limited",
+                "url": "https://www.altium.com",
+                "sameAs": "https://en.wikipedia.org/wiki/Altium",
+                "logo": {
+                    "@type": "ImageObject",
+                    "representativeOfPage": "False",
+                    "url": "https://www.altium.com/sites/all/themes/altium/logo.png"
+                }
+            },
+            "mainEntityOfPage": "https://resources.altium.com/p/phased-array-antenna-design-5g-applications"
+        }
+    ]
+}</script>
+<link rel="apple-touch-icon" sizes="180x180" href="https://files.resources.altium.com/sites/default/files/favicons/altium.com/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://files.resources.altium.com/sites/default/files/favicons/altium.com/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://files.resources.altium.com/sites/default/files/favicons/altium.com/favicon-16x16.png" />
+<link rel="manifest" href="https://files.resources.altium.com/sites/default/files/favicons/altium.com/site.webmanifest" />
+<link rel="mask-icon" href="https://files.resources.altium.com/sites/default/files/favicons/altium.com/safari-pinned-tab.svg" color="#5bbad5" />
+<link rel="alternate" hreflang="en" href="https://resources.altium.com/p/phased-array-antenna-design-5g-applications" />
+<link rel="alternate" hreflang="de" href="https://resources.altium.com/de/p/phased-array-antenna-design-5g-applications" />
+<link rel="alternate" hreflang="zh-hans" href="https://resources.altium.com.cn/p/phased-array-antenna-design-5g-applications" />
+<script>window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};</script>
+
+    <meta name="naver-site-verification" content="navera58d64f263d7a5cd264aceb5054727f4" />
+    <script src="https://cdn.optimizely.com/js/16602720088.js" type="text/plain" class="optanon-category-C0002"></script>
+    <script type="text/plain" class="optanon-category-C0002" src="//cdn.bizible.com/scripts/bizible.js" async=""></script>
+
+    <title>Phased Array Antenna Design for 5G Applications | Blog | Altium Designer</title>
+    <link rel="stylesheet" media="all" href="/sites/default/assets/css/css_Z1Vbihl3T6Z-sJNIqegKHgPVEb8zRUM0xYKUt6MamJs.css?delta=0&amp;language=en&amp;theme=altium&amp;include=eJx1jlFuwzAMQy-UxkcyZFtxhMqSa8ktstMvWxvsaz8C8UiBhFJcQY4AH7FuQ8UXYKfZQmVNwDfzg0nqh8Z8JlA8JhDBEYwKJhjxRaXi9RoFnlTBSSUm1ny3sKk6jv_9HaGcfmYwO0ICw0s3NIOKtlzNMAt5zNNcW3hMyvc3OgMDg-howPSFy0Z8VoYM_ado6TCgDui7hTJmB17_yDqlz8RkO5bFDnNs7w1PwpeF37s2LZPxGyQpei0" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/navigation_new/dist/css/footer.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/navigation_new/dist/css/header.min.css" />
+<link rel="stylesheet" media="all" href="/sites/default/assets/css/css_KPKg4fsHfCzpVqpt944hror--bXKlkxh7XrIdFjrI2U.css?delta=3&amp;language=en&amp;theme=altium&amp;include=eJx1jlFuwzAMQy-UxkcyZFtxhMqSa8ktstMvWxvsaz8C8UiBhFJcQY4AH7FuQ8UXYKfZQmVNwDfzg0nqh8Z8JlA8JhDBEYwKJhjxRaXi9RoFnlTBSSUm1ny3sKk6jv_9HaGcfmYwO0ICw0s3NIOKtlzNMAt5zNNcW3hMyvc3OgMDg-howPSFy0Z8VoYM_ado6TCgDui7hTJmB17_yDqlz8RkO5bFDnNs7w1PwpeF37s2LZPxGyQpei0" />
+<link rel="stylesheet" media="all" href="/sites/default/assets/css/css_M6W2Kfj8U6O6FyvX1397YkZxWv_lMXinO79FloxonP4.css?delta=4&amp;language=en&amp;theme=altium&amp;include=eJx1jlFuwzAMQy-UxkcyZFtxhMqSa8ktstMvWxvsaz8C8UiBhFJcQY4AH7FuQ8UXYKfZQmVNwDfzg0nqh8Z8JlA8JhDBEYwKJhjxRaXi9RoFnlTBSSUm1ny3sKk6jv_9HaGcfmYwO0ICw0s3NIOKtlzNMAt5zNNcW3hMyvc3OgMDg-howPSFy0Z8VoYM_ado6TCgDui7hTJmB17_yDqlz8RkO5bFDnNs7w1PwpeF37s2LZPxGyQpei0" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/wds/dist/components/wds-typography-inside/wds-typography-inside.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/altium-all-pages/dist/components/bCountdown/bCountdown.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/wds/dist/components/wds-global/wds-global.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/wds/dist/components/wds-btn/wds-btn.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/wds/dist/components/wds-formV2/wds-formV2.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/wds/dist/components/wds-loader/wds-loader.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/wds/dist/components/wds-sticky/wds-sticky.min.css" />
+<link rel="stylesheet" media="all" href="https://cdn-shared.altium.com/production/wds/dist/components/wds-sticky-v2/wds-sticky-v2.min.css" />
+<link rel="stylesheet" media="all" href="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/intlTelInput/intlTelInput.min.css" />
+<link rel="stylesheet" media="all" href="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/owl-carousel/owl.carousel.min.css" />
+<link rel="stylesheet" media="all" href="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/css/styles.min.css" />
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/530068822","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJx1kF1ywzAIhC9kWy-9jwcJYpPorwI545y-dhLF6aR9YVYfO8AKEDVBXA08xXAqKWoHXrkGM_lkwfeiq-c4NbowrlCwX76eZARczEP2m_yb9hbchSL2LtWohUmaz52bzZ1fbLuCoo4WYqRifj__MQkjWSjjlXGilmFECGJySdhAhIUnUE5xtD65i5hTSnpM_ezPBPjWt5LNm25cZiiE91UDeD9mmI6MUjMVcYWzmk_UOQ8iq7Eg1HQgkfuElhIqso6uiqZgviu7ywNthkImphLA8426E3vdvwzynqHzcFvNXroMBaYCeRaDpWbww0GGGnO1nmUm7ES3-KLsXsaDdLKKUnicujBdxdzrEBJWTz-CNun_","theme":"altium","theme_token":null},"ajaxTrustedUrl":[],"altiumNbsp":{"names":["Altium 365","Altium 365\u2019s","Altium Designer","Altium Enterprise","IHS Markit","Assembly Assistant","BOM Manager","Siemens NX\u2122","Altium 365\u0027s","Altium Develop"],"tags":["p","h1","h2","h3","h4","h5","h6","li","td","th","div","span"]},"clientside_validation_jquery":{"validate_all_ajax_forms":2,"force_validate_on_blur":false,"force_html5_validation":false,"messages":{"required":"This field is required.","remote":"Please fix this field.","email":"Please enter a valid email address.","url":"Please enter a valid URL.","date":"Please enter a valid date.","dateISO":"Please enter a valid date (ISO).","number":"Please enter a valid number.","digits":"Please enter only digits.","equalTo":"Please enter the same value again.","maxlength":"Please enter no more than {0} characters.","minlength":"Please enter at least {0} characters.","rangelength":"Please enter a value between {0} and {1} characters long.","range":"Please enter a value between {0} and {1}.","max":"Please enter a value less than or equal to {0}.","min":"Please enter a value greater than or equal to {0}.","step":"Please enter a multiple of {0}."}},"lazy":{"lazysizes":{"lazyClass":"lazyload","loadedClass":"lazyloaded","loadingClass":"lazyloading","preloadClass":"lazypreload","errorClass":"lazyerror","autosizesClass":"lazyautosizes","srcAttr":"data-src","srcsetAttr":"data-srcset","sizesAttr":"data-sizes","minSize":40,"customMedia":[],"init":true,"expFactor":1.5,"hFac":0.8,"loadMode":2,"loadHidden":true,"ricTimeout":0,"throttleDelay":125,"plugins":[]},"placeholderSrc":"data:image\/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==","preferNative":false,"minified":true,"libraryPath":"\/libraries\/lazysizes"},"statistics":{"data":{"nid":"530068822"},"url":"\/modules\/contrib\/statistics\/statistics.php"},"quickAudit":{"nid":"594134109","langcode":"en","type":"blogs"},"user":{"uid":0,"permissionsHash":"a6119abed6e1b46c60788a012e7782153f45c2ac5d103021ced40018b1a14082"}}</script>
+<script src="/modules/contrib/jquery_once/lib/jquery_3.7.1_jquery.min.js?v=3.7.1"></script>
+<script src="/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
+<script src="/core/misc/drupalSettingsLoader.js?v=11.3.11"></script>
+<script src="/core/misc/drupal.js?v=11.3.11"></script>
+<script src="/core/misc/drupal.init.js?v=11.3.11"></script>
+<script src="//go.altium.com/js/forms2/js/forms2.min.js"></script>
+<script src="//play.vidyard.com/embed/v4.js"></script>
+<script src="/modules/custom/altium_adv/js/dist/main.bundle.js?v=1.x"></script>
+
+    <script type="text/plain" class="optanon-category-C0002">
+      (function() {
+        var didInit = false;
+        function initMunchkin() {
+          if(didInit === false) {
+            didInit = true;
+            if (window.Munchkin && typeof window.Munchkin !== 'undefined') {
+              Munchkin.init('817-SFW-071');
+            }
+          }
+        }
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//munchkin.marketo.net/munchkin.js';
+        s.onreadystatechange = function() {
+          if (this.readyState == 'complete' || this.readyState == 'loaded') {
+            initMunchkin();
+          }
+        };
+        s.onload = initMunchkin;
+        document.getElementsByTagName('head')[0].appendChild(s);
+      })();
+    </script>
+  </head>
+  <body class="domain-resources_altium_com path-node page-node-type-blogs i18n-en _page-style-a365">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LFC7W"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+        <a href="#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="outer-wrapper">
+
+
+      <div class="header-v2">
+      <div id="altium-navigation-header" class="header-v2__primary">
+    <div class="header-v2__container">
+      <a class="header-v2__ico header-v2__mobile-menu-btn" href>
+	      Mobile menu <span></span>
+      </a>
+      <div class="header-v2__logo">
+        <a href="https://www.altium.com" aria-label="Altium">
+          <svg width="83" height="18" viewBox="0 0 83 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.4417 0L17.2225 17.1H21.995L26.2142 0H21.4417ZM29.9492 13.2231L31.4708 7.06154H33.4767L34.1683 4.15384H32.1625L33.2 0.138461H28.4275L24.9692 13.9154C24.6233 15.3 24.6925 16.2 25.315 16.6154C25.7992 17.0308 26.8367 17.2385 28.2892 17.1692C29.1192 17.1692 30.0183 17.1 30.9867 17.0308L31.6783 14.1231H30.9175C30.0875 14.2615 29.8108 13.9154 29.9492 13.2231ZM35.8975 4.15384L32.7158 17.1H37.4883L40.67 4.15384H35.8975ZM50.3533 4.15384L48.2783 12.7385C48.0017 13.7769 47.4483 14.2615 46.48 14.2615C45.5808 14.2615 45.235 13.7769 45.5117 12.7385L47.6558 4.15384H42.8833L40.4625 13.9846C40.1167 15.3692 40.3242 16.2692 40.9467 16.7538C41.5692 17.2385 42.3992 17.5154 43.4367 17.4461C45.1658 17.4461 46.5492 16.8231 47.4483 15.5769H47.5175L47.1717 17.1692H51.9442L55.1258 4.15384H50.3533ZM76.0142 4.5C75.3917 4.01538 74.4925 3.80769 73.3858 3.80769C72.625 3.80769 71.8642 3.94615 71.1725 4.22307C70.4117 4.5 69.72 5.05384 69.1667 5.81538C69.0283 5.12307 68.7517 4.63846 68.2675 4.29231C67.7833 3.94615 67.0225 3.80769 65.985 3.80769C64.2558 3.80769 62.8725 4.43077 61.9042 5.74615H61.835L62.25 4.15384H57.4775L54.2958 17.1H59.0683L61.2125 8.51538C61.4892 7.47692 62.0425 6.99231 63.0108 6.99231C63.91 6.99231 64.2558 7.47692 63.9792 8.51538L61.835 17.1H66.6075L68.7517 8.51538C69.0283 7.47692 69.6508 6.99231 70.55 6.99231C71.4492 6.99231 71.795 7.47692 71.5183 8.51538L69.4433 17.1H71.5183C73.04 17.1 74.4233 16.0615 74.7692 14.7461L76.5675 7.33846C76.775 5.95384 76.6367 4.98461 76.0142 4.5ZM12.7267 0C10.375 0.0692307 8.36917 1.38461 7.2625 3.39231L0 17.1H5.46417L6.77833 14.1231H10.8592L10.7208 17.1H16.185L15.5625 0H12.7267ZM11.0667 10.8692H8.23083L11.4817 3.73846L11.0667 10.8692Z"
+              fill="white"/>
+            <path d="M83 15.9923C83 17.1692 82.1008 18 80.9942 18C79.8875 18 78.9883 17.1692 78.9883 15.9923C78.9883 14.8154 79.8875 13.9846 80.9942 13.9846C82.1008 14.0538 83 14.8846 83 15.9923ZM82.5158 15.9923C82.5158 15.0923 81.8933 14.4 80.9942 14.4C80.095 14.4 79.4725 15.0231 79.4725 15.9923C79.4725 16.8923 80.095 17.5154 80.9942 17.5154C81.8933 17.5846 82.5158 16.9615 82.5158 15.9923ZM80.9942 15.0231C81.4783 15.0231 81.755 15.2308 81.755 15.6462C81.755 15.9231 81.6167 16.1308 81.4092 16.2L81.8933 16.9615H81.5475L81.1325 16.2692H80.8558V16.9615H80.51V15.0231H80.9942ZM81.0633 15.9923C81.2708 15.9923 81.4092 15.8538 81.4092 15.7154C81.4092 15.5077 81.2708 15.4385 81.0633 15.4385H80.7175V16.0615H81.0633V15.9923Z"
+              fill="white"/>
+          </svg>
+        </a>
+      </div>
+        <nav class="header-v2__nav">
+    <ul>
+                                              
+        <li class="header-v2__inner-lvl">
+                                    <a href="">Solutions<div class="header-v2__inner-lvl-ico"><span></span></div></a>            
+                          
+                              <div class="header-v2__nav__lvl2 header-v2_pos-center">
+                  <div class="header-v2__nav__col">
+                    <ul>
+                                                                                              <li>
+                        <a href="https://www.altium.com/octopart-discover">
+                              Octopart Discover
+
+                                                              <span class="header-v2__desc">Go beyond part search to discover viable solutions, evaluate tradeoffs, and make better decisions earlier</span></a>                        </li>
+                                                                                              <li>
+                        <a href="https://www.altium.com/develop">
+                              Altium Develop
+
+                                                              <span class="header-v2__desc">Design advanced PCBs in Altium Designer, working independently or connecting reviewers, sourcing data, and release coordination when needed</span></a>                        </li>
+                                                                                              <li>
+                        <a href="https://www.altium.com/agile/teams">
+                              Altium Agile Teams
+
+                                                              <span class="header-v2__desc">Bring structure to multidisciplinary electronics development and collaboration without sacrificing speed</span></a>                        </li>
+                                                                                              <li>
+                        <a href="https://www.altium.com/agile/enterprise">
+                              Altium Agile Enterprise
+
+                                                              <span class="header-v2__desc">Connect context from intent through release with an intelligent, governed, extensible platform</span></a>                        </li>
+                                          </ul>
+                  </div>
+                </div>
+                                            </li>
+                                              
+        <li class="header-v2__inner-lvl">
+                                    <a href="">Resources &amp; Support<div class="header-v2__inner-lvl-ico"><span></span></div></a>            
+                          
+                              
+                                                                                                                                                                                                                                        
+                
+                <div class="header-v2__nav__lvl2 header-v2_pos-center _clear-inline-indent _type-3-cols">
+                                      <div class="header-v2__nav__col">
+                                              <div class="header-v2__title">Free Altium 365 Tools</div>
+                        <ul>
+                                                                                                                    <li>
+                              <a href="https://www.altium.com/gerber-compare/">Gerber Compare</a>
+                                                          </li>
+                                                                                                                    <li>
+                              <a href="https://www.altium.com/viewer/">Online PCB Viewer</a>
+                                                          </li>
+                                                  </ul>
+                                          </div>
+                                      <div class="header-v2__nav__col">
+                                              <div class="header-v2__title">Resources &amp; Support</div>
+                        <ul>
+                                                                                                                    <li>
+                              <a href="https://resources.altium.com">Learning Hub</a>
+                                                          </li>
+                                                                                                                    <li>
+                              <a href="https://www.altium.com/support">Support Center</a>
+                                                          </li>
+                                                                                                                    <li>
+                              <a href="https://www.altium.com/documentation/">Documentation</a>
+                                                          </li>
+                                                                                                                    <li>
+                              <a href="https://resources.altium.com/webinars">Webinars</a>
+                                                          </li>
+                                                  </ul>
+                                          </div>
+                                      <div class="header-v2__nav__col">
+                                              <div class="header-v2__title">Altium Community</div>
+                        <ul>
+                                                                                                                    <li>
+                              <a href="https://forum.live.altium.com/">Forum</a>
+                                                          </li>
+                                                                                                                    <li>
+                              <a href="https://bugcrunch.live.altium.com/">Bug Crunch</a>
+                                                          </li>
+                                                                                                                    <li>
+                              <a href="https://bugcrunch.live.altium.com/#/Ideas/New">Ideas</a>
+                                                          </li>
+                                                  </ul>
+                                          </div>
+                                  </div>
+                                            </li>
+                                              
+        <li class="header-v2__inner-lvl">
+                                    <a href="">Education &amp; Training<div class="header-v2__inner-lvl-ico"><span></span></div></a>            
+                          
+                              <div class="header-v2__nav__lvl2 header-v2_pos-center">
+                  <div class="header-v2__nav__col">
+                    <ul>
+                                                                                              <li>
+                        <a href="https://www.altium.com/education/students">
+                              Student Lab
+
+                                                              <span class="header-v2__desc">Free access to professional PCB design software, training, and learning resources for students</span></a>                        </li>
+                                                                                              <li>
+                        <a href="https://www.altium.com/education/educators">
+                              Educator Center
+
+                                                              <span class="header-v2__desc">A comprehensive education platform providing curriculum, software, training, and classroom resources for educators</span></a>                        </li>
+                                                                                              <li>
+                        <a href="https://education.altium.com/">
+                              Altium Education Curriculum
+
+                                                              <span class="header-v2__desc">Free college- and university-level PCB design curriculum designed to prepare students for real-world engineering careers</span></a>                        </li>
+                                                                                              <li>
+                        <a href="https://www.altium.com/training">
+                              Altium Professional Training
+
+                                                              <span class="header-v2__desc">Flexible on-demand and instructor-led training courses that help engineers build and advance their PCB design skills</span></a>                        </li>
+                                          </ul>
+                  </div>
+                </div>
+                                            </li>
+                                              
+        <li class="header-v2__search">
+                      <a class="header-v2__search__show header-v2__ico header-v2__use-ico-search" href="https://www.altium.com/search">
+                Search Open <span></span></a>
+                          <form class="header-v2__search__field-wrap" action="https://www.altium.com/search" target="_blank">
+                <input class="header-v2__search__field" type="text" value="" name="s">
+                <button class="header-v2__search__btn header-v2__ico header-v2__use-ico-search" type="submit">
+                  Search<span></span>
+                </button>
+                <a class="header-v2__search__close header-v2__ico header-v2__use-ico-close" href>
+                    Search Close <span></span></a>              </form>
+            
+                  </li>
+          </ul>
+  </nav>
+
+
+      
+      <div class="header-v2__user">
+        <div id="user-info-injectable-to-header" style="display: none;">
+        </div>
+
+        <a style="display: none;" class="header-v2__user__btn" href="https://auth.altium.com/?ReturnUrl=">Sign In</a>      </div>
+    </div>
+  </div>
+
+      <header class="s-header header-v2__element">
+        <div class="s-header__in">
+          
+  <div class="region am-container region-main-menu">
+    <a href="#" class="s-header__btn-mobile">
+      <span>
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 1.47754L5 5.47754L1 1.47754" stroke="#353535" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 4.5L5 0.5L9 4.5" stroke="#353535" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      RF Design
+    </a>
+    <nav role="navigation" aria-labelledby="block-mainmenu-menu" id="block-mainmenu" class="block block-menu navigation s-header__nav menu--main-menu">
+            
+  <h2 class="visually-hidden" id="block-mainmenu-menu">Main menu</h2>
+  
+
+    <div class="s-header__menu-wrap">
+          
+              <ul class="menu">
+                    <li class="menu-item">
+        <a href="https://resources.altium.com/">Home</a>
+              </li>
+                <li class="menu-item menu-item--expanded">
+        <a href="/pcb-design" data-drupal-link-system-path="taxonomy/term/4478">PCB Design</a>
+                                <ul class="menu">
+                    <li class="menu-item">
+        <a href="/collaboration" data-drupal-link-system-path="taxonomy/term/4448">Collaboration</a>
+              </li>
+                <li class="menu-item">
+        <a href="/component-management" data-drupal-link-system-path="taxonomy/term/4449">Component Creation</a>
+              </li>
+                <li class="menu-item">
+        <a href="/design-data-management" data-drupal-link-system-path="taxonomy/term/4453">Data Management</a>
+              </li>
+                <li class="menu-item">
+        <a href="/design-documentation" data-drupal-link-system-path="taxonomy/term/4454">Design Outputs</a>
+              </li>
+                <li class="menu-item">
+        <a href="/ecad-mcad" data-drupal-link-system-path="taxonomy/term/4459">ECAD/MCAD</a>
+              </li>
+                <li class="menu-item">
+        <a href="/high-density-interconnect-pcb" data-drupal-link-system-path="taxonomy/term/4537">HDI Design</a>
+              </li>
+                <li class="menu-item">
+        <a href="/high-speed-design" data-drupal-link-system-path="taxonomy/term/4468">High Speed Design</a>
+              </li>
+                <li class="menu-item">
+        <a href="/multiple-board-design" data-drupal-link-system-path="taxonomy/term/4538">Multi-Board</a>
+              </li>
+                <li class="menu-item">
+        <a href="/pcb-layout" data-drupal-link-system-path="taxonomy/term/4540">PCB Layout</a>
+              </li>
+                <li class="menu-item">
+        <a href="/pcb-routing" data-drupal-link-system-path="taxonomy/term/4482">PCB Routing</a>
+              </li>
+                <li class="menu-item">
+        <a href="/pcb-supply-chain" data-drupal-link-system-path="taxonomy/term/4483">PCB Supply Chain</a>
+              </li>
+                <li class="menu-item">
+        <a href="/power-integrity" data-drupal-link-system-path="taxonomy/term/4490">Power Integrity</a>
+              </li>
+                <li class="menu-item">
+        <a href="/rf-pcb-design" data-drupal-link-system-path="taxonomy/term/4539">RF Design</a>
+              </li>
+                <li class="menu-item">
+        <a href="/rigid-flex" data-drupal-link-system-path="taxonomy/term/4496">Rigid Flex</a>
+              </li>
+                <li class="menu-item">
+        <a href="/schematic-capture" data-drupal-link-system-path="taxonomy/term/4498">Schematic Capture</a>
+              </li>
+                <li class="menu-item">
+        <a href="/signal-integrity" data-drupal-link-system-path="taxonomy/term/4500">Signal Integrity</a>
+              </li>
+                <li class="menu-item">
+        <a href="/simulation-and-analysis" data-drupal-link-system-path="taxonomy/term/4501">Simulation</a>
+              </li>
+          </ul>
+  
+              </li>
+                <li class="menu-item menu-item--expanded">
+        <span title="Software by Altium">Software</span>
+                                <ul class="menu">
+                    <li class="menu-item">
+        <a href="/develop" data-drupal-link-system-path="taxonomy/term/7306">Develop</a>
+              </li>
+                <li class="menu-item">
+        <a href="/discover" data-drupal-link-system-path="taxonomy/term/7305">Discover</a>
+              </li>
+                <li class="menu-item">
+        <a href="/agile" data-drupal-link-system-path="taxonomy/term/7292">Agile</a>
+              </li>
+                <li class="menu-item">
+        <a href="/altium-365" target="_blank" data-drupal-link-system-path="taxonomy/term/4430">Altium 365	</a>
+              </li>
+                <li class="menu-item">
+        <a href="/altium-designer" data-drupal-link-system-path="taxonomy/term/4431">Altium Designer</a>
+              </li>
+          </ul>
+  
+              </li>
+                <li class="menu-item menu-item--expanded">
+        <a href="https://resources.altium.com/training">Education</a>
+                                <ul class="menu">
+                    <li class="menu-item">
+        <a href="https://www.altium.com/education">Programs</a>
+              </li>
+                <li class="menu-item">
+        <a href="https://www.youtube.com/@AltiumAcademy" target="_blank" title="Videos">Altium Academy</a>
+              </li>
+                <li class="menu-item">
+        <a href="/news" data-drupal-link-system-path="taxonomy/term/4475">Engineering News</a>
+              </li>
+                <li class="menu-item">
+        <a href="/guide-books" data-drupal-link-system-path="taxonomy/term/4467">Guide Books</a>
+              </li>
+                <li class="menu-item">
+        <a href="/newsletter" data-drupal-link-system-path="taxonomy/term/4476">Newsletters</a>
+              </li>
+                <li class="menu-item">
+        <a href="/podcast" target="_self" data-drupal-link-system-path="taxonomy/term/4489">Podcasts</a>
+              </li>
+                <li class="menu-item">
+        <a href="/projects" title="Altium Designer Projects" data-drupal-link-system-path="taxonomy/term/4493">Projects</a>
+              </li>
+                <li class="menu-item">
+        <a href="/training" target="_self" data-drupal-link-system-path="taxonomy/term/4505">Training Courses</a>
+              </li>
+                <li class="menu-item">
+        <a href="/webinars" data-drupal-link-system-path="taxonomy/term/4510">Webinars</a>
+              </li>
+                <li class="menu-item">
+        <a href="/whitepapers" data-drupal-link-system-path="taxonomy/term/4511">Whitepapers</a>
+              </li>
+          </ul>
+  
+              </li>
+          </ul>
+  
+
+
+      </div>
+</nav>
+<div id="block-altiumsearchminblock" class="block block-altium-custom-search block-altium-search-min-block">
+  
+    
+      <div class="s-header__f-search">
+<div class="f-search _min">
+<form class="views-exposed-form bef-exposed-form" data-drupal-selector="views-exposed-form-altium-search-view-page-1" action="https://www.altium.com/search" method="get" id="views-exposed-form-altium-search-view-page-1" accept-charset="UTF-8" novalidate="novalidate">
+  <div class="form--inline clearfix">
+  <div class="_use-clear js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-s form-item-s">
+  <span class="form-item__clear"></span>
+        <input data-drupal-selector="edit-s" data-msg-maxlength="This field has a maximum length of 128." placeholder="Search" type="text" id="edit-s" name="s" value="" size="30" maxlength="128" class="form-text">
+
+        </div>
+<input data-drupal-selector="edit-radio-nn" type="hidden" name="radio-nn" value="company">
+<input data-drupal-selector="edit-checkbox-resources" type="hidden" name="checkbox-Resources" value="Resources">
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit-altium-search-view" type="submit" id="edit-submit-altium-search-view" value="Search" class="button js-form-submit form-submit">
+</div>
+
+</div>
+
+</form>
+</div>
+</div>
+  </div>
+
+  </div>
+
+        </div>
+      </header>
+    </div>
+  
+      <dams-banner resource="sticky_top_html"></dams-banner>
+
+
+    <div class="dams-insert-after"></div>
+  <div class="inner-wrapper">
+    <div class="content-wrapper">
+      
+      
+      
+        <div class="region region-content">
+    <div id="block-altium-content" class="block block-system block-system-main-block">
+  
+    
+      
+<section  about="/p/phased-array-antenna-design-5g-applications" class="section section_gap_md">
+  <div class="am-container">
+    <div id="block-altiumbreadcrumbblock" class="block block-altium-breadcrumb block-altium-breadcrumb-block">
+  
+    
+                        <div class="breadcrumb ">
+                          <a href="https://resources.altium.com">Learning Hub</a>
+              <span class="breadcrumb__ico"></span>
+                          <a href="/rf-pcb-design">RF Design</a>
+              <span class="breadcrumb__ico"></span>
+            
+                          <span>Phased Array Antenna Design for 5G Applications</span>
+                      </div>
+        
+  </div>
+
+                            
+    <div class="content-wrapper__inner _size-md">
+      <div class="content-wrapper__main">
+        <!-- ty_block_mobile_begin -->
+
+        <!-- ty_block_mobile_end -->
+        <div class="b-post">
+          <div class="b-post__body">
+            <h1><span class="field field--name-title field--type-string field--label-hidden">Phased Array Antenna Design for 5G Applications</span>
+</h1>
+
+                          <div class="b-author-min b-post__b-author-min">
+                                  <div class="b-author-min__img">
+                                          <img src="https://files.resources.altium.com/sites/default/files/styles/medium/public/user_pictures/headshot-small-350.jpg?VersionId=5SpYrb2e27dlN8o.yP7u7R.yVJTGSeR9&amp;itok=I-ztzpal" alt="">
+                                      </div>
+                                      <a href="/experts/zachariah-peterson" class="b-author-min__name">
+                      Zachariah Peterson
+                    </a>
+                                    <div class="b-author-min__date">
+                    |&nbsp Created: November 17, 2022
+                                          &nbsp|&nbsp
+                      <strong>
+                        Updated: March 13, 2026
+                      </strong>
+                                      </div>
+                              </div>
+                          
+            <div class="b-summary">
+    <div class="b-summary__ai">
+    <div class="b-summary__ai-label">
+      <div class="b-summary__ai-icon">
+        <img src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/images/ico/ico-ai-sparkle.svg" alt="">
+      </div>
+      <span class="b-summary__ai-text">Go Deeper with AI:</span>
+    </div>
+    <div class="b-summary__ai-links">
+      <a class="b-summary__ai-link"
+         href="https://chat.openai.com/?q=I%E2%80%99m%20learning%20about%20electronics%20design%20with%20Altium%20and%20would%20like%20you%20to%20summarize%20this%20article%2C%20https%3A%2F%2Fresources.altium.com%2Fp%2Fphased-array-antenna-design-5g-applications%2C%20with%20key%20take-aways%20and%20recommendations%20for%20next%20steps."
+         target="_blank"
+         title="ChatGPT"
+         rel="noopener noreferrer"
+      >
+        <img src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/images/ico/ico-ai-chatgpt.svg" alt="ChatGPT">
+      </a>
+      <a class="b-summary__ai-link"
+         href="https://www.perplexity.ai/search/new?q=I%E2%80%99m%20learning%20about%20electronics%20design%20with%20Altium%20and%20would%20like%20you%20to%20summarize%20this%20article%2C%20https%3A%2F%2Fresources.altium.com%2Fp%2Fphased-array-antenna-design-5g-applications%2C%20with%20key%20take-aways%20and%20recommendations%20for%20next%20steps."
+         target="_blank"
+         title="Perplexity"
+         rel="noopener noreferrer"
+      >
+        <img src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/images/ico/ico-ai-perplexity.svg" alt="Perplexity">
+      </a>
+      <a class="b-summary__ai-link"
+         href="https://claude.ai/new?q=I%E2%80%99m%20learning%20about%20electronics%20design%20with%20Altium%20and%20would%20like%20you%20to%20summarize%20this%20article%2C%20https%3A%2F%2Fresources.altium.com%2Fp%2Fphased-array-antenna-design-5g-applications%2C%20with%20key%20take-aways%20and%20recommendations%20for%20next%20steps."
+         target="_blank"
+         title="Claude"
+         rel="noopener noreferrer"
+      >
+        <img src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/images/ico/ico-ai-claude.svg" alt="Claude">
+      </a>
+      <a class="b-summary__ai-link"
+         href="https://www.google.com/search?udm=50&aep=11&q=I%E2%80%99m%20learning%20about%20electronics%20design%20with%20Altium%20and%20would%20like%20you%20to%20summarize%20this%20article%2C%20https%3A%2F%2Fresources.altium.com%2Fp%2Fphased-array-antenna-design-5g-applications%2C%20with%20key%20take-aways%20and%20recommendations%20for%20next%20steps."
+         target="_blank"
+         title="Google"
+         rel="noopener noreferrer"
+      >
+        <img src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/images/ico/ico-ai-google.svg" alt="Google">
+      </a>
+      <a class="b-summary__ai-link"
+         href="https://x.com/i/grok?text=I%E2%80%99m%20learning%20about%20electronics%20design%20with%20Altium%20and%20would%20like%20you%20to%20summarize%20this%20article%2C%20https%3A%2F%2Fresources.altium.com%2Fp%2Fphased-array-antenna-design-5g-applications%2C%20with%20key%20take-aways%20and%20recommendations%20for%20next%20steps."
+         target="_blank"
+         title="Grok"
+         rel="noopener noreferrer"
+      >
+        <img src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/images/ico/ico-ai-gemini.svg" alt="Grok">
+      </a>
+    </div>
+  </div>
+</div>
+
+                          <div class="b-post__media">
+                
+           <picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="1280" height="720" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.webp?VersionId=QRNFGJylQYBMVlVQ.3ZferME.3uGV1EY&amp;itok=T2mcmgsa 1x"/>
+              <source type="image/webp" width="768" height="432" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.webp?VersionId=0zWD30bUUehfYkxGD7s1m8AsHmNWevSA&amp;itok=HAUiDZaX 1x"/>
+              <source media="all and (min-width: 550px)" type="image/jpeg" width="1280" height="720" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg?VersionId=QRNFGJylQYBMVlVQ.3ZferME.3uGV1EY&amp;itok=T2mcmgsa 1x"/>
+              <source type="image/jpeg" width="768" height="432" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg?VersionId=0zWD30bUUehfYkxGD7s1m8AsHmNWevSA&amp;itok=HAUiDZaX 1x"/>
+                  <img loading="eager" width="1280" height="720" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/blogs/Phased%20Array%20Antenna%20Design%20for%205G%20Applications-83893.jpg?VersionId=QRNFGJylQYBMVlVQ.3ZferME.3uGV1EY&amp;itok=T2mcmgsa" alt="5G phased array" typeof="foaf:Image" />
+
+  </picture>
+
+ 
+  
+              </div>
+            
+            
+            
+            
+            <div data-content-banner-area>
+              
+             <p dir="ltr">As the 5G rollout progresses and researchers continue to discuss 6G, many new 5G-capable products operating in sub-GHz and mmWave bands are reaching the marketplace. Devices that will include a 5G-compatible front-end, whether small stations/repeaters or handheld devices, use phased arrays as high-gain antenna systems to provide high data throughput without losing range at higher frequencies.</p>
+
+<p dir="ltr">The earliest type of phased array antenna was constructed in 1905 by Ferdinand Braun. This simple antenna array consisted of three separate monopole antennas placed in an equilateral triangle with a base station in the center. The signal sent to one of the antennas was delayed by a quarter wavelength, which enforced directionality in the radiation pattern through interference. This same idea is used in arrays of <a href="https://resources.altium.com/p/build-your-own-patch-antenna-for-your-next-pcb">patch antennas</a>, where the delay between signals on a board is controlled with a phase shifter.</p>
+
+<p dir="ltr">Now as many 5G-capable components are reaching the market, designers can incorporate antenna arrays into packages and onto PCBs.&nbsp;Two important requirements are tunability, where the response frequency of an antenna can be tuned or is compatible with a broad frequency range, as well as beamforming, where the radiation pattern from an antenna can be directed.&nbsp;The standard type of printed antenna used in packaging and PCBs for broadcasting at GHz frequencies for 5G networking is the microstrip phased array antenna. We'll outline how these antenna arrays are designed and placed in a PCB for use in 5G systems.</p>
+
+<p class="text-align-center"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/eBFGpw09psI?si=ZEAu3URmL7PVVtgp" title="YouTube video player" width="560"></iframe></p>
+
+<h2 dir="ltr"><a id="phased-array-antennas-in-5g">Phased Array Antennas in 5G</a></h2>
+
+<p dir="ltr">mmWave frequencies have always viewed as unsuitable for communication between mobile devices due to high losses. Scattering and absorption air attenuate signals to a greater degree than at lower frequencies, thus transmitters needed to operate at much higher power to compensate, making GHz wireless antennas impractical for long range communication in mobile devices. Despite the attenuation of <a href="https://resources.altium.com/p/pcb-design-guidelines-high-frequency-circuits-car-radar-5g-applications">mmWave frequencies</a>, beamforming techniques can be used to focus radiation emitted from an array of antennas.</p>
+
+<p dir="ltr">When implemented in a package or on a PCB, the phased array will most likely be a patch antenna array. When multiple patch arrays are arranged into a group, the resulting phased array antenna can be used for wireless and radar systems. This type of antenna consists of a number emitters that radiate in a spherical or dipole radiation pattern. Each antenna in the array must have particular spacing in order to provide the required interference that forms a beam with minimal side lobe generation.</p>
+
+<p dir="ltr">There are two types of patch antennas used in phased arrays for 5G systems: series-fed patch arrays and parallel patch arrays. A single array of patches of each type is shown below, and a&nbsp;comparison of these arrays is provided in the following table.</p>
+
+<div>
+<table align="center" style="border:none; border-collapse:collapse; table-layout:fixed; width:624px" width="NaN">
+<colgroup>
+	<col>
+	<col>
+	<col>
+</colgroup>
+<tbody>
+<tr>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; background-color:#000000; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">&nbsp;</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; background-color:#000000; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Series patches</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; background-color:#000000; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Parallel patches</span></span></span></span></span></span></span></span></p>
+	</td>
+</tr>
+<tr>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; background-color:#f3f3f3; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Total gain</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Gain easily increased with more patches</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Gain could be limited by feedline losses</span></span></span></span></span></span></span></span></p>
+	</td>
+</tr>
+<tr>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; background-color:#f3f3f3; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Feedline losses</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Can be lower when patch count is small</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Higher feedline losses</span></span></span></span></span></span></span></span></p>
+	</td>
+</tr>
+<tr>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; background-color:#f3f3f3; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Impedance bandwidth</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Will have narrow impedance bandwidth</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Can have wide impedance bandwidth</span></span></span></span></span></span></span></span></p>
+	</td>
+</tr>
+<tr>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; background-color:#f3f3f3; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Sidelobe suppression</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Smaller feedlines offer greater sidelobe suppression</span></span></span></span></span></span></span></span></p>
+	</td>
+	<td style="border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000" width="NaN">
+	<p style="line-height:1.2"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Feedline emissions create sidelobes</span></span></span></span></span></span></span></span></p>
+	</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">When forming a patch array for mmWave systems, each group of patches shown above functions essentially as a single antenna element. Multiples of these antenna array elements are arranged together on a PCB to give the entire phased array.&nbsp;Overwhelmingly, PCBs or packages with phased arrays for 5G systems will use parallel patch antenna arrays for reasons discussed below.</p>
+
+<p dir="ltr">These antennas can operate in a number of bands that include the LTE bands, as well as higher frequency bands that exceed 5 GHz. The higher frequency bands include 24.25-27 GHz and 37-40 GHz with 50 to 400 MHz bandwidth in each channel. The U.S. FCC recently opened up higher bands extending to 64-71 GHz, and similar bands are in use in Europe, Japan, and China. Operating in these bands requires properly sizing the antenna to support these frequencies in a fundamental mode, as we'll discuss below.</p>
+
+<h3 dir="ltr"><a id="series-fed-patch-arrays">Series-Fed Patch Arrays</a></h3>
+
+<p dir="ltr">If you've ever designed a PCB for a radar system, or if you've looked at radar reference designs, you will see that the series-fed patch array is the standard antenna element used in radar. The reason for this is that the return loss and gain can be made highly frequency dependent, but they can still provide broad bandwidths. Because these arrays are essentially alternating sections of thin/wide transmission line sections, their gain spectrum is frequency dependent due to required propagation matching along the length of the antenna.</p>
+
+<p dir="ltr">A typical series-fed patch array is shown below.</p>
+<picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="346" height="87" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-fed-1.webp?VersionId=sH1YA1CKfEmtgTZEFcNaWfOaF1zA3sEm&amp;itok=6iRRgNgZ 1x">
+              <source type="image/webp" width="346" height="87" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/series-fed-1.webp?VersionId=ENtxAouNtOwZohiX3AazC4G9ZHoFjBq_&amp;itok=2_8M7-Zw 1x">
+              <source media="all and (min-width: 550px)" type="image/png" width="346" height="87" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-fed-1.png?VersionId=sH1YA1CKfEmtgTZEFcNaWfOaF1zA3sEm&amp;itok=6iRRgNgZ 1x">
+              <source type="image/png" width="346" height="87" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/series-fed-1.png?VersionId=ENtxAouNtOwZohiX3AazC4G9ZHoFjBq_&amp;itok=2_8M7-Zw 1x">
+                  <img data-entity-type="file" data-entity-uuid="1139b459-ee67-41d7-a495-abe1f1cd9862" data-responsive-image-style="inline_responsive" class="align-center inline-responsive image-style-inline-responsive" loading="lazy" width="346" height="87" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-fed-1.png?VersionId=sH1YA1CKfEmtgTZEFcNaWfOaF1zA3sEm&amp;itok=6iRRgNgZ" alt="Series-fed patch array" typeof="foaf:Image">
+
+  </picture>
+<h3 dir="ltr"><a id="parallel-patch-arrays">Parallel Patch Arrays</a></h3>
+
+<p dir="ltr">A patch array in parallel is shown below. This type of array achieves high gain through delay matching along the feedlines to each antenna element. This means the inner elements may need some meandering or phase shifting section in the feedline to provide the required delay matching; this is based primarily on feedline lengths and is relatively insensitive to frequency. The goal is to ensure that the input signal coming to each element in the parallel array is kept in-phase in all elements.</p>
+
+<p dir="ltr">There are two other important design points in parallel patch arrays:</p>
+
+<ol>
+<li>The central feed point in the parallel array is a power divider that must provide equal power to all patches in the parallel array</li>
+<li>There is an <a href="https://resources.altium.com/p/why-most-via-impedance-calculators-are-inaccurate">input via</a> that accepts a signal from a transceiver on the back side of the board or an internal layer feedline; it must not create impedance mismatch at the operating frequency</li>
+</ol>
+
+<p>Most likely, there will be some <a href="https://resources.altium.com/p/quarter-wave-transformer-design-real-and-reactive-loads">impedance transformer sections</a> between each patch and its feedline to ensure maximum power transfer and radiation efficiency from the array. An example of a simple parallel microstrip patch antenna arrays is shown below.</p>
+<picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="651" height="346" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/parallel-patch.webp?VersionId=me2fB.JNF9PuMrmLQWCgap2r4CBPGKHM&amp;itok=yGZeTPIB 1x">
+              <source type="image/webp" width="651" height="346" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/parallel-patch.webp?VersionId=VAVdPrWoegIkwEp2tmKbTQ4yj_deRLOG&amp;itok=LtLQKUgz 1x">
+              <source media="all and (min-width: 550px)" type="image/png" width="651" height="346" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/parallel-patch.png?VersionId=me2fB.JNF9PuMrmLQWCgap2r4CBPGKHM&amp;itok=yGZeTPIB 1x">
+              <source type="image/png" width="651" height="346" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/parallel-patch.png?VersionId=VAVdPrWoegIkwEp2tmKbTQ4yj_deRLOG&amp;itok=LtLQKUgz 1x">
+                  <img data-entity-type="file" data-entity-uuid="429be14b-f30c-4985-b7c5-42ca927effd5" data-responsive-image-style="inline_responsive" class="align-center inline-responsive image-style-inline-responsive" loading="lazy" width="651" height="346" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/parallel-patch.png?VersionId=me2fB.JNF9PuMrmLQWCgap2r4CBPGKHM&amp;itok=yGZeTPIB" alt="parallel patch array" typeof="foaf:Image">
+
+  </picture>
+<p>A variation on this is a parallel group of series arrays. This gives the frequency-dependecy benefits with sidelobe reduction, as well as high gain through superposition. However, there are multiple power divider sections with their own impedance transformer sections in the feedlines, and these must be carefully designed to ensure consistent phase shift across the array.</p>
+<picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="565" height="403" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-parallel-1.webp?VersionId=v.hXPNYGcAtNFa1PRO1J6oxjPf3hpLu4&amp;itok=5Z8VHTeB 1x">
+              <source type="image/webp" width="565" height="403" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/series-parallel-1.webp?VersionId=42PAv3G_gfZHYkFOLFn7P.ybCRdcdrXn&amp;itok=3BVWFgmK 1x">
+              <source media="all and (min-width: 550px)" type="image/png" width="565" height="403" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-parallel-1.png?VersionId=v.hXPNYGcAtNFa1PRO1J6oxjPf3hpLu4&amp;itok=5Z8VHTeB 1x">
+              <source type="image/png" width="565" height="403" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/series-parallel-1.png?VersionId=42PAv3G_gfZHYkFOLFn7P.ybCRdcdrXn&amp;itok=3BVWFgmK 1x">
+                  <img data-entity-type="file" data-entity-uuid="8b13b450-a81f-4424-8d64-297c5e7eb553" data-responsive-image-style="inline_responsive" class="align-center inline-responsive image-style-inline-responsive" loading="lazy" width="565" height="403" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-parallel-1.png?VersionId=v.hXPNYGcAtNFa1PRO1J6oxjPf3hpLu4&amp;itok=5Z8VHTeB" alt="parallel series patch array" typeof="foaf:Image">
+
+  </picture>
+<h2><a id="pcbs-for-5g-phased-array-antennas">PCBs for 5G Phased Array Antennas</a></h2>
+
+<p>On a PCB, a phased-array antenna contains multiple radiating elements placed in a particular geometry. Each element is connected to a delay line or phase shifter, and interference among the radiation patterns from each antenna forms a beam with low divergence. The above patch array arrangements are formed into phased arrays by&nbsp;delaying the signal sent to each antenna by a set value.&nbsp;Because 5G-capable systems are requiring more antennas to provide higher gain/resolution, the antenna placement can take up a significant amount of real estate on the PCB.</p>
+
+<h3 dir="ltr"><a id="an-array-of-arrays">An Array of Arrays</a></h3>
+
+<p dir="ltr">In 5G systems, there are two approaches to forming the complete phased array:</p>
+
+<ul>
+<li>From a combination of discrete patch antennas</li>
+<li>From a combination of parallel arrays</li>
+</ul>
+
+<p dir="ltr">The number of discrete array elements (patches or parallel arrays) will determine total available gain of the array given its virtual array, as well as the maximum number of users that can be supported through beamforming/multiplexing.</p>
+
+<p dir="ltr">The key to forming a phased array is to enforce phase matching. When a single transceiver is being used for all elements in the phased array, simply length-match the feedlines within an antenna group, as well as across all antenna groups, and the design will be assured to be in-phase. The example shows phase matching enforced using length tuning on feedlines leading to four series-fed patch arrays.</p>
+<picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="892" height="772" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/feedline-tuning.webp?VersionId=TwXGUXScH5Su0iSj5LhQNUWrKDGWyUzS&amp;itok=qrLJ_JqV 1x">
+              <source type="image/webp" width="768" height="665" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/feedline-tuning.webp?VersionId=yI0NDOpUOvFfOZYYUlex8jwYhz0FEn2e&amp;itok=pRONmth_ 1x">
+              <source media="all and (min-width: 550px)" type="image/png" width="892" height="772" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/feedline-tuning.png?VersionId=TwXGUXScH5Su0iSj5LhQNUWrKDGWyUzS&amp;itok=qrLJ_JqV 1x">
+              <source type="image/png" width="768" height="665" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/feedline-tuning.png?VersionId=yI0NDOpUOvFfOZYYUlex8jwYhz0FEn2e&amp;itok=pRONmth_ 1x">
+                  <img data-entity-type="file" data-entity-uuid="91cd9f95-4f27-4dcf-8b22-7338a64ec2f1" data-responsive-image-style="inline_responsive" class="align-center inline-responsive image-style-inline-responsive" loading="lazy" width="892" height="772" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/feedline-tuning.png?VersionId=TwXGUXScH5Su0iSj5LhQNUWrKDGWyUzS&amp;itok=qrLJ_JqV" alt="Series-fed patch array" typeof="foaf:Image">
+
+  </picture>
+<p dir="ltr">5G-capable smartphones can include anywhere from 6 to 10 individual patch array elements in order to ensure the device can transmit no matter how it is held during operation. Larger MIMO-capable transmitters in small cells could use multiple discrete patches or multiple parallel arrays.&nbsp;Each element in a 5G-capable phased array is normally placed with a feeder line routed through the back of the board. An example is shown below.</p>
+
+<p dir="ltr" style="text-align: center;"><small><small><img alt="Phased patch antenna array" data-entity-type="file" data-entity-uuid="97b9a45d-e2f3-4fd7-abae-c7081e6508f3" data-responsive-image-style src="https://files.resources.altium.com/sites/default/files/inline-images/migrate/aHViPTY1NjQ2JmNtZD1pdGVtZWRpdG9yaW1hZ2UmZmlsZW5hbWU9aXRlbWVkaXRvcmltYWdlXzVjZjg1YjU1Yzc4NjMucG5nJnZlcnNpb249MDAwMCZzaWc9Zjk4NjQzMTVhODgxYTE2YjE3MDNjOWRhMmY1ZTAyMWY%25253D" style="width: 500px; height: 326px;" width="864" height="563" loading="lazy"></small></small></p>
+
+<p dir="ltr" style="text-align: center;"><em><small>Patch antenna design for 5G applications as a phased array</small></em></p>
+
+<p dir="ltr">In this example, the beamforming transceiver is controlling 8 discrete patch antennas. It could also be used to control multiple patch arrays. These beamformer modules are available as ICs that can be used to control the beam steering angle. A similar strategy is used for antenna-in-package designs.&nbsp;Just like the case of a phased array with series-fed patch antennas, the element spacing will determine the beamforming capabilities and viewing angle.</p>
+
+<h3 dir="ltr"><a id="many-antennas">Many Antennas</a></h3>
+
+<p dir="ltr">As was mentioned above, there has been greater motivation to continue increasing antenna count as telecoms push towards mmWave deployments. More antennas equates to more gain and reduced sidelobe interference because the emitted beam exhibits greater resolution.</p>
+
+<p dir="ltr">The situation is more difficult when we have a large number of transceivers that require phase matching across multiple antennas and/or multiple sub-arrays. In this case, a reference oscillator or reference clock must be distributed across all transceiver elements to enforce phase matching within some timing window. In this case, the reference clock must be routed on one layer, while the feedlines are operated on another layer. Length tuning is then needed across all traces in the reference oscillator distribution to ensure consistent timing. An example layer arrangement for a large array of patch arrays is shown below.</p>
+<picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="821" height="340" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/phased-array-layers.webp?VersionId=BbgnlyqTp2EWg7NPDsaH4XYzKIDBhFVE&amp;itok=bdaI2jww 1x">
+              <source type="image/webp" width="768" height="318" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/phased-array-layers.webp?VersionId=jaRYb.zpz5J66SpnQ6yxHpmibnJy33L7&amp;itok=VY2z37qI 1x">
+              <source media="all and (min-width: 550px)" type="image/png" width="821" height="340" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/phased-array-layers.png?VersionId=BbgnlyqTp2EWg7NPDsaH4XYzKIDBhFVE&amp;itok=bdaI2jww 1x">
+              <source type="image/png" width="768" height="318" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/phased-array-layers.png?VersionId=jaRYb.zpz5J66SpnQ6yxHpmibnJy33L7&amp;itok=VY2z37qI 1x">
+                  <img data-entity-type="file" data-entity-uuid="79e802db-f57a-4578-9ef7-999685552a01" data-responsive-image-style="inline_responsive" class="align-center inline-responsive image-style-inline-responsive" loading="lazy" width="821" height="340" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/phased-array-layers.png?VersionId=BbgnlyqTp2EWg7NPDsaH4XYzKIDBhFVE&amp;itok=bdaI2jww" alt="5G phased array pcb layers" typeof="foaf:Image">
+
+  </picture>
+<h3 dir="ltr"><a id="design-strategy-for-patch-antenna-arrays">Design Strategy for Patch Antenna Arrays</a></h3>
+
+<p dir="ltr">The strategy for patch antenna arrays is typical for mmWave systems that implement MIMO functionality:</p>
+
+<ol dir="ltr">
+<li>Pick your operating band and understand your bandwidth</li>
+<li>Determine your antenna placement topology on your PCB or package based on the desired <a href="https://resources.altium.com/p/how-calculate-virtual-array-mimo-systems">virtual array</a></li>
+<li>Size your antenna elements and determine matching sections at your operating frequency</li>
+<li>Check your S11 value at the patch array input point to verify bandwidth</li>
+<li>Arrange the patches in a larger array</li>
+</ol>
+
+<p dir="ltr">The design strategy and the antenna topologies outlined above are standard for <a href="https://resources.altium.com/p/rf-signal-chain-design-for-fmcw-chirped-radar-systems">mmWave applications like radar</a> and 5G, but they will likely continue scaling into 6G architectures operating well into mmWave frequency bands. Currently, the lower operating frequencies in the current 5G rollouts requires physically larger antennas to provide high broadcast power, and thus high gain with longer range. As new rollouts and eventually 6G push operating frequencies higher, the physical size of these antennas can be reduced.</p>
+
+<p dir="ltr">Reduction in antenna size allows more antennas to be placed in a given area, which then increases the available gain and resolution of the output beam. Eventually, however, the phase matching conditions across antenna elements in an array becomes unscalable. <a href="https://resources.altium.com/p/what-hybrid-beamforming">Hybrid beamforming</a> is considered one method to overcome the scalability challenges in very large arrays.</p>
+
+<h3 dir="ltr"><a id="alternative-types-of-antennas-and-arrays">Alternative Types of Antennas and Arrays</a></h3>
+
+<p dir="ltr">An alternative type of array&nbsp;combines series and parallel patches into a unique array such as that shown below. The example below is topologically equivalent to parallel L-shaped networks operating at 10 GHz with 18.8 dBi gain and -11.9 dB sidelobe supression. A single 4x4 array as shown below can provide very wide field of view and could be scaled to a smaller radiator area at higher frequencies. The array has a feedline point through a via at the center of the structure, so it could be used to form sub-arrays with multiple transceivers in the standard configuration already being used in MU-MIMO systems with beamforming (spatial multiplexing). More information on this type of array can be found in the literature:</p>
+
+<ul dir="ltr">
+<li><a href="https://www.ieice.org/cs/isap/ISAP_Archives/2018/pdf/ThP-02.pdf">Wang, H., et al. "Microstrip patch array antenna using a parallel and series combination feed network." <i>2018 International Symposium on Antennas and Propagation (ISAP)</i>, pp. 1-2. IEEE, 2018.</a></li>
+</ul>
+<picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="628" height="611" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-parallel-combo.webp?VersionId=CF20wbjy8_bSJWT7Pjx0rFM11uGz_kMu&amp;itok=M84mPwj0 1x">
+              <source type="image/webp" width="628" height="611" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/series-parallel-combo.webp?VersionId=d8ad9SQvAjSax.GxVCkWL7ZGO8b0rEZP&amp;itok=10Kf3CyW 1x">
+              <source media="all and (min-width: 550px)" type="image/png" width="628" height="611" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-parallel-combo.png?VersionId=CF20wbjy8_bSJWT7Pjx0rFM11uGz_kMu&amp;itok=M84mPwj0 1x">
+              <source type="image/png" width="628" height="611" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/series-parallel-combo.png?VersionId=d8ad9SQvAjSax.GxVCkWL7ZGO8b0rEZP&amp;itok=10Kf3CyW 1x">
+                  <img data-entity-type="file" data-entity-uuid="182b02d3-1245-41c2-aa79-9d894c60d3a0" data-responsive-image-style="inline_responsive" class="align-center inline-responsive image-style-inline-responsive" loading="lazy" width="628" height="611" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/series-parallel-combo.png?VersionId=CF20wbjy8_bSJWT7Pjx0rFM11uGz_kMu&amp;itok=M84mPwj0" alt="Series-parallel patch array" typeof="foaf:Image">
+
+  </picture>
+<p>Another approach for use in smartphones and 5G-capable embedded devices is an antenna in-package approach. The example below shows a patch antenna-in-package concept where internal routing (striplines) is used with an aperture-coupled antenna. This type of antenna can operate well into the 100+ GHz regime with strong emission. In fact, we have used a similar structure for metallic waveguide coupling from a substrate integrated waveguide at WiFi frequencies.</p>
+
+<p dir="ltr">Instead of a feedline and via being routed all the way up to a printed antenna on the surface layer, the feedline radiates to the emitting microstrip patch antenna on the top layer through an internal aperture.&nbsp;The image below shows one example operating at 122 GHz with an antenna-in-package design concept, although the same type of structure could be implemented in a PCB operating at much lower frequencies.</p>
+
+<ul dir="ltr">
+<li><a href="https://ieeexplore.ieee.org/abstract/document/7481147/">Bhutani, A., et al. "122 GHz aperture-coupled stacked patch microstrip antenna in LTCC technology." <em>2016 10th European Conference on Antennas and Propagation (EuCAP)</em>, pp. 1-5. IEEE, 2016.</a></li>
+</ul>
+<figure role="group" class="caption caption-img align-center">
+<picture>
+                  <source media="all and (min-width: 550px)" type="image/webp" width="1243" height="448" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/aperture-coupled-1.webp?VersionId=4HOtORZdqqzZ0XauDfFxTnx9jabD65xp&amp;itok=Q8ZH6rCZ 1x">
+              <source type="image/webp" width="768" height="277" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/aperture-coupled-1.webp?VersionId=AOj7K0ZrEjPLRw1QGA4EcjmVCo00jmqj&amp;itok=thxFACWr 1x">
+              <source media="all and (min-width: 550px)" type="image/png" width="1243" height="448" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/aperture-coupled-1.png?VersionId=4HOtORZdqqzZ0XauDfFxTnx9jabD65xp&amp;itok=Q8ZH6rCZ 1x">
+              <source type="image/png" width="768" height="277" data-srcset="https://files.resources.altium.com/sites/default/files/styles/max_width_768/public/inline-images/aperture-coupled-1.png?VersionId=AOj7K0ZrEjPLRw1QGA4EcjmVCo00jmqj&amp;itok=thxFACWr 1x">
+                  <img data-entity-type="file" data-entity-uuid="1115a6be-d921-47d7-8eca-29421efd0a6c" data-responsive-image-style="inline_responsive" loading="lazy" class="inline-responsive image-style-inline-responsive" width="1243" height="448" src="https://files.resources.altium.com/sites/default/files/styles/max_width_1300/public/inline-images/aperture-coupled-1.png?VersionId=4HOtORZdqqzZ0XauDfFxTnx9jabD65xp&amp;itok=Q8ZH6rCZ" alt="Aperture-coupled patch atenna" typeof="foaf:Image">
+
+  </picture>
+<figcaption><em>Aperture-coupled patch antenna designed for operation at 122 GHz in an antenna-in-package design concept. Left panel shows the embedded package structure, right panel shows the antenna structure.</em></figcaption>
+</figure>
+
+<p dir="ltr">These innovative designs will be critical to increasing handset radiator efficiency and gain without increasing footprint, and they will be important in further improving the performance of 5G/6G systems. 6G systems will most likely start in the D-band above 100 GHz and will require these types of innovative antenna array designs, as well as alternative materials for heterogeneous ICs.</p>
+
+<p dir="ltr">The CAD tools and mechanical collaboration features in <a href="https://www.altium.com/altium-designer">Altium&nbsp;Designer<sup>®</sup></a>&nbsp;are essential for designing PCBs and packaging with 5G phased arrays and microstrip patch arrays suporting mmWave wireless systems. Altium&nbsp;Designer also provides an <a href="https://www.altium.com/documentation/altium-designer/design-tools-interfacing/ansys-edb-export">EDB model export extension</a> for use in Ansys HFSS simulation programs. When you’ve finished your design, and you want to release files to your manufacturer, the <a href="https://www.altium.com/altium-365/">Altium&nbsp;365<sup>™</sup></a> platform makes it easy to collaborate and share your projects.</p>
+
+<p dir="ltr">We have only scratched the surface of what’s possible with Altium&nbsp;Designer on Altium&nbsp;365. <a href="https://www.altium.com/">Start your free trial of Altium&nbsp;Designer + Altium&nbsp;365 today</a>.</p>
+
+<p class="text-align-center"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/BlCpeOg6o8E?si=q8rq3qkAJa9fNtyC" title="YouTube video player" width="560"></iframe></p>
+ 
+      
+
+                          </div>
+
+            
+          </div>
+
+          
+
+          <div  class="b-links _style_tags">
+  <div class="b-links__wrap _t-left">
+    <div class="b-links__wrap__inner _flex-start">
+                          
+             <a href="https://resources.altium.com/p/rf-pcb-design-software" target="_blank">RF PCB Design Overview</a> 
+      
+
+      
+                          
+             <a href="https://resources.altium.com/p/what-rf-circuit-design" target="_blank">What is RF Circuit Design?</a> 
+      
+
+      
+                          
+             <a href="https://www.altium.com/pcb-design" target="_blank">PCB Design for High-Frequency Applications</a> 
+      
+
+      
+                          
+             <a href="https://resources.altium.com/p/rf-design-software" target="_blank">RF PCB Design Software</a> 
+      
+
+      
+          </div>
+  </div>
+</div>
+
+
+                      <div class="b-post__b-author b-author">
+              <div class="b-author__img-wrap">
+                <div class="b-author__img">
+                                      <img src="https://files.resources.altium.com/sites/default/files/styles/medium/public/user_pictures/headshot-small-350.jpg?VersionId=5SpYrb2e27dlN8o.yP7u7R.yVJTGSeR9&amp;itok=I-ztzpal" alt="">
+                                  </div>
+                <h3>About Author</h3>
+              </div>
+
+              <div class="b-author__body">
+                <h3>About Author</h3>
+                <div class="b-author__desc">
+                  <p>
+                    
+             <p>Zachariah Peterson has an extensive technical background in academia and industry. He currently provides research, design, and marketing services to companies in the electronics industry. Prior to working in the PCB industry, he taught at Portland State University&nbsp;and conducted&nbsp;research on random laser theory, materials,&nbsp;and stability. His background in scientific research spans topics in nanoparticle lasers, electronic and optoelectronic semiconductor devices, environmental sensors, and stochastics. His work has been published in over a dozen peer-reviewed journals and conference proceedings, and he has written 2500+ technical articles on PCB design for a number of companies. He is a member of IEEE Photonics Society, IEEE Electronics Packaging Society, American Physical Society, and the Printed Circuit Engineering Association (PCEA). He previously served as a voting member on the INCITS Quantum Computing Technical Advisory Committee working on technical standards for quantum electronics, and he currently serves on the IEEE P3186 Working Group focused on&nbsp;Port Interface Representing Photonic Signals Using SPICE-class Circuit Simulators.</p>
+ 
+      
+
+                  </p>
+                </div>
+                <div class="b-author__link-wrap">
+                  <a href="/experts/zachariah-peterson"
+                     class="b-author__link">More content by Zachariah Peterson</a>
+                </div>
+              </div>
+            </div>
+          
+          
+
+          
+
+        </div>
+
+        <div class="views-element-container block recent-post block-views block-views-blockrecent-posts-block-1" id="block-views-block-recent-posts-block-1">
+  
+      <h2>Related Resources</h2>
+    
+  <div class="recent-post__slider-tiles slider-tiles">
+    <div class="slider-tiles__nav"></div>
+    <div class="b-tiles">
+              <div><div class="js-view-dom-id-69c93b9346cf4925a7ac6f908d921b2066146208464c1b504ed1c2040985c44a">
+  
+  
+  
+
+  
+  
+  
+
+  <div class="b-tiles__items owl-carousel">
+          <div class="views-row"><div about="/p/inverted-f-antenna-design-pcb" class="b-tiles__item">
+  
+  
+
+  <a href="/p/inverted-f-antenna-design-pcb"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="251" alt="Inverted-F Antenna" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/Inverted-F%20Antenna%20Design%20For%20a%20PCB-84098.jpg?VersionId=Ka9HjymMYKkzPGcbMk7xb00HufLVK.6M&amp;itok=aayfQ6ou" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">Inverted-F Antenna Design For a PCB</span>
+
+        <span class="b-tiles__desc">
+          
+               Learn how to design an inverted-F antenna for an RF PCB layout.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/high-frequency-pcb-material-selection-best-practices" class="b-tiles__item">
+  
+  
+
+  <a href="/p/high-frequency-pcb-material-selection-best-practices"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="270" alt="High-Frequency PCB Material" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/Best%20Practices%20for%20High-Frequency%20PCB%20Materials%20Selection-97994.jpg?VersionId=MSPdBepq08lO1J_GxLtwAasae5LIvkYT&amp;itok=AMgglkQo" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">Best Practices for High-Frequency PCB Materials Selection</span>
+
+        <span class="b-tiles__desc">
+          
+               High frequency PCB design can seem esoteric, and I've heard many an engineer describe it as "black magic"! The subject is also a bit confusing, especially once someone asks which frequencies could be reasonably considered "high". The reality is that some of the challenges present in high speed design also appear in high frequency design, but we think about them in different ways. Before you do anything inside the layout for a high-speed or RF PCB
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/rf-power-supply-design-and-layout-guide" class="b-tiles__item">
+  
+  
+
+  <a href="/p/rf-power-supply-design-and-layout-guide"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="319" alt="rf power supply design" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/RF%20Power%20Supply%20Design%20and%20Layout%20Guide-76670.jpg?VersionId=Pj64jQNNm198yPjUzNEvo.UqEu4A_eAL&amp;itok=Euo1UXqe" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">RF Power Supply Design and Layout Guide</span>
+
+        <span class="b-tiles__desc">
+          
+               Learn some of the basics on design, placement, and routing of RF power supplies. A good layout strategy helps prevent noise coupling in high power RF systems.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/what-hybrid-beamforming" class="b-tiles__item">
+  
+  
+
+  <a href="/p/what-hybrid-beamforming"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="270" alt="hybrid beamforming" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/What%20is%20Hybrid%20Beamforming%3F-81041.jpg?VersionId=BmPmYtparAg2KR_oyIMHJAZXS.QiKgUI&amp;itok=vLGXtjJT" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">What is Hybrid Beamforming?</span>
+
+        <span class="b-tiles__desc">
+          
+               Beamforming is an important broadcast method that involves use of antenna arrays in a wireless system to transmit electromagnetic energy along a specific direction. More wireless systems are expanding their ability to handle multiple users (or targets) with beamforming and MIMO. This is already used in radar, WiFi, and in newer high-bandwidth communication systems (5G). For the systems designer, it is important to understand the layout
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/quarter-wave-transformer-design-real-and-reactive-loads" class="b-tiles__item">
+  
+  
+
+  <a href="/p/quarter-wave-transformer-design-real-and-reactive-loads"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="270" alt="Quarter-Wave Transformer" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/Quarter-Wave%20Transformer%20Design%20For%20Real%20and%20Reactive%20Loads-97795.jpg?VersionId=1XPKMqJO3KLujoGO.p1qIE0XIVW9x26C&amp;itok=wRqIZSBp" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">Quarter-Wave Transformer Design For Real and Reactive Loads</span>
+
+        <span class="b-tiles__desc">
+          
+               All quarter-wavelength transformers can be used for real loads, but some can be used for reactive loads with an additional transmission line section.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/impedance-transformer-complex-loads" class="b-tiles__item">
+  
+  
+
+  <a href="/p/impedance-transformer-complex-loads"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="270" alt="Stepped Impedance Transformer for Complex Loads" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/Stepped%20Impedance%20Transformer%20for%20Complex%20Loads-82344.jpg?VersionId=R83FyYuR8H5R7om_sx1_BJmq1VW3eV2x&amp;itok=NeGZJs9d" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">Stepped Impedance Transformer for Complex Loads</span>
+
+        <span class="b-tiles__desc">
+          
+               This article will show how a complex load can be converted to a real load with an impedance transformer for any line length and impedance.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/what-jesd204c-standard-adcs" class="b-tiles__item">
+  
+  
+
+  <a href="/p/what-jesd204c-standard-adcs"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="270" alt="JESD204C Standard for ADCs" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/What%20is%20the%20JESD204C%20Standard%20for%20ADCs/DACs%3F-97877.jpg?VersionId=dCI.SCL6DOav2n0uJYscqYMdd14IBrYL&amp;itok=CLZ_PU4I" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">What is the JESD204C Standard for ADCs/DACs?</span>
+
+        <span class="b-tiles__desc">
+          
+               JESD204C provides a standardized interface for RF ADCs with high sample rate, which are now appearing more in commercial space applications.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/do-all-antennas-need-ground-plane" class="b-tiles__item">
+  
+  
+
+  <a href="/p/do-all-antennas-need-ground-plane"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="270" alt="Antenna ground plane" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/Do%20All%20Antennas%20Need%20a%20Ground%20Plane%3F-97662.jpg?VersionId=Fu8UqUInAzVhLXMPbm.O5Y2Az78t13j4&amp;itok=TSimqPTI" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">Do All Antennas Need a Ground Plane?</span>
+
+        <span class="b-tiles__desc">
+          
+               The simple answer is “no,” all antennas will have a ground plane somewhere, even if it is not on the PCB.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/how-design-coaxial-probe-feed-patch-antenna" class="b-tiles__item">
+  
+  
+
+  <a href="/p/how-design-coaxial-probe-feed-patch-antenna"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="251" alt="How to Design a Coaxial Probe Feed for a Patch Antenna" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/How%20to%20Design%20a%20Coaxial%20Probe%20Feed%20for%20a%20Patch%20Antenna-83456.jpg?VersionId=sEY.lJoVfZ0D2JXuRCO2Vrr0JSIb8S4Z&amp;itok=yf0HXkbX" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">How to Design a Coaxial Probe Feed for a Patch Antenna</span>
+
+        <span class="b-tiles__desc">
+          
+               Coaxial probe feeds can be used to connect to your patch antenna. See how this works in this design example.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+    <div class="views-row"><div about="/p/how-high-frequency-smd-passives-work-pcb-layout" class="b-tiles__item">
+  
+  
+
+  <a href="/p/how-high-frequency-smd-passives-work-pcb-layout"  class="b-tiles__link">
+    <span class="b-tiles__preview  ">
+
+              
+<span class="b-tiles__img">
+         <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="480" height="251" alt="High Frequency SMD Passives" class="lazyload image-style-teasers-image" data-src="https://files.resources.altium.com/sites/default/files/styles/teasers_image/public/blogs/How%20High%20Frequency%20SMD%20Passives%20Work%20in%20a%20PCB%20Layout-94532.jpg?VersionId=9.adSPBsu4mk7jBZgla069DwzaGjmAZq&amp;itok=TLfsg094" typeof="foaf:Image" />
+
+
+ 
+  </span>
+
+      
+      
+    </span>
+
+    <span class="b-tiles__body">
+      <span class="b-tiles__body-in">
+
+        <span class="b-tiles__title">How High Frequency SMD Passives Work in a PCB Layout</span>
+
+        <span class="b-tiles__desc">
+          
+               High frequency capacitors, resistors, and inductors are eventually dominated by parasitics. Here's what data sheets can tell you about these components and how to simulate them.
+
+ 
+      
+
+        </span>
+      </span>
+      <span class="b-tiles__btn">
+                  Read Article
+              </span>
+    </span>
+  </a>
+
+</div>
+</div>
+
+    </div>
+    
+
+  
+  
+
+  
+  
+</div>
+
+
+</div>
+
+          </div>
+  </div>
+</div>
+<div class="recent-post block block-altium-related-docs block-altium-documentation-pages" id="block-documentation-pages-by-tag">
+  
+      <h2>Related Technical Documentation</h2>
+    
+        <div class="recent-post__slider-tiles slider-tiles">
+    <div class="slider-tiles__nav">
+
+    </div>
+    <div class="b-tiles">
+      <div class="b-tiles__items owl-carousel">
+                  <div class="views-row">
+            <div class="b-tiles__item vocabulary-related-docs-urls">
+              <a href="https://www.altium.com/documentation/altium-designer/pcb/embedded-components" target="_blank" class="b-tiles__link" rel="noopener">
+                <span class="b-tiles__preview">
+                  <span class="b-tiles__img">
+                    <img src="https://files.doc.altium.com/sites/default/files/2024-05/Altium%20Designer.jpg" width="1200" height="628" alt="Designing a PCB with Embedded Components" loading="lazy" typeof="foaf:Image">
+                  </span>
+                </span>
+                <span class="b-tiles__body">
+                  <span class="b-tiles__body-in">
+                    <span class="b-tiles__title">Designing a PCB with Embedded Components</span>
+                                          <span class="b-tiles__desc"><p>The traditional approach to circuit board design has been to place the components on the top and bottom surfaces of the board. This process is well supported by circuit board assembly houses, which typically use automated pick and place machines to position each component, ready to be soldered onto the surface. The ever increasing demand for smaller and more integrated electronic products,…</p></span>
+                                      </span>
+                  <span class="b-tiles__btn">Read Documentation</span>
+                </span>
+              </a>
+            </div>
+          </div>
+                  <div class="views-row">
+            <div class="b-tiles__item vocabulary-related-docs-urls">
+              <a href="https://www.altium.com/documentation/altium-designer/pcb/defining-layer-stack" target="_blank" class="b-tiles__link" rel="noopener">
+                <span class="b-tiles__preview">
+                  <span class="b-tiles__img">
+                    <img src="https://files.doc.altium.com/sites/default/files/2024-05/Altium%20Designer.jpg" width="1200" height="628" alt="Defining the Layer Stack" loading="lazy" typeof="foaf:Image">
+                  </span>
+                </span>
+                <span class="b-tiles__body">
+                  <span class="b-tiles__body-in">
+                    <span class="b-tiles__title">Defining the Layer Stack</span>
+                                          <span class="b-tiles__desc"><p>Related Videos Define New Layer Stacks Layer Stack Regions The PCB is designed and formed as a stack of layers. In the early days of printed circuit board (PCB) manufacturing, the board was simply an insulating core layer, clad with a thin layer of copper on one or both sides. Wiring was formed in the copper layer(s) as conductive traces, by etching away (removing) unwanted copper. A simple,…</p></span>
+                                      </span>
+                  <span class="b-tiles__btn">Read Documentation</span>
+                </span>
+              </a>
+            </div>
+          </div>
+                  <div class="views-row">
+            <div class="b-tiles__item vocabulary-related-docs-urls">
+              <a href="https://www.altium.com/documentation/altium-designer/pcb/via-stitching-via-shielding" target="_blank" class="b-tiles__link" rel="noopener">
+                <span class="b-tiles__preview">
+                  <span class="b-tiles__img">
+                    <img src="https://files.doc.altium.com/sites/default/files/2024-05/Altium%20Designer.jpg" width="1200" height="628" alt="Adding Via Stitching &amp; Via Shielding" loading="lazy" typeof="foaf:Image">
+                  </span>
+                </span>
+                <span class="b-tiles__body">
+                  <span class="b-tiles__body-in">
+                    <span class="b-tiles__title">Adding Via Stitching &amp; Via Shielding</span>
+                                          <span class="b-tiles__desc"><p>Parent page: Finalizing the Board Design Via stitching is a technique used to tie together larger copper areas on different layers, in effect creating a strong vertical connection through the board structure, helping maintain a low impedance and short return loops. Via stitching can also be used to tie areas of copper that might otherwise be isolated from their net, to that net. In RF designs, to…</p></span>
+                                      </span>
+                  <span class="b-tiles__btn">Read Documentation</span>
+                </span>
+              </a>
+            </div>
+          </div>
+                  <div class="views-row">
+            <div class="b-tiles__item vocabulary-related-docs-urls">
+              <a href="https://www.altium.com/documentation/altium-designer/pcb/touch-controls" target="_blank" class="b-tiles__link" rel="noopener">
+                <span class="b-tiles__preview">
+                  <span class="b-tiles__img">
+                    <img src="https://files.doc.altium.com/sites/default/files/2024-05/Altium%20Designer.jpg" width="1200" height="628" alt="Designing with Touch Controls" loading="lazy" typeof="foaf:Image">
+                  </span>
+                </span>
+                <span class="b-tiles__body">
+                  <span class="b-tiles__body-in">
+                    <span class="b-tiles__title">Designing with Touch Controls</span>
+                                          <span class="b-tiles__desc"><p>How many of us got into electronics because we were drawn by the myriad of cool switches, knobs, lights and other suitably gadget-centric controls? Fast forward a good few years and that allure is still there, only it is now replaced with the &quot;Snazzy GUI&quot; factor - electronic products that have a sleek, sexy interface. Central to these ever-advancing (and shrinking) product interfaces is touch…</p></span>
+                                      </span>
+                  <span class="b-tiles__btn">Read Documentation</span>
+                </span>
+              </a>
+            </div>
+          </div>
+                  <div class="views-row">
+            <div class="b-tiles__item vocabulary-related-docs-urls">
+              <a href="https://www.altium.com/documentation/altium-designer/pcb/printed-electronics" target="_blank" class="b-tiles__link" rel="noopener">
+                <span class="b-tiles__preview">
+                  <span class="b-tiles__img">
+                    <img src="https://files.doc.altium.com/sites/default/files/2024-05/Altium%20Designer.jpg" width="1200" height="628" alt="Designing for Printed Electronics" loading="lazy" typeof="foaf:Image">
+                  </span>
+                </span>
+                <span class="b-tiles__body">
+                  <span class="b-tiles__body-in">
+                    <span class="b-tiles__title">Designing for Printed Electronics</span>
+                                          <span class="b-tiles__desc"><p>The Technology Current technologies for fabricating printed electronic circuits include: Laser Direct Structuring - used when fine conductor structures are required. 3d printing - Molding DuPont InMold - a circuit is printed onto a plastic substrate, which is then thermoformed and injection molded into the final product shape. Two shot molding - this is a good approach for large quantities with…</p></span>
+                                      </span>
+                  <span class="b-tiles__btn">Read Documentation</span>
+                </span>
+              </a>
+            </div>
+          </div>
+                  <div class="views-row">
+            <div class="b-tiles__item vocabulary-related-docs-urls">
+              <a href="https://www.altium.com/documentation/altium-designer/pcb/wire-bonding" target="_blank" class="b-tiles__link" rel="noopener">
+                <span class="b-tiles__preview">
+                  <span class="b-tiles__img">
+                    <img src="https://files.doc.altium.com/sites/default/files/2024-05/Altium%20Designer.jpg" width="1200" height="628" alt="Wire Bonding" loading="lazy" typeof="foaf:Image">
+                  </span>
+                </span>
+                <span class="b-tiles__body">
+                  <span class="b-tiles__body-in">
+                    <span class="b-tiles__title">Wire Bonding</span>
+                                          <span class="b-tiles__desc"><p>When using a Standalone or Private Server license, you may need to reactivate/refresh that license to be able to access and use the wire bonding functionality. For a Standalone license, this is performed from the License Management view. For a Private Server license hosted in the Altium On-Prem Enterprise Server or Altium Infrastructure Server, this is performed from the Admin – Licenses page of…</p></span>
+                                      </span>
+                  <span class="b-tiles__btn">Read Documentation</span>
+                </span>
+              </a>
+            </div>
+          </div>
+              </div>
+    </div>
+  </div>
+
+  </div>
+
+
+        <div class="b-post__link-back-wrap">
+          <a href="https://resources.altium.com/" class="link-back">Back to Home</a>
+        </div>
+
+      </div>
+
+      <div class="content-wrapper__sidebar sidebar  _style-with-bg _style-sticky">
+        <!-- sidebar_begin -->
+        <div  class="topics-list">
+  <h2> Table of Contents </h2>
+  <div class="b-hide _hide" data-items="5" data-more-text="Expand Table of Contents" data-less-text="Collapse Table of Contents">
+          <ul>
+<li class="b-hide__item"><a href="#phased-array-antennas-in-5g">Phased Array Antennas in 5G</a></li>
+<li class="b-hide__item"><a href="#series-fed-patch-arrays">Series-Fed Patch Arrays</a></li>
+<li class="b-hide__item"><a href="#parallel-patch-arrays">Parallel Patch Arrays</a></li>
+<li class="b-hide__item"><a href="#pcbs-for-5g-phased-array-antennas">PCBs for 5G Phased Array Antennas</a></li>
+<li class="b-hide__item"><a href="#an-array-of-arrays">An Array of Arrays</a></li>
+<li class="b-hide__item"><a href="#many-antennas">Many Antennas</a></li>
+<li class="b-hide__item"><a href="#design-strategy-for-patch-antenna-arrays">Design Strategy for Patch Antenna Arrays</a></li>
+<li class="b-hide__item"><a href="#alternative-types-of-antennas-and-arrays">Alternative Types of Antennas and Arrays</a></li>
+</ul>
+
+      </div>
+</div>
+
+        <div data-sticky-top="80"
+             data-stop-sticky-parent=".content-wrapper"
+             data-sticky-stop-bot="240"
+             class="form-sidebar-sticky _style-sticky">
+          
+          <div id="eg_section"></div>
+                          <div class="paragraph eg_section_internal paragraph--type--sidebar-widget paragraph--view-mode--full"">
+              <div class="eg-heading">
+          
+             <article class="media media--type-icon media--view-mode-default">
+  
+      
+         <img loading="lazy" width="480" height="64" src="https://files.resources.altium.com/sites/default/files/2025-10/develop.svg?VersionId=oYKaeRjwFn.MhoR4XCDXnJyv_zL3mKUI" alt="Altium Develop" typeof="foaf:Image" />
+
+ 
+  
+  </article>
+ 
+      
+
+        </div>
+        <div class="eg_body">
+          <h3>
+             Design to Release, Without the Friction 
+      
+</h3>
+          <div class="eg_bullets">
+            
+             <ul><li data-list-item-id="e3be479541836d3f6d516b59f82acd7cc">Keep reviews tied to the right version</li><li data-list-item-id="e14154377e33f0300dcb01c0193471f71">Reduce handoff confusion and rework</li><li data-list-item-id="ebed06fd6c18aed66726044a14fa0c228">Spot sourcing and release risk earlier</li><li data-list-item-id="e302b202d9305ee34a22044185113b5f7">Work solo, share when needed</li></ul> 
+      
+
+                          <a class="eg_btn" target="_blank" href="https://www.altium.com/develop/get-started?promo_position=resources-sidebar&amp;promo_creative=en-get-started&amp;promo_name=tag-develop">
+                <p>Get Started</p>
+              </a>
+                      </div>
+        </div>
+          </div>
+
+
+
+                                
+                  </div>
+
+        <!-- sidebar_end -->
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="b-toaster _successful" id="form-subscribe-toaster">
+  <div class="b-toaster__inner">
+    <div class="b-toaster__content">
+      <div class="b-toaster__ico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11.4" cy="11.4" r="10.9" stroke="white"/>
+          <path d="M6 11L10.2 15.2L17.2 8.2" stroke="white"/>
+        </svg>
+      </div>
+      <div class="b-toaster__text">
+        <b>Thank you, you are now subscribed to updates.</b>
+      </div>
+    </div>
+    <div class="b-toaster__close">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.24309 0.757355L5.00045 5M0.757813 9.24263L5.00045 5M5.00045 5L0.757812 0.757355M5.00045 5L9.24309 9.24264" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</div>
+<div class="modal modal_update-subscribe fade" id="modal-update-subscribe" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal__dialog modal__dialog_v-centered">
+    <div class="modal__content">
+      <button type="button" id="subscribe-modal-close" class="modal__close" data-dismiss="modal" aria-hidden="true"></button>
+      <div class="f-update-subscribe">
+        <div class="f-startup__form">
+          <div id="form-update-subscribe-1">
+            <form class="wds-formV2" data-mkform-id="17112">
+              <div class="wds-loader"></div>
+              <div class="modal__head">
+                <h2>Don’t miss updates</h2>
+              </div>
+            </form>
+            <script>
+	            var localStorageName = "subscribeFormSubmit";
+	            var bodySubmitClass = "_subscribe-form-submit";
+	            if (localStorage.getItem(localStorageName)) {
+		            document.querySelector('body').classList.add(bodySubmitClass);
+	            }
+
+					    document.addEventListener("DOMContentLoaded", () => {
+						    new WdsFormV2({
+							    ids: [17112],
+							    submitBtnClassNames: "wds-form-submit wds-btn _medium _primary _wide",
+							    onLoad: (form) => {
+								    form.onSuccess((values, followUpUrl) => {
+									    localStorage.setItem(localStorageName, "true");
+									    document.querySelector('#subscribe-modal-close').click();
+									    document.querySelector('body').classList.add(bodySubmitClass);
+
+									    setTimeout(() => {
+										    document.querySelector('#form-subscribe-toaster').classList.add("_active");
+									    }, 500);
+									    return false;
+								    })
+							    }
+						    });
+					    });
+
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+
+              <div >
+          
+  
+          
+  
+          
+  
+          
+  
+          
+  
+      
+      <div class="paragraph block-media _style_a _rel _dark-style paragraph--type--content-banner paragraph--view-mode--default" data-content-banner style="display:none;">
+                        <div class="block-media__bg">
+            <picture>
+              <source srcset="" media="(max-width: 767px)" type="image/jpeg">
+              <source srcset="https://files.resources.altium.com/sites/default/files/2026-03/Agnostic%20Mid-Text%20Banner.webp?VersionId=cJ1WA4kRAwMFvDlBTtt3FwLiTQKAe48v" media="(min-width: 768px)" type="image/jpeg">
+              <img src="https://files.resources.altium.com/sites/default/files/2026-03/Agnostic%20Mid-Text%20Banner.webp?VersionId=cJ1WA4kRAwMFvDlBTtt3FwLiTQKAe48v" alt="">
+            </picture>
+          </div>
+        
+        <div class="block-media__inner _rel">
+          <div class="block-media__desc">
+            <div class="block-media__logo">
+              
+             <article class="media media--type-icon media--view-mode-default">
+  
+      
+         <img loading="lazy" src="https://files.resources.altium.com/sites/default/files/styles/large/public/2026-03/Altium%20logo%20white%20%282%29.png?VersionId=WybNfHwKphSz.L8.H1tJZ67r2MPxAOkL&amp;itok=xNzbvFq_" width="73" height="17" alt="Altium Develop" typeof="foaf:Image" class="image-style-large" />
+
+
+ 
+  
+  </article>
+ 
+      
+
+            </div>
+            <div class="block-media__text">
+              <h5>
+             PCB Design 
+      
+</h5>
+              
+             <p>
+<style type="text/css"><!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->
+</style>
+Equip engineers with everything needed to design modern, high-performance PCBs.</p>
+ 
+      
+
+            </div>
+          </div>
+                      <div class="block-media__btn-wrap">
+              <a class="wds-btn _medium _primary _center" href="https://www.altium.com/capabilities/design/pcb-design?promo_name=tag-pcb-design&amp;promo_position=resources-mid-content&amp;promo_creative=en-learn-more-1770&amp;promo_language=en&amp;TrackingId=OM21">Learn More</a>
+            </div>
+                  </div>
+          </div>
+  
+          
+  
+          
+  
+      
+      <div class="paragraph block-media _style_a _rel _dark-style paragraph--type--content-banner paragraph--view-mode--default" data-content-banner style="display:none;">
+                        <div class="block-media__bg">
+            <picture>
+              <source srcset="" media="(max-width: 767px)" type="image/jpeg">
+              <source srcset="https://files.resources.altium.com/sites/default/files/2026-03/Agnostic%20Mid-Text%20Banner_0_3.webp?VersionId=4kbOza2Mf4bt_VqFmNVaYdI3baYJ7eOg" media="(min-width: 768px)" type="image/jpeg">
+              <img src="https://files.resources.altium.com/sites/default/files/2026-03/Agnostic%20Mid-Text%20Banner_0_3.webp?VersionId=4kbOza2Mf4bt_VqFmNVaYdI3baYJ7eOg" alt="">
+            </picture>
+          </div>
+        
+        <div class="block-media__inner _rel">
+          <div class="block-media__desc">
+            <div class="block-media__logo">
+              
+             <article class="media media--type-icon media--view-mode-default">
+  
+      
+         <img loading="lazy" src="https://files.resources.altium.com/sites/default/files/styles/large/public/2026-03/Altium%20logo%20white%20%281%29.png?VersionId=3xo2B5m.Ii190qkjLOK0mQZPpLIfeNRj&amp;itok=YVBbS5QO" width="73" height="17" alt="Altium Develop" typeof="foaf:Image" class="image-style-large" />
+
+
+ 
+  
+  </article>
+ 
+      
+
+            </div>
+            <div class="block-media__text">
+              <h5>
+             Product Design 
+      
+</h5>
+              
+             <p>
+<style type="text/css"><!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->
+</style>
+Combine advanced PCB design with cloud-based collaboration to streamline development.</p>
+ 
+      
+
+            </div>
+          </div>
+                      <div class="block-media__btn-wrap">
+              <a class="wds-btn _medium _primary _center" href="https://www.altium.com/capabilities/design?promo_name=tag-pcb-design&amp;promo_position=resources-mid-content&amp;promo_creative=en-learn-more-9221&amp;promo_language=en&amp;TrackingId=OM21">Learn More</a>
+            </div>
+                  </div>
+          </div>
+  
+          
+  
+  </div>
+
+      
+      
+
+    </div>
+  </div>
+  <link href="https://cdn-shared.altium.com/production/owned-media/public/css/index.css?t=1785036641" rel="stylesheet" type="text/css">
+  <script src="https://cdn-shared.altium.com/production/owned-media/public/js/index.bundle.js?t=1785036641"></script>
+  <script>
+    new window.OwnedMedia({
+      selector: '.s-header',
+      position: 'append',
+      excludePageBySelector: '',
+      excludePageByUrl: '/company,/all-promotions,/circuitstudio,/viewer'
+    });
+  </script>
+</div>
+<div class="modal modal_zoom-screen fade" id="modal-zoom-screen-one" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal__dialog modal__dialog_v-centered">
+    <div class="modal__content">
+      <button type="button" class="modal__close" data-dismiss="modal" aria-hidden="true"></button>
+      <div class="modal__screen">
+        <div class="modal__screen__img">
+          <div class="modal__screen__img-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div  id="altium-navigation-footer" class="footer-v2">
+  <div class="footer-v2__container">
+
+    <div class="footer-v2__nav">
+    <div class="footer-v2__nav-row">
+              <div class="footer-v2__nav-col">
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Platform-based Solutions
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/octopart-discover" >Octopart Discover</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/develop" >Altium Develop</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/agile/teams" >Altium Agile Teams</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/agile/enterprise" >Altium Agile Enterprise</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Tools
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/altium-designer" >Altium Designer</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/octopart" >Octopart</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Platform
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/platform" >Altium 365</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                  </div>
+              <div class="footer-v2__nav-col">
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Company
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/company/customer-success" >Our Customers</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/platform/trust" >Trust Center</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/company/newsroom/press-releases" >Newsroom</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Software Capabilities
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/capabilities/design" >PCB Layout and Design</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/capabilities/requirements" >Requirements Management </a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/capabilities/data-management" >Electronics Data Management </a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/capabilities/security" >IT Security</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/capabilities/manufacturing" >Electronics Manufacturing </a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/capabilities/supply-chain" >Electronics Supply Chain</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/capabilities/engineering-management" >Engineering Management</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                  </div>
+              <div class="footer-v2__nav-col">
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Resources &amp; Support
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://status.altium.com/" >Status</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li class="footer-v2__nav-hr">
+                        <a href="https://www.altium.com/products/downloads" >Downloads</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://resources.altium.com/" >Learning Hub</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/support" >Support Center</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://bugcrunch.live.altium.com/" >Bug Crunch</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://forum.live.altium.com/" >Forum</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/documentation/" >Documentation</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://bugcrunch.live.altium.com/#Ideas/New" >Ideas</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="http://www.altium.com/education" >Education</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/training" >Professional Training / Certification</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://resources.altium.com/webinars" >Webinars</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/community/beta-program" >Beta Program</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                  </div>
+              <div class="footer-v2__nav-col">
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Education
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/education/students" >Student Lab</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://www.altium.com/education/educators" >Educator Center</a>
+                      </li>
+                                                                              
+                                                              
+                                          <li>
+                        <a href="https://education.altium.com/" >Altium Education Curriculum</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                      <div class="footer-v2__nav-menu">
+                                              <div class="footer-v2__nav-title">
+                                  Careers
+                              </div>
+
+                              <ul>
+                                                          
+                                                              
+                                          <li>
+                        <a href="https://jobs.renesas.com/altium-careers" >Career at Altium</a>
+                      </li>
+                                                      </ul>
+                          </div>
+                  </div>
+          </div>
+  </div>
+
+
+  <div class="footer-v2__bottom">
+    <div class="footer-v2__social">
+      <div class="footer-v2__social-item">
+        <a href="https://www.facebook.com/AltiumOfficial" target="_blank" aria-label="Facebook altium official">
+          <svg width="9" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.037.1v2.3H6.712c-.816 0-1.224.3-1.224.9-.102.7 0 1.4 0 2.1h2.55c-.103.9-.205 1.7-.307 2.5H5.488V14H2.736V7.9H.39V5.4h2.243v-2c0-1.6.815-2.8 2.039-3.2C5.794-.1 6.916 0 8.037.1z"
+              fill="#ADADB6"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-v2__social-item">
+        <a href="https://x.com/altium" target="_blank" aria-label="x.com altium official">
+          <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_15511_23743)">
+              <path d="M12.6411 0H15.0936L9.70876 5.94096L16 14H11.063L7.1976 9.10258L2.77241 14H0.319893L6.02466 7.64576L0 0H5.05965L8.55182 4.4738L12.6411 0ZM11.7827 12.6052H13.1423L4.34522 1.34317H2.88437L11.7827 12.6052Z" fill="#ADADB6"/></g><defs><clipPath id="clip0_15511_23743"><rect width="16" height="14" fill="white"/></clipPath></defs>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-v2__social-item">
+        <a href="https://www.linkedin.com/company/altium" target="_blank" aria-label="Linkedin altium official">
+          <svg width="15" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14.61 8.2c0-.6-.102-1.2-.306-1.7-.408-1.2-1.224-2-2.549-2.2-1.325-.3-2.447 0-3.263 1.1l-.101.1V4.3H5.33v9h3.06V8.2c0-.6.203-1.1.713-1.5.918-.6 2.04-.2 2.345.8.102.4.102.8.102 1.1v4.8h3.059V8.2zM.54 13.4H3.6v-9H.54v9zM2.681.1C1.661-.2.744.2.438 1 .03 2.1.846 3.1 2.07 3.1c.816 0 1.53-.4 1.632-1.1.204-.9-.204-1.7-1.02-1.9z"
+              fill="#ADADB6"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-v2__social-item">
+                  <a href="https://www.youtube.com/user/AltiumOfficial" target="_blank" aria-label="Youtube altium official">
+            <svg width="17" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M.313 5.331c0-1.374.163-2.75.163-2.75s.159-1.168.648-1.685C1.744.22 2.56.241 2.923.17 4.228.038 8.469 0 8.469 0s3.428.004 5.71.176c.32.04 1.015.043 1.635.72.489.516.648 1.686.648 1.686s.163 1.374.163 2.75v1.336c0 1.376-.163 2.75-.163 2.75s-.159 1.17-.648 1.686c-.62.677-1.316.68-1.636.72-2.282.172-5.71.176-5.71.176s-4.24-.04-5.545-.17c-.363-.071-1.18-.05-1.799-.726-.49-.517-.648-1.685-.648-1.685S.313 8.044.313 6.669V5.33zM6.785 8.23V3.457l4.407 2.394L6.788 8.23h-.003z"
+                    fill="#ADADB6"/>
+            </svg>
+          </a>
+              </div>
+      <div class="footer-v2__social-item">
+        <a href="https://www.instagram.com/altium_official" target="_blank" aria-label="Instagram altium official">
+          <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7 1.262c1.869 0 2.09.007 2.83.04 1.896.087 2.782.987 2.869 2.87.033.738.04.96.04 2.829 0 1.87-.007 2.09-.04 2.828-.087 1.881-.971 2.783-2.87 2.87-.738.033-.959.04-2.829.04-1.869 0-2.09-.007-2.829-.04-1.901-.087-2.783-.992-2.869-2.87-.034-.738-.04-.96-.04-2.829 0-1.869.007-2.09.04-2.829.087-1.882.97-2.783 2.87-2.869.738-.033.959-.04 2.828-.04zM7 0C5.099 0 4.86.008 4.114.042 1.572.159.16 1.569.043 4.114.008 4.86 0 5.099 0 7c0 1.901.008 2.14.042 2.886.117 2.543 1.527 3.955 4.072 4.072.747.034.985.042 2.886.042 1.901 0 2.14-.008 2.886-.042 2.54-.117 3.957-1.527 4.071-4.072C13.992 9.14 14 8.901 14 7c0-1.901-.008-2.14-.042-2.886C13.844 1.574 12.431.16 9.887.043 9.14.008 8.9 0 7 0zm0 3.405a3.595 3.595 0 100 7.19 3.595 3.595 0 000-7.19zm0 5.928a2.333 2.333 0 110-4.666 2.333 2.333 0 010 4.666zm3.737-6.91a.84.84 0 100 1.681.84.84 0 000-1.68z"
+              fill="#ADADB6"/>
+          </svg>
+        </a>
+      </div>
+          </div>
+    <div class="footer-v2__nav-list">
+      <div class="footer-v2__lang">
+      </div>
+
+        <div class="footer-v2__nav-list-wrap">
+    <ul>
+                      <li>
+          <a href="https://www.altium.com/copyrights-and-trademarks">
+                        Copyrights &amp; Trademark
+          </a>
+        </li>
+                      <li>
+          <a href="https://www.altium.com/privacy-policy">
+                        Privacy policy
+          </a>
+        </li>
+                      <li>
+          <a href="https://www.altium.com/cookie-policy">
+                        Cookie policy
+          </a>
+        </li>
+                      <li>
+          <a href="https://www.altium.com/terms-of-service">
+                        Terms of Service
+          </a>
+        </li>
+                      <li>
+          <a href="https://www.altium.com/legal-notice">
+                        Legal
+          </a>
+        </li>
+          </ul>
+  </div>
+
+
+      <div class="footer-v2__copy">© 2026
+        Altium Pty. Ltd.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+  </div>
+
+    
+    <script src="/modules/contrib/jquery_once/lib/jquery-once-2.2.3/jquery.once.min.js?v=2.2.3"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/version-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/data-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/disable-selection-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/jquery-patch-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/scroll-parent-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/unique-id-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/focusable-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/keycode-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/plugin-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widget-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/labels-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widgets/controlgroup-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/form-reset-mixin-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widgets/mouse-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widgets/checkboxradio-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widgets/draggable-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widgets/resizable-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widgets/button-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/jquery.ui/ui/widgets/dialog-min.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/tabbable/index.umd.min.js?v=6.3.0"></script>
+<script src="/core/assets/vendor/tua-body-scroll-lock/tua-bsl.umd.min.js?v=11.3.11"></script>
+<script src="https://static.addtoany.com/menu/page.js" defer></script>
+<script src="/modules/contrib/addtoany/js/addtoany.js?v=11.3.11"></script>
+<script src="https://cdn-shared.altium.com/production/altium-all-pages/dist/components/bCountdown/bCountdown.min.js"></script>
+<script src="https://cdn-shared.altium.com/production/wds/dist/components/wds-formV2/wds-formV2.min.js"></script>
+<script src="https://cdn-shared.altium.com/production/wds/dist/components/wds-sticky/wds-sticky.min.js"></script>
+<script src="https://cdn-shared.altium.com/production/wds/dist/components/wds-sticky-v2/wds-sticky-v2.min.js"></script>
+<script src="https://cdn-shared.altium.com/production/wds/dist/components/wds-steps/wds-steps.min.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/device/device.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/bootstrap-modal/bootstrap-modal.min.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/owl-carousel/owl.carousel.min.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/dotdotdot/dotdotdot.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/jquery.cookie/jquery.cookie.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/intlTelInput/intlTelInput.min.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/intlTelInput/utils.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/vendor/coutdown/jquery.countdown.min.js"></script>
+<script src="https://files.resources.altium.com/themes/master-1784553914/web/themes/custom/altium/html/dist/js/index.min.js"></script>
+<script src="/modules/custom/altium_adv/js/adv-backend/adv-backend-countries.js?v=1.x"></script>
+<script src="/modules/custom/altium_cj/js/altium_cj.js?v=1.x"></script>
+<script src="/modules/custom/altium_content_banner/js/content-banner.js?v=1"></script>
+<script src="https://cdn-shared.altium.com/production/dams/dams.min.js" site="resources"></script>
+<script src="https://cdn-shared.altium.com/production/navigation_new/app/dist_prod_server_html/footer.js" rel="preload"></script>
+<script src="https://cdn-shared.altium.com/production/navigation_new/app/dist_prod_server_html/header.js" rel="preload"></script>
+<script src="/modules/custom/altium_nbsp/js/altium_nbsp.js?v=1.x"></script>
+<script src="https://cdn-shared.altium.com/production/altium-all-pages/dist/main.js"></script>
+<script src="/modules/custom/altium_superscript/js/altium_superscript_wrapper.js?v=11.3.11"></script>
+<script src="/core/misc/progress.js?v=11.3.11"></script>
+<script src="/core/assets/vendor/loadjs/loadjs.min.js?v=4.3.0"></script>
+<script src="/core/misc/debounce.js?v=11.3.11"></script>
+<script src="/core/misc/announce.js?v=11.3.11"></script>
+<script src="/core/misc/message.js?v=11.3.11"></script>
+<script src="/core/misc/ajax.js?v=11.3.11"></script>
+<script src="/themes/contrib/stable/js/ajax.js?v=11.3.11"></script>
+<script src="/core/misc/displace.js?v=11.3.11"></script>
+<script src="/core/misc/position.js?v=11.3.11"></script>
+<script src="/core/misc/dialog/dialog-deprecation.js?v=11.3.11"></script>
+<script src="/core/misc/dialog/dialog.js?v=11.3.11"></script>
+<script src="/core/misc/dialog/dialog.position.js?v=11.3.11"></script>
+<script src="/core/misc/dialog/dialog.jquery-ui.js?v=11.3.11"></script>
+<script src="/core/modules/ckeditor5/js/ckeditor5.dialog.fix.js?v=11.3.11"></script>
+<script src="/core/misc/dialog/dialog.ajax.js?v=11.3.11"></script>
+<script src="/core/misc/jquery.form.js?v=4.3.0"></script>
+<script src="/modules/custom/content_audit_custom/js/quick-audit.js?v=11.3.11"></script>
+<script src="/modules/contrib/lazy/js/lazy.js?v=11.3.11"></script>
+<script src="/modules/contrib/statistics/statistics.js?v=11.3.11"></script>
+
+    <script type="text/javascript" src="https://cdn-shared.altium.com/production/altium-live-event/live.js"></script>
+          <script src="https://cdn-shared.altium.com/production/drift/driftChat.js"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          new window.DriftChat({
+            hideDefaultDriftChatBtn: false,
+          });
+        });
+      </script>
+      </body>
+</html>
