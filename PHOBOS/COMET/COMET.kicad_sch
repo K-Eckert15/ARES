@@ -18641,7 +18641,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BSD840N"
+		(property "Value" "PMGD175XNEX"
 			(at 345.44 121.9199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18677,7 +18677,7 @@
 				(justify left)
 			)
 		)
-		(property "Description" "BSD840N"
+		(property "Description" "PMGD175XNEX"
 			(at 339.09 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -19608,7 +19608,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BSD840N"
+		(property "Value" "PMGD175XNEX"
 			(at 345.44 176.5299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19644,7 +19644,7 @@
 				(justify left)
 			)
 		)
-		(property "Description" "BSD840N"
+		(property "Description" "PMGD175XNEX"
 			(at 339.09 175.26 0)
 			(hide yes)
 			(show_name no)
