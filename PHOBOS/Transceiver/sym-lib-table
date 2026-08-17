@@ -1,0 +1,5 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "SX1280IMLTRT") (type "KiCad") (uri "${KIPRJMOD}/Parts/SX1280IMLTRT") (options "") (descr ""))
+	(lib (name "C1E-52.000-10-1012-X-M") (type "KiCad") (uri "${KIPRJMOD}/Parts/C1E-52.000-10-1012-X-M") (options "") (descr ""))
+)
