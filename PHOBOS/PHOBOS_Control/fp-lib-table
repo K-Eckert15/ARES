@@ -1,0 +1,7 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "C1E-52.000-10-1012-X-M") (type "KiCad") (uri "${KIPRJMOD}/Parts/C1E-52.000-10-1012-X-M") (options "") (descr ""))
+	(lib (name "SX1280IMLTRT") (type "KiCad") (uri "${KIPRJMOD}/Parts/SX1280IMLTRT") (options "") (descr ""))
+	(lib (name "USB4056_03_A") (type "KiCad") (uri "${KIPRJMOD}/Parts/USB4056_03_A") (options "") (descr ""))
+	(lib (name "SMA_J_P_GF_RA_SM1") (type "KiCad") (uri "${KIPRJMOD}/Parts/SMA_J_P_GF_RA_SM1") (options "") (descr ""))
+)
