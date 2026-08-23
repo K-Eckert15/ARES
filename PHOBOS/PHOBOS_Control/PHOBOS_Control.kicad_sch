@@ -8100,6 +8100,18 @@
 		(uuid "90af6332-3158-4f37-a613-279df16c1501")
 	)
 	(rectangle
+		(start 307.34 213.36)
+		(end 345.44 223.52)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "e7d5559e-db93-4e7f-b07e-7e05438c7030")
+	)
+	(rectangle
 		(start 99.06 83.82)
 		(end 238.76 165.735)
 		(stroke
@@ -8122,6 +8134,16 @@
 			(type none)
 		)
 		(uuid "f7640031-5683-4aa0-913b-da7f57d07ab5")
+	)
+	(text "SPI1"
+		(exclude_from_sim no)
+		(at 342.392 217.424 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "11c534c0-995e-4732-af33-6923e8241d86")
 	)
 	(text "I2C PU"
 		(exclude_from_sim no)
@@ -8867,10 +8889,6 @@
 		(uuid "174ac825-08be-4bcf-b351-42a420c27171")
 	)
 	(no_connect
-		(at 318.77 217.17)
-		(uuid "1fdcfa0c-a5e1-47f1-ada7-75be1a62c868")
-	)
-	(no_connect
 		(at 110.49 127)
 		(uuid "2e630a5a-ee6f-4184-8cf6-9df8d1ad1ac4")
 	)
@@ -8897,10 +8915,6 @@
 	(no_connect
 		(at 110.49 129.54)
 		(uuid "81cced02-443b-47fc-8923-a38b312d5ce4")
-	)
-	(no_connect
-		(at 318.77 219.71)
-		(uuid "c7252d9a-ef89-4b5e-8a0d-b25341155ec5")
 	)
 	(no_connect
 		(at 146.05 111.76)
@@ -10692,6 +10706,16 @@
 	)
 	(wire
 		(pts
+			(xy 318.77 217.17) (xy 334.01 217.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83b242ab-993c-4d35-86fb-456048b68424")
+	)
+	(wire
+		(pts
 			(xy 367.03 149.86) (xy 367.03 151.13)
 		)
 		(stroke
@@ -11972,6 +11996,16 @@
 	)
 	(wire
 		(pts
+			(xy 318.77 219.71) (xy 334.01 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd61e6af-6fc1-4dae-b891-b4a050989689")
+	)
+	(wire
+		(pts
 			(xy 346.71 246.38) (xy 354.33 246.38)
 		)
 		(stroke
@@ -12550,15 +12584,15 @@
 		)
 		(uuid "0aea8b81-e070-4e18-afd1-f4c51d5d74d6")
 	)
-	(label "GPIO10"
-		(at 334.01 214.63 180)
+	(label "MISO"
+		(at 334.01 219.71 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "0ff79532-9f49-442c-ba62-cf15b72c0a2a")
+		(uuid "0baac66f-85be-4696-8288-b22199db5633")
 	)
 	(label "USB_D-"
 		(at 106.68 119.38 180)
@@ -12800,6 +12834,16 @@
 		)
 		(uuid "64abb2ac-55d7-45cb-a27c-da34a764bfdd")
 	)
+	(label "MOSI"
+		(at 334.01 217.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "65a4df52-6a79-4006-84f0-74df18c5fdef")
+	)
 	(label "~{USB_BOOT}"
 		(at 184.15 189.23 180)
 		(effects
@@ -12859,6 +12903,16 @@
 			(justify left bottom)
 		)
 		(uuid "92793f77-d7cf-447a-bbcb-14c3e58212ae")
+	)
+	(label "SCK"
+		(at 334.01 214.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9c419424-9aa6-4ce1-a899-8a08f0acc0b4")
 	)
 	(label "QSPI_SD3"
 		(at 162.56 201.93 180)
@@ -13041,6 +13095,16 @@
 		(uuid "e2b186b4-5c29-4e74-8098-8dd81a064a43")
 	)
 	(label "NSS"
+		(at 334.01 222.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e509a6b4-35c2-4168-a642-8a7226e0177f")
+	)
+	(label "NSS"
 		(at 384.81 210.82 180)
 		(effects
 			(font
@@ -13049,16 +13113,6 @@
 			(justify right bottom)
 		)
 		(uuid "edbc8787-c63a-49bd-8be9-515ff41f1502")
-	)
-	(label "GPIO13"
-		(at 334.01 222.25 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "f2aad4e1-e089-45f4-b85a-e27c4c67d83d")
 	)
 	(label "USB_D-"
 		(at 149.86 121.92 0)
