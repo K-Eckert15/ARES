@@ -3,7 +3,7 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "311bc0a8-e09e-4ed9-a164-96f32995a395")
-	(paper "A0")
+	(paper "A2")
 	(lib_symbols
 		(symbol "Adafruit MPM3610-eagle-import:VIN"
 			(power global)
@@ -867,496 +867,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector:DE9_Pins_MountingHoles"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 0 16.51 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "DE9_Pins_MountingHoles"
-				(at 0 14.605 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "9-pin D-SUB connector, pins (male), Mounting Hole"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "DSUB DB9"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "DSUB*Pins*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "DE9_Pins_MountingHoles_0_1"
-				(polyline
-					(pts
-						(xy -3.81 10.16) (xy -2.54 10.16)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 7.62) (xy 0.508 7.62)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 5.08) (xy -2.54 5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 2.54) (xy 0.508 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 -2.54) (xy 0.508 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 -5.08) (xy -2.54 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 -7.62) (xy 0.508 -7.62)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 -10.16) (xy -2.54 -10.16)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 -13.335) (xy -3.81 13.335) (xy 3.81 9.525) (xy 3.81 -9.525) (xy -3.81 -13.335)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(circle
-					(center -1.778 10.16)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center -1.778 5.08)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center -1.778 0)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center -1.778 -5.08)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center -1.778 -10.16)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 1.27 7.62)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 1.27 2.54)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 1.27 -2.54)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 1.27 -7.62)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "DE9_Pins_MountingHoles_1_1"
-				(pin passive line
-					(at -7.62 -10.16 0)
-					(length 3.81)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 -5.08 0)
-					(length 3.81)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 0 0)
-					(length 3.81)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 5.08 0)
-					(length 3.81)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 10.16 0)
-					(length 3.81)
-					(name "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 -7.62 0)
-					(length 3.81)
-					(name "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 -2.54 0)
-					(length 3.81)
-					(name "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 2.54 0)
-					(length 3.81)
-					(name "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 7.62 0)
-					(length 3.81)
-					(name "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -15.24 90)
-					(length 3.81)
-					(name "PAD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "SH"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector:Screw_Terminal_01x02"
 			(pin_names
 				(offset 1.016)
@@ -1950,6 +1460,252 @@
 						)
 					)
 					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Connector_Generic_Shielded:Conn_01x04_Shielded"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0.254 4.826 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x04_Shielded"
+				(at 1.016 -7.366 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Generic shielded connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??-1SH*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Conn_01x04_Shielded_1_1"
+				(rectangle
+					(start -1.27 3.81)
+					(end 1.27 -6.35)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.016 3.556)
+					(end 1.016 -6.096)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.016 2.667)
+					(end 0.254 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.016 0.127)
+					(end 0.254 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.016 -2.413)
+					(end 0.254 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.016 -4.953)
+					(end 0.254 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 4.064)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 4.064)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 4.064)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 4.064)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -10.16 90)
+					(length 3.81)
+					(name "Shield"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -8342,10 +8098,6 @@
 		(uuid "238ffeac-954e-438a-a645-5bd205464821")
 	)
 	(no_connect
-		(at 412.75 303.53)
-		(uuid "258cae3f-2608-4197-a3bd-92381f73dda2")
-	)
-	(no_connect
 		(at 110.49 127)
 		(uuid "2e630a5a-ee6f-4184-8cf6-9df8d1ad1ac4")
 	)
@@ -8378,10 +8130,6 @@
 		(uuid "592dd0be-6689-4c85-8fd0-f49ca89e7cb9")
 	)
 	(no_connect
-		(at 412.75 308.61)
-		(uuid "5b8831dd-24b2-4f47-8cd5-dfce02d0c1d6")
-	)
-	(no_connect
 		(at 110.49 111.76)
 		(uuid "713f260e-b94a-4d64-89ea-0a1fb8381209")
 	)
@@ -8390,16 +8138,8 @@
 		(uuid "7473200a-1dcd-428d-8661-e75e32b3785c")
 	)
 	(no_connect
-		(at 412.75 293.37)
-		(uuid "7554d80e-43b5-4c34-b85b-4b1cf4d9692e")
-	)
-	(no_connect
 		(at 429.26 210.82)
 		(uuid "76dfe53d-4790-4553-bc0e-669bce9fb927")
-	)
-	(no_connect
-		(at 412.75 298.45)
-		(uuid "7c63bfde-db19-4ce5-8b8d-854ded1918e6")
 	)
 	(no_connect
 		(at 110.49 129.54)
@@ -8424,10 +8164,6 @@
 	(no_connect
 		(at 318.77 229.87)
 		(uuid "adb7cd42-fc48-4663-8485-9ffd6f83d5af")
-	)
-	(no_connect
-		(at 412.75 311.15)
-		(uuid "b90593d3-66bd-4808-bb3b-bd5c882c3e13")
 	)
 	(no_connect
 		(at 318.77 265.43)
@@ -8737,7 +8473,7 @@
 	)
 	(wire
 		(pts
-			(xy 394.97 234.95) (xy 394.97 290.83)
+			(xy 394.97 234.95) (xy 394.97 294.64)
 		)
 		(stroke
 			(width 0)
@@ -8807,7 +8543,7 @@
 	)
 	(wire
 		(pts
-			(xy 391.16 295.91) (xy 412.75 295.91)
+			(xy 391.16 297.18) (xy 421.64 297.18)
 		)
 		(stroke
 			(width 0)
@@ -9357,7 +9093,7 @@
 	)
 	(wire
 		(pts
-			(xy 420.37 316.23) (xy 420.37 322.58)
+			(xy 426.72 307.34) (xy 426.72 313.69)
 		)
 		(stroke
 			(width 0)
@@ -9457,7 +9193,7 @@
 	)
 	(wire
 		(pts
-			(xy 386.08 300.99) (xy 386.08 313.69)
+			(xy 386.08 299.72) (xy 386.08 313.69)
 		)
 		(stroke
 			(width 0)
@@ -10207,7 +9943,7 @@
 	)
 	(wire
 		(pts
-			(xy 394.97 290.83) (xy 412.75 290.83)
+			(xy 394.97 294.64) (xy 421.64 294.64)
 		)
 		(stroke
 			(width 0)
@@ -10747,7 +10483,7 @@
 	)
 	(wire
 		(pts
-			(xy 391.16 353.06) (xy 391.16 306.07)
+			(xy 391.16 353.06) (xy 391.16 302.26)
 		)
 		(stroke
 			(width 0)
@@ -10827,7 +10563,7 @@
 	)
 	(wire
 		(pts
-			(xy 412.75 300.99) (xy 386.08 300.99)
+			(xy 386.08 299.72) (xy 421.64 299.72)
 		)
 		(stroke
 			(width 0)
@@ -10977,7 +10713,7 @@
 	)
 	(wire
 		(pts
-			(xy 391.16 275.59) (xy 391.16 295.91)
+			(xy 391.16 275.59) (xy 391.16 297.18)
 		)
 		(stroke
 			(width 0)
@@ -11397,7 +11133,7 @@
 	)
 	(wire
 		(pts
-			(xy 391.16 306.07) (xy 412.75 306.07)
+			(xy 391.16 302.26) (xy 421.64 302.26)
 		)
 		(stroke
 			(width 0)
@@ -12727,7 +12463,7 @@
 			(justify left bottom)
 		)
 		(uuid "2da6c84b-059a-4401-80ef-90542ffd108b")
-		(property "Net Class" "PWR"
+		(property "Netclass" "PWR"
 			(at 183.5785 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12762,7 +12498,7 @@
 			(justify left bottom)
 		)
 		(uuid "3dc87609-c456-4e08-8c8f-9ff7e5828bcd")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 537.9085 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12797,7 +12533,7 @@
 			(justify left bottom)
 		)
 		(uuid "b9ca720b-0a6f-47dc-a1a5-2f5bae87387f")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 525.86 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12832,7 +12568,7 @@
 			(justify left bottom)
 		)
 		(uuid "c91d5077-f963-4e4d-8c26-9757157a5472")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 484.5685 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12867,7 +12603,7 @@
 			(justify left bottom)
 		)
 		(uuid "cbb3446c-cc86-48c4-8fa3-8e2ab7609093")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 508.6985 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12902,7 +12638,7 @@
 			(justify left bottom)
 		)
 		(uuid "f2009b32-5178-4ff3-bfc2-b88dc88a1399")
-		(property "Net Class" "PWR"
+		(property "Netclass" "PWR"
 			(at 165.7985 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18132,122 +17868,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:DE9_Pins_MountingHoles")
-		(at 420.37 300.99 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "51bf319e-8448-4b70-9507-f0503f108c06")
-		(property "Reference" "J5"
-			(at 425.45 299.7199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "DE9_Pins_MountingHoles"
-			(at 425.45 302.2599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_Dsub:DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm"
-			(at 420.37 300.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 420.37 300.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "9-pin D-SUB connector, pins (male), Mounting Hole"
-			(at 420.37 300.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFG #" "6E17C009SAJ120"
-			(at 420.37 300.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "6"
-			(uuid "a6f69efb-bf7b-40e8-a5c0-240aed357d29")
-		)
-		(pin "7"
-			(uuid "5e287d8e-c706-424e-8440-ef995248c00e")
-		)
-		(pin "SH"
-			(uuid "b292b24a-c8f8-445e-9db9-1236c50d1a52")
-		)
-		(pin "1"
-			(uuid "165be09c-29f9-4ae1-83e4-06b2b5077dc2")
-		)
-		(pin "2"
-			(uuid "03f98492-13cd-4f58-ac4f-fb4668d2230b")
-		)
-		(pin "4"
-			(uuid "dec02b2f-ed48-4430-aa94-dfd92c082ed9")
-		)
-		(pin "5"
-			(uuid "6601a810-99ab-488f-abda-4b5277c39af9")
-		)
-		(pin "8"
-			(uuid "6fbc57fc-a94a-4ab6-9acc-8334c1329d2c")
-		)
-		(pin "3"
-			(uuid "95e9cd63-5f10-4bb9-8b77-5f16057de6bd")
-		)
-		(pin "9"
-			(uuid "8e4a3c32-a033-4af5-b04c-811d0bb621d1")
-		)
-		(instances
-			(project "PHOBOS_Control"
-				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
-					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:L")
 		(at 477.52 213.36 90)
 		(unit 1)
@@ -22170,7 +21790,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 420.37 322.58 0)
+		(at 426.72 313.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -22181,7 +21801,7 @@
 		(fields_autoplaced yes)
 		(uuid "a15d329e-2fa1-4f72-a79b-59c7a299a303")
 		(property "Reference" "#PWR035"
-			(at 420.37 328.93 0)
+			(at 426.72 320.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22192,7 +21812,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 420.37 327.66 0)
+			(at 426.72 318.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22202,7 +21822,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 420.37 322.58 0)
+			(at 426.72 313.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22213,7 +21833,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 420.37 322.58 0)
+			(at 426.72 313.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22224,7 +21844,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 420.37 322.58 0)
+			(at 426.72 313.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23272,6 +22892,97 @@
 			(project "PHOBOS_Control"
 				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
 					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic_Shielded:Conn_01x04_Shielded")
+		(at 426.72 297.18 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b5262426-1cf4-4242-9f59-2dddcb142e5e")
+		(property "Reference" "J4"
+			(at 429.26 297.1799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x04_Shielded"
+			(at 429.26 299.7199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 426.72 297.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 426.72 297.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic shielded connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 426.72 297.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "5c031fdb-bb99-4f54-820d-45b91d49e0cd")
+		)
+		(pin "1"
+			(uuid "3955298b-b945-41bf-b960-6e3a3919887e")
+		)
+		(pin "2"
+			(uuid "65fc87aa-bbfa-4408-b746-1cec1dd492c9")
+		)
+		(pin "SH"
+			(uuid "32ab05a1-49e4-4a93-b632-7b306a6781ba")
+		)
+		(pin "4"
+			(uuid "05a847ae-17b0-4d82-9c44-af711798cf26")
+		)
+		(instances
+			(project "PHOBOS_Control"
+				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
+					(reference "J4")
 					(unit 1)
 				)
 			)
