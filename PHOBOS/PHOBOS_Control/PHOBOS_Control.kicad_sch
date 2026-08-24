@@ -8022,6 +8022,12 @@
 		(uuid "8d3a7ea6-6205-4598-acc1-474f346be6d2")
 	)
 	(junction
+		(at 181.61 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8e7d3c47-7bfc-4853-8f5c-e6db613d81ea")
+	)
+	(junction
 		(at 332.74 232.41)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8212,12 +8218,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cf0d88fe-0da7-44a4-ac03-ba2b1fde2b35")
-	)
-	(junction
-		(at 181.61 104.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d03a8807-fb5e-4cf2-a002-df655ca336a4")
 	)
 	(junction
 		(at 485.14 213.36)
@@ -12727,7 +12727,7 @@
 			(justify left bottom)
 		)
 		(uuid "2da6c84b-059a-4401-80ef-90542ffd108b")
-		(property "Netclass" "PWR"
+		(property "Net Class" "PWR"
 			(at 183.5785 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12762,7 +12762,7 @@
 			(justify left bottom)
 		)
 		(uuid "3dc87609-c456-4e08-8c8f-9ff7e5828bcd")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 537.9085 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12797,7 +12797,7 @@
 			(justify left bottom)
 		)
 		(uuid "b9ca720b-0a6f-47dc-a1a5-2f5bae87387f")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 525.86 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12832,7 +12832,7 @@
 			(justify left bottom)
 		)
 		(uuid "c91d5077-f963-4e4d-8c26-9757157a5472")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 484.5685 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12867,7 +12867,7 @@
 			(justify left bottom)
 		)
 		(uuid "cbb3446c-cc86-48c4-8fa3-8e2ab7609093")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 508.6985 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12902,7 +12902,7 @@
 			(justify left bottom)
 		)
 		(uuid "f2009b32-5178-4ff3-bfc2-b88dc88a1399")
-		(property "Netclass" "PWR"
+		(property "Net Class" "PWR"
 			(at 165.7985 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23858,7 +23858,8 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 189.23 99.06 90)
+		(at 191.77 99.06 270)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -23868,7 +23869,7 @@
 		(dnp no)
 		(uuid "bea1f3c9-80cc-4990-853d-1bd177f890e4")
 		(property "Reference" "J1"
-			(at 205.74 98.552 90)
+			(at 203.962 99.06 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -23878,7 +23879,7 @@
 			)
 		)
 		(property "Value" "Screw_Terminal_01x02"
-			(at 205.74 101.092 90)
+			(at 203.962 101.6 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -23888,7 +23889,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock_4Ucon:TerminalBlock_4Ucon_1x02_P3.50mm_Horizontal"
-			(at 189.23 99.06 0)
+			(at 191.77 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23899,7 +23900,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 189.23 99.06 0)
+			(at 191.77 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23910,7 +23911,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 189.23 99.06 0)
+			(at 191.77 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

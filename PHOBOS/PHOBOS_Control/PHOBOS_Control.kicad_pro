@@ -74,6 +74,11 @@
           "gap": 0.0,
           "via_gap": 0.0,
           "width": 0.0
+        },
+        {
+          "gap": 0.127,
+          "via_gap": 0.0,
+          "width": 0.127
         }
       ],
       "drc_exclusions": [],
@@ -159,7 +164,7 @@
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.2,
+        "min_track_width": 0.127,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
         "solder_mask_to_copper_clearance": 0.0,
@@ -211,6 +216,7 @@
       ],
       "track_widths": [
         0.0,
+        0.127,
         0.381,
         0.762
       ],
@@ -535,7 +541,7 @@
         "microvia_drill": 0.1,
         "name": "PWR",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(255, 53, 63)",
         "track_width": 0.762,
         "tuning_profile": "",
@@ -546,10 +552,21 @@
       {
         "name": "RF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "tuning_profile": "",
         "wire_width": 6
+      },
+      {
+        "clearance": 0.127,
+        "diff_pair_gap": 0.127,
+        "diff_pair_width": 0.2,
+        "name": "USB",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(255, 205, 115)",
+        "track_width": 0.127,
+        "tuning_profile": ""
       }
     ],
     "meta": {
@@ -576,7 +593,28 @@
         "PWR"
       ]
     },
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Default",
+        "pattern": "*"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "/USB_D-"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "/USB_D+"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "/USB_+"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "/USB_-"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
