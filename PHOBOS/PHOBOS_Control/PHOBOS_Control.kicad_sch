@@ -12115,26 +12115,6 @@
 		)
 		(uuid "0baac66f-85be-4696-8288-b22199db5633")
 	)
-	(label "PS2MCU"
-		(at 320.04 234.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "125487d8-7adb-4e07-9f08-ab0bd3cb6b9a")
-	)
-	(label "PS1MCU"
-		(at 327.66 232.41 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "16788fa5-57ec-4542-9b9c-46d4d9bdad59")
-	)
 	(label "USB_D-"
 		(at 106.68 119.38 180)
 		(effects
@@ -12154,16 +12134,6 @@
 			(justify left bottom)
 		)
 		(uuid "19c2f12d-ef7b-4048-91e8-808880a31ab4")
-	)
-	(label "PS3MCU"
-		(at 320.04 237.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "19e726f0-ffa0-4d2b-b16a-ff2654d90ddf")
 	)
 	(label "BUSY"
 		(at 472.44 218.44 0)
@@ -12195,16 +12165,6 @@
 		)
 		(uuid "258caa4d-8e4d-4bfa-a378-7e0d38e406dd")
 	)
-	(label "PS4MCU"
-		(at 320.04 240.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2d1801b5-2961-418c-83bb-eb652c5c1695")
-	)
 	(label "NSS"
 		(at 426.72 223.52 180)
 		(effects
@@ -12224,6 +12184,16 @@
 			(justify right bottom)
 		)
 		(uuid "2f812fab-ab06-48bb-a5ca-24865e93a09c")
+	)
+	(label "PS2MCU"
+		(at 321.31 237.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "32f7fd29-a119-44ef-88cf-8eff2224e532")
 	)
 	(label "QSPI_SCLK"
 		(at 241.3 205.74 0)
@@ -12254,6 +12224,16 @@
 			(justify left bottom)
 		)
 		(uuid "35e2b744-091e-4faa-983c-b4c2a0f1a283")
+	)
+	(label "PS4"
+		(at 370.84 234.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "35f3d37d-72e0-48a0-a2f0-383e745bb75f")
 	)
 	(label "QSPI_SCLK"
 		(at 162.56 191.77 180)
@@ -12315,6 +12295,16 @@
 		)
 		(uuid "46f8b17a-2f58-4b85-947b-c8af0ed9009e")
 	)
+	(label "PS3"
+		(at 369.57 275.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "47aef08c-c2fe-4360-8904-979f19e3e214")
+	)
 	(label "USB_-"
 		(at 327.66 181.61 180)
 		(effects
@@ -12354,6 +12344,16 @@
 			(justify right bottom)
 		)
 		(uuid "4d5c0175-1ca8-4f0a-8001-df80567e1c7b")
+	)
+	(label "PS1MCU"
+		(at 321.31 240.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4d97d9aa-23be-4a15-b88e-cbd6f177bd00")
 	)
 	(label "DCC_FB"
 		(at 469.9 210.82 0)
@@ -12445,15 +12445,15 @@
 		)
 		(uuid "91066954-7619-48c2-b703-ce2410b22f62")
 	)
-	(label "PS2"
-		(at 365.76 275.59 0)
+	(label "PS3MCU"
+		(at 321.31 234.95 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "92793f77-d7cf-447a-bbcb-14c3e58212ae")
+		(uuid "983f24e7-fef7-45be-b4d9-2651b2fcafac")
 	)
 	(label "SCK"
 		(at 334.01 214.63 0)
@@ -12475,16 +12475,6 @@
 		)
 		(uuid "9f58737f-6d43-4dce-a7a1-9b1138ef8708")
 	)
-	(label "PS4"
-		(at 365.76 353.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a0547bfc-24f6-49b1-8dc7-a46acb9368ee")
-	)
 	(label "USB_D+"
 		(at 149.86 119.38 0)
 		(effects
@@ -12505,6 +12495,16 @@
 		)
 		(uuid "a4dd2459-72d8-4765-9fe1-f1357851546b")
 	)
+	(label "PS1"
+		(at 369.57 353.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a5267dbd-94ad-471b-a465-76fd73cf76e5")
+	)
 	(label "SDA"
 		(at 334.01 199.39 0)
 		(effects
@@ -12514,6 +12514,16 @@
 			(justify left bottom)
 		)
 		(uuid "a62682df-75d7-4551-aa64-8cf801493e65")
+	)
+	(label "PS4MCU"
+		(at 321.31 232.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a647c245-9bd5-4bf7-83c4-f02b1bf55ece")
 	)
 	(label "USB_D-"
 		(at 351.79 181.61 180)
@@ -12564,16 +12574,6 @@
 			(justify left bottom)
 		)
 		(uuid "bafcd96e-8cc1-4153-a13e-47c5b00cfde2")
-	)
-	(label "PS1"
-		(at 365.76 234.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "bf394cb9-caba-46d7-bf3f-80d88807e161")
 	)
 	(label "SWCLK"
 		(at 241.3 254 0)
@@ -12685,16 +12685,6 @@
 		)
 		(uuid "f85acbfd-616b-49d5-b96f-89cf9a9b8a1f")
 	)
-	(label "PS3"
-		(at 365.76 313.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fb1de4c6-e346-4a5e-942c-220d52fe8d88")
-	)
 	(label "SCK"
 		(at 426.72 220.98 180)
 		(effects
@@ -12704,6 +12694,16 @@
 			(justify right bottom)
 		)
 		(uuid "fbc6d4f0-8737-40a8-8363-bc0d5467e233")
+	)
+	(label "PS2"
+		(at 369.57 313.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fe677085-a3c3-4d44-806d-d209f189f1a5")
 	)
 	(label "XTB"
 		(at 429.26 231.14 180)
@@ -12727,7 +12727,7 @@
 			(justify left bottom)
 		)
 		(uuid "2da6c84b-059a-4401-80ef-90542ffd108b")
-		(property "Net Class" "PWR"
+		(property "Netclass" "PWR"
 			(at 183.5785 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12762,7 +12762,7 @@
 			(justify left bottom)
 		)
 		(uuid "3dc87609-c456-4e08-8c8f-9ff7e5828bcd")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 537.9085 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12797,7 +12797,7 @@
 			(justify left bottom)
 		)
 		(uuid "b9ca720b-0a6f-47dc-a1a5-2f5bae87387f")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 525.86 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12832,7 +12832,7 @@
 			(justify left bottom)
 		)
 		(uuid "c91d5077-f963-4e4d-8c26-9757157a5472")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 484.5685 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12867,7 +12867,7 @@
 			(justify left bottom)
 		)
 		(uuid "cbb3446c-cc86-48c4-8fa3-8e2ab7609093")
-		(property "Net Class" "RF"
+		(property "Netclass" "RF"
 			(at 508.6985 231.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12902,7 +12902,7 @@
 			(justify left bottom)
 		)
 		(uuid "f2009b32-5178-4ff3-bfc2-b88dc88a1399")
-		(property "Net Class" "PWR"
+		(property "Netclass" "PWR"
 			(at 165.7985 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
