@@ -2,4 +2,5 @@
 	(version 7)
 	(lib (name "Wilkinson_Divider") (type "KiCad") (uri "${KIPRJMOD}/Parts/Wilkinson_Divider/Wilkinson_Divider.kicad_sym") (options "") (descr ""))
 	(lib (name "JSPHS-2484+") (type "KiCad") (uri "${KIPRJMOD}/Parts/JSPHS-2484+/JSPHS-2484+.kicad_sym") (options "") (descr ""))
+	(lib (name "PD2328J5050S2HF") (type "KiCad") (uri "${KIPRJMOD}/Parts/PD2328J5050S2HF") (options "") (descr ""))
 )

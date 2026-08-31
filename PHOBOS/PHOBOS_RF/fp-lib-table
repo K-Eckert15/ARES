@@ -1,0 +1,6 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "JSPHS-2484+") (type "KiCad") (uri "${KIPRJMOD}/Parts/JSPHS-2484+") (options "") (descr ""))
+	(lib (name "SMA_J_P_GF_RA_SM1") (type "KiCad") (uri "${KIPRJMOD}/Parts/SMA_J_P_GF_RA_SM1") (options "") (descr ""))
+	(lib (name "PD2328J5050S2HF") (type "KiCad") (uri "${KIPRJMOD}/Parts/PD2328J5050S2HF") (options "") (descr ""))
+)
