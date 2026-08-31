@@ -649,7 +649,7 @@
         "uuid": "a832e876-eafa-4621-93e1-871c5fe2cb31"
       }
     ],
-    "used_designators": "IC1",
+    "used_designators": "R1-3,IC1-3,#PWR7-12",
     "variants": []
   },
   "sheets": [
