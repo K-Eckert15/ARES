@@ -19411,7 +19411,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x05"
+		(property "Value" "PS_CONTROL"
 			(at 455.93 297.1801 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28055,7 +28055,7 @@
 		(fields_autoplaced yes)
 		(uuid "f9a2a76f-ab27-4d5b-81e1-5052aaf72e52")
 		(property "Reference" "J2"
-			(at 549.91 242.8631 0)
+			(at 548.64 242.8631 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28065,8 +28065,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_Coaxial"
-			(at 549.91 245.4031 0)
+		(property "Value" "RF_OUT"
+			(at 548.64 245.4031 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
