@@ -2276,6 +2276,16 @@
 		)
 		(uuid "18c335c5-0c39-4aba-b78f-b77eb4b17e12")
 	)
+	(label "P2"
+		(at 144.78 46.99 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "196377b2-42e7-406d-885b-d4a00c7e6967")
+	)
 	(label "PS3"
 		(at 52.07 111.76 0)
 		(effects
@@ -2305,6 +2315,16 @@
 			(justify left bottom)
 		)
 		(uuid "28d0a73a-6589-4be0-8bf7-b769c209b5a4")
+	)
+	(label "S1_OUT1"
+		(at 68.58 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "34d928d4-0577-4c0c-b695-9c5b72277d6d")
 	)
 	(label "PS3"
 		(at 160.02 86.36 180)
@@ -2346,6 +2366,16 @@
 		)
 		(uuid "8ef19cc5-8db0-41e6-9ff9-df300a880560")
 	)
+	(label "P3"
+		(at 144.78 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9838b04c-685d-45f3-8f4d-b5d375d75487")
+	)
 	(label "PS4"
 		(at 158.75 113.03 0)
 		(effects
@@ -2355,6 +2385,16 @@
 			(justify left bottom)
 		)
 		(uuid "a015cd67-e2bc-4ef3-9457-70b20112c0ea")
+	)
+	(label "P4"
+		(at 144.78 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a68a9662-9f31-4236-a465-1da5c2ee3cbf")
 	)
 	(label "RF_IN"
 		(at 27.94 66.04 0)
@@ -2366,6 +2406,16 @@
 		)
 		(uuid "aaec7511-788f-4fc8-8197-6f44fed7c893")
 	)
+	(label "P1"
+		(at 144.78 17.78 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bb58179e-79cf-4e3f-bc1f-3b583ff29cfa")
+	)
 	(label "ANT4"
 		(at 191.77 110.49 0)
 		(effects
@@ -2375,6 +2425,16 @@
 			(justify left bottom)
 		)
 		(uuid "bfc33ebf-a0c0-4ffc-b97f-2d6745e9afd2")
+	)
+	(label "S1_OUT2"
+		(at 69.85 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d7495de7-bd8b-4438-a534-328f13c91e6c")
 	)
 	(label "PS4"
 		(at 52.07 114.3 0)
