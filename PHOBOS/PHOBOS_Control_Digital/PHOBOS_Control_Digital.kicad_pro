@@ -61,7 +61,7 @@
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
           "min_clearance": 0.127,
-          "min_island_area": 9.99999999996,
+          "min_island_area": 9.9999993548,
           "min_thickness": 0.25,
           "pad_connection": 1,
           "remove_islands": 0,
@@ -831,6 +831,36 @@
           "label": "Field5",
           "name": "Field5",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Height",
+          "name": "Height",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Part Number",
+          "name": "Mouser Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Price/Stock",
+          "name": "Mouser Price/Stock",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_Name",
+          "name": "Manufacturer_Name",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_Part_Number",
+          "name": "Manufacturer_Part_Number",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -889,7 +919,7 @@
         "uuid": "311bc0a8-e09e-4ed9-a164-96f32995a395"
       }
     ],
-    "used_designators": "IC1,J5-11,#PWR1,#PWR3,#PWR5,#PWR7,#PWR12,#PWR15,#PWR17,#PWR24-25,#PWR44,#PWR48,#PWR50-51",
+    "used_designators": "H3-4,C37-39,U5,IC1,J5-15,#PWR1,#PWR3,#PWR5,#PWR7,#PWR12,#PWR15,#PWR17,#PWR24-27,#PWR29,#PWR31,#PWR35,#PWR44,#PWR48,#PWR50-52",
     "variants": []
   },
   "sheets": [
