@@ -26264,23 +26264,25 @@
 		(fields_autoplaced yes)
 		(uuid "9afb3c38-4529-4479-82fa-8075cd07e7a3")
 		(property "Reference" "IC1"
-			(at 293.37 354.2598 0)
+			(at 270.1133 342.9 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "MAPS-010144-TR0500"
-			(at 293.37 356.7998 0)
+			(at 270.1133 345.44 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "MAPS-010144-TR0500:QFN50P400X400X100-25N-D"
