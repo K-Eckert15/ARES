@@ -16555,7 +16555,7 @@
 			(justify left bottom)
 		)
 		(uuid "2da6c84b-059a-4401-80ef-90542ffd108b")
-		(property "Netclass" "PWR"
+		(property "Net Class" "PWR"
 			(at 183.5785 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16590,7 +16590,7 @@
 			(justify left bottom)
 		)
 		(uuid "f2009b32-5178-4ff3-bfc2-b88dc88a1399")
-		(property "Netclass" "PWR"
+		(property "Net Class" "PWR"
 			(at 165.7985 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26968,7 +26968,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 427.0248 290.83 0)
 			(hide yes)
 			(show_name no)
@@ -29552,7 +29552,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 465.7852 290.83 0)
 			(hide yes)
 			(show_name no)
@@ -30621,7 +30621,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 455.6252 290.83 0)
 			(hide yes)
 			(show_name no)
