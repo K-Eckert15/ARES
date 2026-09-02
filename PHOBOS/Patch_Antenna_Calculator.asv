@@ -1,0 +1,10 @@
+Er = 4.5        %Dielectric Constant
+f0 = 2.4e9      %Design Frequency
+h = 3.9370      %mil
+C = 2.997e8     %SOL
+
+W = C/(2*f0*sqrt((Er+1)/2))
+Eeff = ((Er+1)/2)+((Er-1)/2)*(1/(sqrt(1+12*((Er+1)/W))))
+
+(((Eeff+.3)*(W/h+.264)) / ((Eeff-.258)*(W/h+.8)))
+L = (C/(2*f0*sqrt(Eeff))) - .824*h * (((Eeff+.3)*(W/h+.264)) / ((Eeff-.258)*(W/h+.8)))
