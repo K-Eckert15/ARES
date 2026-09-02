@@ -632,7 +632,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "PHOBOS_Control_Digital.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
