@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "PHOBOS_RF.kicad_pro",
+    "filename": "PHOBOS_RF_Digital.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -644,18 +644,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "PHOBOS_RF.kicad_sch",
-        "name": "PHOBOS_RF",
+        "filename": "PHOBOS_RF_Digital.kicad_sch",
+        "name": "PHOBOS_RF_Digital",
         "uuid": "a832e876-eafa-4621-93e1-871c5fe2cb31"
       }
     ],
-    "used_designators": "IC4,R1-3,J2,J7,AE1-4,#PWR1-3,U1-4",
+    "used_designators": "IC4-7,R1-3,J2-7,AE1-4,#PWR1-6,#PWR13-31,U1-4,TP1-5",
     "variants": []
   },
   "sheets": [
     [
       "a832e876-eafa-4621-93e1-871c5fe2cb31",
-      "PHOBOS_RF"
+      "PHOBOS_RF_Digital"
     ]
   ],
   "text_variables": {},
