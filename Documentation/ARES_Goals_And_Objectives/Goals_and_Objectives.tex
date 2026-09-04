@@ -1,0 +1,311 @@
+\documentclass[11pt,twocolumn]{IEEEtran}
+
+% ========================= Packages =========================
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{csvsimple}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{cite}
+
+\pgfplotsset{compat=newest}
+
+% ========================= Project Commands =========================
+\newcommand{\comet}{C.O.M.E.T.}
+\newcommand{\ares}{A.R.E.S.}
+\newcommand{\phobos}{P.H.O.B.O.S.}
+\newcommand{\deimos}{D.E.I.M.O.S.}
+
+\begin{document}
+
+% ========================= Title =========================
+\onecolumn
+\input{Title}
+
+\tableofcontents
+
+\twocolumn
+\newpage
+
+% =========================================================
+\section{Introduction}
+
+This capstone project represents the culmination of several years of undergraduate engineering development, research, and high-power rocketry work conducted at the University of Hartford. The project originated through the Advanced Undergraduate Rocketry Operations and Research Association (AURORA), which was established to develop the technical capability, infrastructure, and flight experience required to design and operate large student-built research rockets.
+
+Early AURORA efforts focused on developing vehicles for collegiate high-power rocketry competition. As project requirements, funding, and research priorities evolved, the effort was redirected toward the development of a reusable sounding-rocket platform. Hardware, flight experience, and engineering methods developed through earlier projects were retained and now form the foundation of the current capstone. The resulting platform is intended to support experimental avionics, telemetry, radio-frequency communication, recovery systems, and future student research.
+
+The primary vehicle is the AURORA Rocket and Experimental Systems (\ares{}) platform, a 10.5-foot-tall, 6-inch-diameter high-power research rocket. \ares{} integrates mechanical design, aerodynamic and structural analysis, propulsion, recovery, embedded electronics, telemetry, RF systems, manufacturing, and flight operations within a single multidisciplinary vehicle. The rocket is being developed as a modular platform so that individual experimental and flight-critical systems can be independently developed, tested, and upgraded.
+
+Three primary student-developed systems are incorporated into \ares{}. The Data Emitting \& Insight Module Orientation System (\deimos{}) is located within the nose cone and contains the sixth generation of the AURORA Insight telemetry platform. The current revision transitions previous development-board-based designs toward a fully embedded custom PCB with emphasis on reliability, compactness, higher data rates, extended communication range, and RF integration. The P.H.O.B.O.S. (\phobos{}) payload investigates electronically steered directional RF communication using phased-array antenna techniques, in which controlled phase relationships between antenna elements are used to alter the resulting radiation pattern \cite{balanis}. Flight-critical recovery operations are managed by the Compact Onboard Management for Ejection Timing (\comet{}) flight computer, a custom dual-deployment avionics system that uses barometric and inertial measurements to detect flight events and control the rocket's recovery system.
+
+The project is supported through a combination of undergraduate research funding and prospective industry sponsorship. Development of the \phobos{} payload is funded through a NASA Connecticut Space Grant Consortium Undergraduate Research Grant awarded to Kyle Eckert during the Spring 2026 award cycle \cite{ctsgc2026}. The research objective has been retained as the overall vehicle architecture has evolved, allowing the RF experiment to be integrated into the current \ares{} platform. The \ares{} vehicle and \deimos{} avionics subsystem are also currently under consideration for sponsorship by Ensign-Bickford Aerospace \& Defense (EBAD), with prospective support directed toward vehicle materials, propulsion, custom electronics, manufacturing, integration, and testing.
+
+The primary objective of the capstone is the design, manufacture, integration, verification, and flight testing of a large high-power research rocket incorporating both flight-critical and experimental student-developed systems. A successful mission will demonstrate that the independently developed mechanical, avionics, recovery, telemetry, and RF subsystems can operate together as a unified flight vehicle. Beyond the initial mission, \ares{} is intended to establish a reusable research platform and technical foundation for continued undergraduate aerospace development at the University of Hartford.
+
+
+% =========================================================
+\onecolumn
+\section{Project Team and Roles}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Headshots/NHeadshot.jpg}}]
+{\normalsize Nicholas Krupa}
+\normalsize
+is a senior electrical engineering major with minors in physics and mathematics. He is the founder and president of the AURORA Rocketry Team, a Senior Research Assistant within the Multiscale Metamaterial Research Laboratory, and holds a Level 2 High Power Rocketry certification through the National Association of Rocketry. He is a recipient of both a NASA Connecticut Space Grant Consortium Undergraduate Scholarship and an Undergraduate Research Grant for his work on phased-array antennas for satellite and space communication \cite{ctsgcSpring2024,ctsgcFall2024}. He is also a co-author of published research involving microwave metasurface design and characterization \cite{wells2024}. For this project, he will coordinate the overall \ares{} mission, including vehicle requirements, subsystem integration, flight operations, and development of the \deimos{} telemetry system and \comet{} flight computer. His previous experience includes leading the University of Hartford NASA RockSat-C team and developing several generations of custom high-power rocketry avionics. He completed an engineering internship with Ensign-Bickford Aerospace \& Defense (EBAD) during Summer 2026 and has accepted a full-time return offer with the company following graduation.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Headshots/KHeadshot.jpg}}]
+{\normalsize Kyle Eckert}
+
+\normalsize
+is a senior electrical engineering major with minors in audio engineering and mathematics and serves as the electrical lead for the Multiscale Metamaterial Research Laboratory. His work in the laboratory focuses on the design and development of experimental instrumentation for characterizing material properties at microwave frequencies. He also designs modifications to existing measurement systems to expand their operational and measurement capabilities. He was awarded a NASA Connecticut Space Grant Consortium Undergraduate Research Grant during the Spring 2026 award cycle for research involving rocket-based RF and metamaterial communication systems \cite{ctsgc2026}. Kyle was also the Lead Electrical Engineer and Flight Engineer with the 2026 RockSat program, where he designed and developed circuitry to enable experiments to fly aboard NASA sounding rockets and collect data under flight conditions. He holds a Level 1 High Power Rocketry certification and is a co-creator of the \comet{} dual-deployment system, a four-layer PCB-based avionics system. He will lead the design, fabrication, and testing of the \phobos{} phased-array antenna payload, with emphasis on RF electronics, antenna systems, and communication engineering.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Headshots/LHeadshot.jpg}}]
+{\normalsize Liam Gordon}
+\normalsize
+is a senior mechanical engineering major, president of the University of Hartford AIAA Student Chapter, and vice president of the AURORA Rocketry Team. He holds a Level 1 High Power Rocketry certification and has contributed to multiple student aerospace design and flight projects. His work on AURORA was recognized as one of the Top 3 Sophomore Projects at the University of Hartford's Spring 2025 CETA Design Expo \cite{uhartexpo2025}. He also participated in the University's inaugural AIAA Design/Build/Fly team, competing in Tucson, Arizona in 2025 \cite{uhartdbf2025}. Through the competition, he gained hands-on experience in aircraft design, CAD, fabrication, technical inspection, field testing, and rapid mechanical troubleshooting. He has additionally contributed to NASA Connecticut Space Grant-supported high-power rocketry work through AURORA. For the \ares{} project, he will lead vehicle mechanical design and manufacturing, including aerodynamic and structural analysis, CAD development, material selection, computational fluid dynamics, and finite element analysis. He will also oversee fabrication, mechanical integration, and structural verification of the completed vehicle.
+
+\end{IEEEbiography}
+\newpage
+\twocolumn
+
+% =========================================================
+\section{A.R.E.S.}
+
+\subsection{Vehicle Architecture}
+
+The AURORA Rocket and Experimental Systems (\ares{}) vehicle is a 10.5-foot-tall, 6-inch-diameter high-power research rocket currently being designed and manufactured at the University of Hartford. The vehicle serves as the primary flight platform for the capstone and carries the \deimos{} telemetry system, \phobos{} experimental RF payload, \comet{} recovery flight computer, and associated recovery and support hardware.
+
+The airframe is being constructed primarily from fiberglass components to provide the strength and durability required for repeated high-power flight operations. A modular architecture is being used so that the nose cone, avionics, experimental payload, recovery, and propulsion sections can be independently assembled, inspected, serviced, and tested before final integration.
+
+Structural interfaces, internal mounting systems, recovery attachment points, and fin connections are being designed around the aerodynamic and inertial loads expected during flight. Wherever practical, components are being designed so that individual subsystems can be removed, modified, and reinstalled without requiring major reconstruction of the vehicle.
+
+\subsection{Aerodynamic and Structural Analysis}
+
+Mechanical design and structural verification of \ares{} will be led by Liam Gordon. The design process is intended to ensure that the final vehicle satisfies real-world aerodynamic, structural, and mechanical strength requirements prior to fabrication and flight.
+
+Computational fluid dynamics (CFD) will be used where appropriate to investigate aerodynamic behavior and loading. Finite element analysis (FEA) using ANSYS and Onshape will be used to evaluate structural stresses, deflection, and load paths through critical components. Particular attention will be placed on highly loaded regions including fin attachment interfaces, motor-support structure, recovery attachment hardware, and joints between major airframe sections.
+
+Results from these analyses will be used to iteratively refine component geometry, material selection, and manufacturing methods before flight hardware is finalized.
+
+OpenRocket is also being used throughout the design process to evaluate the predicted flight behavior of the vehicle. OpenRocket calculates parameters including center of gravity, center of pressure, stability, acceleration, velocity, and predicted altitude and allows these properties to be evaluated as the vehicle configuration changes \cite{niskanen,openrocket}. Vehicle mass, payload placement, propulsion selection, aerodynamic geometry, and measured component properties will be incorporated into the model as the physical vehicle is completed.
+
+The development of \ares{} builds upon experience obtained through previous AURORA high-power rocket projects, including Nicholas Krupa's successful Level 2 certification flight and subsequent high-power launches. Data and practical experience from these vehicles are being used to inform stability, recovery, avionics integration, manufacturing, and launch-operation decisions as the team transitions toward a substantially larger vehicle. The Level 2 certification vehicle that contributed to this design experience is shown in Fig.~\ref{fig:l2_rocket}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{L2Rocket.jpg}
+    \caption{Nicholas Krupa with the AURORA high-power rocket used for his successful National Association of Rocketry Level 2 certification flight. The vehicle provided prior flight experience in stability, recovery, avionics integration, and high-power launch operations that is being applied to the development of \ares{}.}
+    \label{fig:l2_rocket}
+\end{figure}
+
+\subsection{Propulsion and Recovery}
+
+The propulsion system will be selected to provide sufficient performance for the fully integrated vehicle while maintaining acceleration, velocity, stability, and structural loading within acceptable design limits. Motor selection will therefore be evaluated alongside final vehicle mass, aerodynamic performance, expected altitude, and payload requirements.
+
+The propulsion section will be designed so that certified commercial motor hardware can be installed and inspected independently from the remaining vehicle systems. Final motor selection and launch operations will remain within the certification, launch-site, and safety requirements applicable to each flight.
+
+A dual-deployment recovery architecture will be used to return the vehicle following flight. Separate drogue and main parachute events will control descent while limiting vehicle drift. Recovery events will be commanded by the \comet{} flight computer, while the \ares{} structure will contain the parachutes, harnesses, attachment hardware, deployment compartments, and associated recovery hardware.
+
+Recovery-system ground testing will be completed prior to flight to verify reliable compartment separation, parachute extraction, and integrated system operation. Final launch and recovery operations will be conducted through an established high-power rocketry organization and in accordance with applicable launch-site, FAA, and high-power rocketry safety requirements \cite{narsafety}.
+
+\subsection{Manufacturing and Integration}
+
+Construction of \ares{} will occur in parallel with development of the electrical and experimental systems. This approach allows mechanical, electrical, and RF interfaces to be evaluated throughout the project rather than only during final assembly.
+
+Fiberglass fabrication, structural bonding, machining, additive manufacturing, avionics mounting, wiring, and final vehicle assembly will form a significant portion of the capstone effort. Major interfaces will be inspected and tested before full-system integration.
+
+Prior to flight, the vehicle will undergo simulation review, structural analysis, subsystem testing, recovery testing, integration testing, and flight-readiness review. Through this process, \ares{} is intended to demonstrate the successful integration of aerodynamic design, structural engineering, propulsion, recovery, avionics, telemetry, and experimental RF systems into a single high-power research platform.
+
+At the time of writing, external industry sponsorship for the \ares{} vehicle is being discussed with Ensign-Bickford Aerospace \& Defense (EBAD). Prospective support would contribute directly to vehicle materials, propulsion, structural hardware, manufacturing, and ground and flight testing.
+
+% =========================================================
+\section{P.H.O.B.O.S.}
+\subsection{Introduction}
+Development of the \phobos{} experimental RF payload is supported through a NASA Connecticut Space Grant Consortium Undergraduate Research Grant awarded to Kyle Eckert during the Spring 2026 award cycle \cite{ctsgc2026}. The research is intended to investigate the performance of directional RF communication and beam-steering technologies when transferred from a laboratory environment to a moving rocket platform.
+
+The original grant proposal was developed around a competition-based rocket mission and a \SI{5}{\giga\hertz} experimental implementation. Following revision of the overall vehicle mission, the underlying research objective has been retained while the flight platform and final RF implementation are being reevaluated for integration with \ares{}.
+
+\subsection{Phased-Array Antenna}
+
+The primary objective of the \phobos{} phased-array antenna system is to electronically alter the direction of RF transmission based on the relative geometry between the rocket and a receiving ground station. In a phased array, controlled phase relationships between multiple radiating elements cause constructive and destructive interference that can shift the direction of the primary radiation pattern without mechanically rotating the antenna \cite{balanis}. A conceptual example of this beam-steering behavior is shown in Fig.~\ref{fig:phobos_beam_steering}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{PAA/PAA_Ex.png}
+    \caption{Conceptual illustration of phased-array beam steering. Controlled phase offsets between antenna elements alter the direction of constructive interference, allowing the main radiation lobe to be electronically steered without mechanically rotating the antenna.}
+    \label{fig:phobos_beam_steering}
+\end{figure}
+% If PAA_Ex.png was obtained from an external source, add the appropriate citation to the caption above.
+
+For the current design, operation near \SI{2.4}{\giga\hertz} is being investigated as a strong candidate because it provides a practical compromise between antenna dimensions, available RF hardware, communication bandwidth, and vehicle packaging constraints. The final operating frequency will be selected following additional antenna design, link-budget analysis, and subsystem testing.
+
+Because the system is an intentional RF radiator, regulatory compliance will be considered throughout development. For digitally modulated systems operating under FCC Part 15, 47~CFR~\S15.247 includes operation within the 2400--2483.5~MHz band and establishes requirements involving occupied bandwidth, conducted transmitter power, spectral density, and antenna gain \cite{fcc247}. Therefore, the final transmitter architecture, output power, modulation method, antenna gain, and array configuration will be evaluated against the regulations applicable to the completed system rather than assuming a single universal unlicensed power limit.
+
+The array must also operate within the geometric constraints of the 6-inch-diameter vehicle. Antenna dimensions scale with wavelength, producing a direct trade between operating frequency, available array aperture, element spacing, and achievable radiation characteristics. These constraints will be evaluated alongside communication range and link performance before the final array geometry is selected.
+
+The current \phobos{} architecture is progressing toward a distributed control and RF implementation consisting of a control board and an antenna board, as summarized in Fig.~\ref{fig:phobos_block_diagram}. The control board has entered the schematic design stage and is intended to contain the primary transceiver and microcontroller. This subsystem will process flight and communication data, control the RF system, and generate the transmitted signal. The resulting RF signal will then be routed to the antenna board, where phase adjustment and any required amplification will occur before the signal is applied to the patch antenna array.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{PAA/PAA Block Diagram.png}
+    \caption{Functional block diagram of the proposed \phobos{} architecture. Control and communication functions are separated from the antenna-board RF front end so that signal generation, phase control, amplification, and antenna performance can be developed and tested as distinct subsystems.}
+    \label{fig:phobos_block_diagram}
+\end{figure}
+
+The control electronics are being developed around a dedicated PCB so that processing, communication, and RF-control functions can be integrated into a compact flight package. The current control-board design is shown in Fig.~\ref{fig:phobos_control_board}, while an example of the associated schematic development is shown in Fig.~\ref{fig:phobos_schematic}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{PAA/PHOBOS_Control.png}
+    \caption{Current \phobos{} control-board design. The board is being developed to integrate the primary microcontroller, transceiver, support electronics, and interfaces required to command the phased-array RF subsystem during flight.}
+    \label{fig:phobos_control_board}
+\end{figure}
+
+The RF processing architecture on the antenna board is currently in the planning stage. This subsystem is expected to incorporate analog-controlled phase-shifting devices, RF amplification as required by the link budget, and the individual patch-antenna elements comprising the phased array. Separating the control and antenna functions into dedicated boards provides flexibility during development and allows the RF front end to be evaluated independently from the primary control electronics.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{PAA/Schematic.png}
+    \caption{Representative portion of the current \phobos{} control-electronics schematic. Schematic development is being used to define the electrical interfaces, signal paths, and support circuitry required before PCB layout and hardware validation.}
+    \label{fig:phobos_schematic}
+\end{figure}
+
+The completed \phobos{} system is intended to transmit experimental flight data while evaluating whether electronically controlled directional communication can remain useful on a translating and rotating sounding rocket.
+
+% =========================================================
+\section{C.O.M.E.T.}
+
+The Compact Onboard Management for Ejection Timing (\comet{}) module is a custom dual-deployment flight computer responsible for controlling the recovery events of the \ares{} vehicle. The system uses onboard barometric and inertial sensing to identify critical portions of the flight and independently control the drogue and main recovery deployment channels.
+
+\comet{} is currently entering its third major hardware revision. Earlier versions have been used to evaluate the sensing, flight-detection, data-logging, and deployment architecture, with the second-generation system undergoing high-power flight testing. Lessons obtained from these tests are being incorporated into the current hardware design, shown in Fig.~\ref{fig:comet_board}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{COMETBoard.jpg}
+    \caption{Current revision of the \comet{} dual-deployment flight computer. The custom PCB integrates barometric and inertial sensing, recovery-channel control, power management, continuity monitoring, onboard data logging, and vehicle interfaces onto a compact flight platform.}
+    \label{fig:comet_board}
+\end{figure}
+
+The flight computer is being developed as a dedicated custom PCB rather than relying on a collection of independent development boards. The system incorporates onboard sensing, power management, recovery-channel control, continuity monitoring, data logging, user feedback, and interfaces required for vehicle integration.
+
+The flight software is intended to distinguish normal flight conditions from events such as launch, ascent, apogee, and descent while reducing the possibility of an incorrect recovery command caused by transient sensor measurements. Recorded flight data will also allow the operation of the system to be evaluated after each test flight.
+
+Because \comet{} performs a flight-critical function, qualification will emphasize repeatable ground testing and incremental flight validation prior to use as the primary recovery controller for \ares{}. Testing will include sensor verification, electrical load testing, deployment-system testing, data review, and complete integrated recovery testing.
+
+The objective of \comet{} is not only to provide recovery control for the current vehicle, but also to establish a compact student-developed flight-computer architecture that can be reused and improved through future AURORA high-power rocket projects.
+
+% =========================================================
+\section{D.E.I.M.O.S.}
+
+The Data Emitting \& Insight Module Orientation System (\deimos{}) is the nose-cone avionics and telemetry subsystem of the \ares{} rocket. The system will contain the sixth generation of the AURORA Insight Module, which has been continuously developed through multiple student engineering projects and high-power rocket flights.
+
+The original Insight Module was developed during the team's freshman year as an engineering expo project and was later expanded during the sophomore year into a more capable telemetry platform. Earlier systems measured parameters including altitude, acceleration, orientation, angular velocity, and position while transmitting flight data to a ground station. The project was recognized as a top engineering expo project and established the technical foundation for the current system. Members of the AURORA team presenting an early generation of the Insight Module are shown in Fig.~\ref{fig:sophomore_expo}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{SophomoreExpo.jpg}
+    \caption{AURORA members Nicholas Krupa, Liam Gordon, and Adeola Oyebunmi presenting an early generation of the AURORA Insight Module at the University of Hartford Engineering Expo. The project established early flight-sensing and telemetry concepts that later evolved into the current \deimos{} subsystem.}
+    \label{fig:sophomore_expo}
+\end{figure}
+
+A subsequent telemetry configuration was successfully flown aboard a Level 1 certification rocket and transmitted vehicle data through a \SI{915}{\mega\hertz} radio link. Experience from these early systems demonstrated the usefulness of real-time telemetry for both flight analysis and vehicle recovery while identifying limitations associated with size, wiring complexity, modular development hardware, and communication performance. The AURORA Insight V3 hardware and associated ground station are shown in Fig.~\ref{fig:insight_v3}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{InsightV3GroundStation.jpg}
+    \caption{AURORA ground station alongside the third-generation AURORA Insight telemetry system. The modular arrangement used commercially available development hardware and external interconnects; experience with this configuration motivated the more compact, fully embedded sixth-generation \deimos{} architecture.}
+    \label{fig:insight_v3}
+\end{figure}
+
+The sixth-generation design will focus on improving reliability, compactness, telemetry range, and achievable data rate. Previous generations relied heavily on interconnected commercial development boards and external modules. The new system will instead be developed around a fully custom printed circuit board containing the primary processing, sensing, data logging, power-management, and communication hardware required by the subsystem.
+
+Development of this revision includes schematic design, circuit simulation, component selection, PCB layout, fabrication, assembly, embedded software development, and hardware validation. This represents a significant expansion from earlier prototype-based systems because the complete avionics architecture must now be designed and integrated at the board level.
+
+Particular attention will be placed on power integrity, signal integrity, sensor interfacing, connector reduction, mechanical integration, and the ability of the electronics to remain reliable under high-power rocket flight conditions. Reducing the number of independently connected modules and wiring interfaces is expected to improve both packaging efficiency and system reliability.
+
+The communication architecture also represents the project's first substantial transition into custom RF hardware design. Rather than treating the radio only as an externally connected commercial module, the development process will consider RF signal routing, transmission hardware, impedance-controlled PCB layout, antenna interfaces, grounding, signal integrity, and overall communication-link performance.
+
+Through this redesign, \deimos{} will serve as the primary real-time telemetry and flight-data platform for \ares{} while demonstrating a fully embedded student-designed avionics system. The platform is also intended to establish a foundation for future AURORA developments involving higher-performance telemetry, RF electronics, navigation, and integrated flight instrumentation.
+
+At the time of writing, development of the sixth-generation \deimos{} hardware is included within the scope of prospective sponsorship discussions with Ensign-Bickford Aerospace \& Defense (EBAD). Potential support would contribute toward PCB fabrication and assembly, avionics hardware, RF hardware, system integration, and validation testing.
+
+% =========================================================
+\section{Conclusion}
+
+The \ares{} capstone project combines several independently developed engineering systems into a unified high-power research vehicle. The vehicle itself provides the structural, aerodynamic, propulsion, recovery, and integration platform required to support the mission. \phobos{} introduces experimental phased-array and RF research, \comet{} provides student-developed flight-critical recovery control, and \deimos{} advances several generations of AURORA telemetry development toward a fully embedded custom avionics architecture.
+
+Together, these systems provide a multidisciplinary capstone effort spanning mechanical engineering, electrical engineering, embedded systems, RF engineering, simulation, manufacturing, testing, and flight operations. Beyond the primary mission, the project is intended to establish a reusable research platform and technical foundation that can support continued undergraduate aerospace development at the University of Hartford.
+
+% =========================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{balanis}
+C. A. Balanis,
+\textit{Antenna Theory: Analysis and Design},
+4th ed.
+Hoboken, NJ, USA: Wiley, 2016.
+
+\bibitem{ctsgc2026}
+Connecticut Space Grant Consortium,
+``Spring 2026 Awardees Announced,''
+June 4, 2026.
+
+\bibitem{niskanen}
+S. Niskanen,
+``Development of an Open Source Model Rocket Simulation Software,''
+Master's thesis,
+Helsinki University of Technology,
+Espoo, Finland,
+2009.
+
+\bibitem{openrocket}
+OpenRocket Project,
+``OpenRocket Technical Documentation and User Documentation.''
+
+\bibitem{fcc247}
+Federal Communications Commission,
+``Operation within the bands 902--928 MHz, 2400--2483.5 MHz, and 5725--5850 MHz,''
+47 C.F.R. \S15.247.
+
+\bibitem{narsafety}
+National Association of Rocketry,
+``High Power Rocket Safety Code.''
+
+\bibitem{ctsgcSpring2024}
+NASA Connecticut Space Grant Consortium,
+``Spring 2024 Awardees Announced,''
+Feb. 28, 2024.
+
+\bibitem{ctsgcFall2024}
+NASA Connecticut Space Grant Consortium,
+``Fall 2024 Awardees Announced,''
+Nov. 21, 2024.
+
+\bibitem{wells2024}
+B. M. Wells, J. F. Tripp, N. W. Krupa, A. J. Rittenberg, and R. J. Williams,
+``Application of Single-Frequency Arbitrarily Directed Split Beam Metasurface Reflector in Refractive Index Measurements,''
+\textit{Sensors}, vol. 24, no. 20, Art. no. 6519, 2024.
+
+\bibitem{uhartdbf2025}
+University of Hartford,
+``UHart Aerospace Students Soar in Design-Build-Fly Competition,''
+May 5, 2025.
+
+\bibitem{uhartexpo2025}
+University of Hartford,
+``Ingenuity, Communication Skills on Display at CETA Design Expo,''
+May 12, 2025.
+
+\end{thebibliography}
+
+\end{document}
