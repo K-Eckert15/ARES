@@ -41,9 +41,9 @@ Early AURORA efforts focused on developing vehicles for collegiate high-power ro
 
 The primary vehicle is the AURORA Rocket and Experimental Systems (\ares{}) platform, a 10.5-foot-tall, 6-inch-diameter high-power research rocket. \ares{} integrates mechanical design, aerodynamic and structural analysis, propulsion, recovery, embedded electronics, telemetry, RF systems, manufacturing, and flight operations within a single multidisciplinary vehicle. The rocket is being developed as a modular platform so that individual experimental and flight-critical systems can be independently developed, tested, and upgraded.
 
-Three primary student-developed systems are incorporated into \ares{}. The Data Emitting \& Insight Module Orientation System (\deimos{}) is located within the nose cone and contains the sixth generation of the AURORA Insight telemetry platform. The current revision transitions previous development-board-based designs toward a fully embedded custom PCB with emphasis on reliability, compactness, higher data rates, extended communication range, and RF integration. The P.H.O.B.O.S. (\phobos{}) payload investigates electronically steered directional RF communication using phased-array antenna techniques, in which controlled phase relationships between antenna elements are used to alter the resulting radiation pattern \cite{balanis}. Flight-critical recovery operations are managed by the Compact Onboard Management for Ejection Timing (\comet{}) flight computer, a custom dual-deployment avionics system that uses barometric and inertial measurements to detect flight events and control the rocket's recovery system.
+Three primary student-developed systems are incorporated into \ares{}. The Data Emitting \& Insight Module Orientation System (\deimos{}) is located within the nose cone and contains the sixth generation of the AURORA Insight telemetry platform. The current revision transitions previous development-board-based designs toward a fully embedded PCB with emphasis on reliability, compactness, higher data rates, extended communication range, and RF integration. The P.H.O.B.O.S. (\phobos{}) payload investigates electronically steered directional RF communication using phased-array antenna techniques, in which controlled phase relationships between antenna elements are used to alter the resulting radiation pattern \cite{balanis}. Flight-critical recovery operations are managed by the Compact Onboard Management for Ejection Timing (\comet{}) flight computer, a custom dual-deployment avionics system that uses barometric and inertial measurements to detect flight events and control the rocket's recovery system.
 
-The project is supported through a combination of undergraduate research funding and prospective industry sponsorship. Development of the \phobos{} payload is funded through a NASA Connecticut Space Grant Consortium Undergraduate Research Grant awarded to Kyle Eckert during the Spring 2026 award cycle \cite{ctsgc2026}. The research objective has been retained as the overall vehicle architecture has evolved, allowing the RF experiment to be integrated into the current \ares{} platform. The \ares{} vehicle and \deimos{} avionics subsystem are also currently under consideration for sponsorship by Ensign-Bickford Aerospace \& Defense (EBAD), with prospective support directed toward vehicle materials, propulsion, custom electronics, manufacturing, integration, and testing.
+The project is supported through a combination of undergraduate research funding and prospective industry sponsorship. Development of the \phobos{} payload is funded through a NASA Connecticut Space Grant Consortium Undergraduate Research Grant awarded to Kyle Eckert during the Spring 2026 award cycle \cite{ctsgc2026}. The research objective has been retained as the overall vehicle architecture has evolved, allowing the RF experiment to be integrated into the current \ares{} platform. The \ares{} vehicle and \deimos{} avionics subsystem are also currently under consideration for sponsorship by Ensign-Bickford Aerospace \& Defense (EBAD), with prospective support directed toward vehicle materials, propulsion, electronics, manufacturing, integration, and testing.
 
 The primary objective of the capstone is the design, manufacture, integration, verification, and flight testing of a large high-power research rocket incorporating both flight-critical and experimental student-developed systems. A successful mission will demonstrate that the independently developed mechanical, avionics, recovery, telemetry, and RF subsystems can operate together as a unified flight vehicle. Beyond the initial mission, \ares{} is intended to establish a reusable research platform and technical foundation for continued undergraduate aerospace development at the University of Hartford.
 
@@ -66,6 +66,8 @@ is a senior electrical engineering major with minors in physics and mathematics.
 \normalsize
 is a senior electrical engineering major with minors in audio engineering and mathematics and serves as the electrical lead for the Multiscale Metamaterial Research Laboratory. His work in the laboratory focuses on the design and development of experimental instrumentation for characterizing material properties at microwave frequencies. He also designs modifications to existing measurement systems to expand their operational and measurement capabilities. He was awarded a NASA Connecticut Space Grant Consortium Undergraduate Research Grant during the Spring 2026 award cycle for research involving rocket-based RF and metamaterial communication systems \cite{ctsgc2026}. Kyle was also the Lead Electrical Engineer and Flight Engineer with the 2026 RockSat program, where he designed and developed circuitry to enable experiments to fly aboard NASA sounding rockets and collect data under flight conditions. He holds a Level 1 High Power Rocketry certification and is a co-creator of the \comet{} dual-deployment system, a four-layer PCB-based avionics system. He will lead the design, fabrication, and testing of the \phobos{} phased-array antenna payload, with emphasis on RF electronics, antenna systems, and communication engineering.
 \end{IEEEbiography}
+
+
 
 \begin{IEEEbiography}
 [{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Headshots/LHeadshot.jpg}}]
@@ -161,6 +163,7 @@ The current \phobos{} architecture is progressing toward a distributed control a
     \label{fig:phobos_block_diagram}
 \end{figure}
 
+
 The control electronics are being developed around a dedicated PCB so that processing, communication, and RF-control functions can be integrated into a compact flight package. The current control-board design is shown in Fig.~\ref{fig:phobos_control_board}, while an example of the associated schematic development is shown in Fig.~\ref{fig:phobos_schematic}.
 
 \begin{figure}[htbp]
@@ -170,12 +173,13 @@ The control electronics are being developed around a dedicated PCB so that proce
     \label{fig:phobos_control_board}
 \end{figure}
 
-The RF processing architecture on the antenna board is currently in the planning stage. This subsystem is expected to incorporate analog-controlled phase-shifting devices, RF amplification as required by the link budget, and the individual patch-antenna elements comprising the phased array. Separating the control and antenna functions into dedicated boards provides flexibility during development and allows the RF front end to be evaluated independently from the primary control electronics.
+The RF processing architecture on the antenna board is currently in the planning stage. This subsystem is expected to incorporate digitally-controlled phase-shifting devices, RF amplification as required by the link budget, and the individual patch-antenna elements comprising the phased array.
+Separating the control and antenna functions into dedicated boards provides flexibility during development and allows the RF front end to be evaluated independently from the primary control electronics.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\columnwidth]{Documentation/ARES_Goals_And_Objectives/PAA/PHOBOS_Control_Schematic.png}
-    \caption{Representative portion of the current \phobos{} control-electronics schematic. Schematic development is being used to define the electrical interfaces, signal paths, and support circuitry required before PCB layout and hardware validation.}
+    \caption{The current \phobos{} control-electronics schematic. Schematic development is being used to define the electrical interfaces, signal paths, and support circuitry required before PCB layout and hardware validation.}
     \label{fig:phobos_schematic}
 \end{figure}
 
@@ -191,11 +195,11 @@ The Compact Onboard Management for Ejection Timing (\comet{}) module is a custom
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\columnwidth]{COMETBoard.jpg}
-    \caption{Current revision of the \comet{} dual-deployment flight computer. The custom PCB integrates barometric and inertial sensing, recovery-channel control, power management, continuity monitoring, onboard data logging, and vehicle interfaces onto a compact flight platform.}
+    \caption{Current revision of the \comet{} dual-deployment flight computer board. The circuit integrates barometric and inertial sensing, recovery-channel control, power management, continuity monitoring, onboard data logging, and vehicle interfaces onto a compact flight platform.}
     \label{fig:comet_board}
 \end{figure}
 
-The flight computer is being developed as a dedicated custom PCB rather than relying on a collection of independent development boards. The system incorporates onboard sensing, power management, recovery-channel control, continuity monitoring, data logging, user feedback, and interfaces required for vehicle integration.
+The flight computer is being developed as a dedicated PCB rather than relying on a collection of independent development boards. The system incorporates onboard sensing, power management, recovery-channel control, continuity monitoring, data logging, user feedback, and interfaces required for vehicle integration.
 
 The flight software is intended to distinguish normal flight conditions from events such as launch, ascent, apogee, and descent while reducing the possibility of an incorrect recovery command caused by transient sensor measurements. Recorded flight data will also allow the operation of the system to be evaluated after each test flight.
 
@@ -232,7 +236,7 @@ Development of this revision includes schematic design, circuit simulation, comp
 
 Particular attention will be placed on power integrity, signal integrity, sensor interfacing, connector reduction, mechanical integration, and the ability of the electronics to remain reliable under high-power rocket flight conditions. Reducing the number of independently connected modules and wiring interfaces is expected to improve both packaging efficiency and system reliability.
 
-The communication architecture also represents the project's first substantial transition into custom RF hardware design. Rather than treating the radio only as an externally connected commercial module, the development process will consider RF signal routing, transmission hardware, impedance-controlled PCB layout, antenna interfaces, grounding, signal integrity, and overall communication-link performance.
+The communication architecture also represents the project's first substantial transition into RF hardware design. Rather than treating the radio only as an externally connected commercial module, the development process will consider RF signal routing, transmission hardware, impedance-controlled PCB layout, antenna interfaces, grounding, signal integrity, and overall communication-link performance.
 
 Through this redesign, \deimos{} will serve as the primary real-time telemetry and flight-data platform for \ares{} while demonstrating a fully embedded student-designed avionics system. The platform is also intended to establish a foundation for future AURORA developments involving higher-performance telemetry, RF electronics, navigation, and integrated flight instrumentation.
 
@@ -241,7 +245,7 @@ At the time of writing, development of the sixth-generation \deimos{} hardware i
 % =========================================================
 \section{Conclusion}
 
-The \ares{} capstone project combines several independently developed engineering systems into a unified high-power research vehicle. The vehicle itself provides the structural, aerodynamic, propulsion, recovery, and integration platform required to support the mission. \phobos{} introduces experimental phased-array and RF research, \comet{} provides student-developed flight-critical recovery control, and \deimos{} advances several generations of AURORA telemetry development toward a fully embedded custom avionics architecture.
+The \ares{} capstone project combines several independently developed engineering systems into a unified high-power research vehicle. The vehicle itself provides the structural, aerodynamic, propulsion, recovery, and integration platform required to support the mission. \phobos{} introduces experimental phased-array and RF research, \comet{} provides student-developed flight-critical recovery control, and \deimos{} advances several generations of AURORA telemetry development toward a fully embedded avionics architecture.
 
 Together, these systems provide a multidisciplinary capstone effort spanning mechanical engineering, electrical engineering, embedded systems, RF engineering, simulation, manufacturing, testing, and flight operations. Beyond the primary mission, the project is intended to establish a reusable research platform and technical foundation that can support continued undergraduate aerospace development at the University of Hartford.
 
