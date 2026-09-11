@@ -8774,7 +8774,7 @@
 		(uuid "4535db3a-eeb9-433a-a865-21598410118d")
 	)
 	(junction
-		(at 327.66 240.03)
+		(at 340.36 240.03)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5182c1eb-4e59-4771-8309-425f2e4fc4c9")
@@ -9222,10 +9222,6 @@
 		(uuid "3fed258d-7171-4c64-9bc7-d9b37433d4ac")
 	)
 	(no_connect
-		(at 318.77 247.65)
-		(uuid "49275182-68b9-4f76-867c-3cc3f57e7817")
-	)
-	(no_connect
 		(at 110.49 114.3)
 		(uuid "504425ab-8d45-4ad8-af69-75dd12c7ace4")
 	)
@@ -9250,16 +9246,8 @@
 		(uuid "7473200a-1dcd-428d-8661-e75e32b3785c")
 	)
 	(no_connect
-		(at 318.77 237.49)
-		(uuid "7f720cb1-12d3-438e-85a2-5699f0ca12b5")
-	)
-	(no_connect
 		(at 110.49 129.54)
 		(uuid "81cced02-443b-47fc-8923-a38b312d5ce4")
-	)
-	(no_connect
-		(at 318.77 245.11)
-		(uuid "853a9377-81d2-49dc-ada7-689e9563ba28")
 	)
 	(no_connect
 		(at 318.77 262.89)
@@ -9450,16 +9438,6 @@
 			(type default)
 		)
 		(uuid "08f616ac-83ee-4d2d-b7b7-de816a9bafd0")
-	)
-	(wire
-		(pts
-			(xy 327.66 240.03) (xy 344.17 240.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "09e2b588-e523-4317-a990-a17cf5d56a19")
 	)
 	(wire
 		(pts
@@ -11013,7 +10991,7 @@
 	)
 	(wire
 		(pts
-			(xy 318.77 240.03) (xy 327.66 240.03)
+			(xy 318.77 240.03) (xy 344.17 240.03)
 		)
 		(stroke
 			(width 0)
@@ -11753,6 +11731,16 @@
 	)
 	(wire
 		(pts
+			(xy 318.77 237.49) (xy 330.2 237.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac992a94-e8fe-4add-a8aa-0157824f54fe")
+	)
+	(wire
+		(pts
 			(xy 525.78 205.74) (xy 525.78 201.93)
 		)
 		(stroke
@@ -12000,6 +11988,16 @@
 			(type default)
 		)
 		(uuid "bff5597d-dba0-4776-8f50-e8dd80ef22f8")
+	)
+	(wire
+		(pts
+			(xy 318.77 247.65) (xy 330.2 247.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0637411-22cb-4fa2-9f65-fc5623ad4fa6")
 	)
 	(wire
 		(pts
@@ -14649,7 +14647,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 327.66 240.03 0)
+		(at 340.36 240.03 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14659,7 +14657,7 @@
 		(dnp no)
 		(uuid "0717f3bb-8c3d-4cbc-aa2b-da422c2316b8")
 		(property "Reference" "TP7"
-			(at 330.2 235.4579 0)
+			(at 338.328 231.648 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14670,7 +14668,7 @@
 			)
 		)
 		(property "Value" "SDA"
-			(at 330.2 237.9979 0)
+			(at 338.328 234.188 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14681,7 +14679,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
-			(at 332.74 240.03 0)
+			(at 345.44 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14692,7 +14690,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 332.74 240.03 0)
+			(at 345.44 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14703,7 +14701,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 327.66 240.03 0)
+			(at 340.36 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14714,7 +14712,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 327.66 240.03 0)
+			(at 340.36 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14725,7 +14723,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 327.66 240.03 0)
+			(at 340.36 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14736,7 +14734,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 327.66 240.03 0)
+			(at 340.36 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14747,7 +14745,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 327.66 240.03 0)
+			(at 340.36 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14758,7 +14756,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 327.66 240.03 0)
+			(at 340.36 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15711,6 +15709,139 @@
 			(project "PHOBOS_Control_Digital"
 				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
 					(reference "C30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 330.2 237.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0c76281f-be0a-4af4-b5a7-c8f4b5d7782e")
+		(property "Reference" "TP11"
+			(at 333.502 231.648 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "GPIO22"
+			(at 333.502 229.108 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 335.28 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 335.28 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 330.2 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Height" ""
+			(at 330.2 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer_Name" ""
+			(at 330.2 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer_Part_Number" ""
+			(at 330.2 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 330.2 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 330.2 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f284fccf-6b41-4a24-9a05-8b4b70fdfcec")
+		)
+		(instances
+			(project "PHOBOS_Control_Digital"
+				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
+					(reference "TP11")
 					(unit 1)
 				)
 			)
@@ -25887,6 +26018,139 @@
 			(project "PHOBOS_Control_Digital"
 				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
 					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 330.2 247.65 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
+		(uuid "9f02a84e-a3db-4bf6-b917-a89875261798")
+		(property "Reference" "TP12"
+			(at 338.328 256.032 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "GPIO22"
+			(at 338.328 253.492 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 325.12 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 325.12 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 330.2 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Height" ""
+			(at 330.2 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer_Name" ""
+			(at 330.2 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer_Part_Number" ""
+			(at 330.2 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 330.2 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 330.2 247.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5a88ae40-d0ed-4388-b79a-5390ccf36bf4")
+		)
+		(instances
+			(project "PHOBOS_Control_Digital"
+				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
+					(reference "TP12")
 					(unit 1)
 				)
 			)
