@@ -4,4 +4,5 @@
 	(lib (name "SMA_J_P_GF_RA_SM1") (type "KiCad") (uri "${KIPRJMOD}/Parts/SMA_J_P_GF_RA_SM1") (options "") (descr ""))
 	(lib (name "PD2328J5050S2HF") (type "KiCad") (uri "${KIPRJMOD}/Parts/PD2328J5050S2HF") (options "") (descr ""))
 	(lib (name "MAPS-010144-TR0500") (type "KiCad") (uri "${KIPRJMOD}/Parts/MAPS-010144-TR0500") (options "") (descr ""))
+	(lib (name "2.4GHz_Patch_Antenna") (type "KiCad") (uri "${KIPRJMOD}/Parts/2.4GHz_Patch_Antenna.pretty") (options "") (descr ""))
 )
