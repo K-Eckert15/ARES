@@ -7,7 +7,7 @@
 		(at 0 -15.5 0)
 		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "32df45d5-ef13-4f8f-9956-3e794d304fba")
+		(uuid "614feeb4-8702-4578-b148-9c949e02e36b")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 		(at 0 -14 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "55612b8f-16c4-43fd-a156-95879a8906e9")
+		(uuid "9e35c2a7-792b-45f4-b23b-0130b8b165b3")
 		(effects
 			(font
 				(size 1 1)
@@ -32,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "83716105-86fc-405c-a608-a3e48719610d")
+		(uuid "90f923a2-e1d7-49c1-af6c-422c299b5fb8")
 		(effects
 			(font
 				(size 1 1)
@@ -45,7 +45,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "aab8f840-28d1-4060-b243-09cb7c89c31d")
+		(uuid "66bcc0e7-823d-4e3a-a5af-48706ac90299")
 		(effects
 			(font
 				(size 1 1)
@@ -63,18 +63,57 @@
 			(type solid)
 		)
 		(fill yes)
-		(layer "F.Cu")
-		(uuid "341f9752-5f90-49c0-959d-cc357b0a92c1")
+		(layers "F.Cu" "F.Mask")
+		(uuid "fd48158b-13e8-44a9-b05e-3c797ce2e10d")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 -12.5 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "ba34e6b7-f102-4047-8f85-d00eab6aeed5")
+		(uuid "86de895e-5591-4211-8e2e-e1221bb83e95")
 		(effects
 			(font
 				(size 1 1)
 				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole roundrect
+		(at 29 -16.5)
+		(size 1.27 1.27)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.15)
+		(uuid "5042e68e-5698-43ee-a459-c7628a511d71")
+	)
+	(zone
+		(layers "F.Cu" "F.SilkS" "F.Paste" "B.Paste")
+		(uuid "05b39034-ed0c-4d7a-8fb7-09ff6f3d9625")
+		(hatch edge 0.5)
+		(connect_pads
+			(clearance 0)
+		)
+		(min_thickness 0.25)
+		(keepout
+			(tracks not_allowed)
+			(vias not_allowed)
+			(pads not_allowed)
+			(copperpour not_allowed)
+			(footprints allowed)
+		)
+		(placement
+			(enabled no)
+			(sheetname "")
+		)
+		(fill
+			(thermal_gap 0.5)
+			(thermal_bridge_width 0.5)
+			(island_removal_mode 0)
+		)
+		(polygon
+			(pts
+				(xy 19 -17) (xy -21 -17) (xy -21 16) (xy 19 16) (xy 21.5 13.5) (xy 21.5 -14.5)
 			)
 		)
 	)
