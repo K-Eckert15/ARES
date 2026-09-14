@@ -10097,7 +10097,7 @@
 	)
 	(rectangle
 		(start 473.71 393.7)
-		(end 501.65 422.91)
+		(end 516.89 422.91)
 		(stroke
 			(width 0.508)
 			(type solid)
@@ -10128,6 +10128,17 @@
 			)
 		)
 		(uuid "01901325-5569-49e5-a1a9-357264d60378")
+	)
+	(text "Need to see if this is back in stock if not switch it to the one currently in use for COMET\n"
+		(exclude_from_sim no)
+		(at 446.278 479.806 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0351eec3-8935-4204-ab03-ec7814a58d9a")
 	)
 	(text "Accelerometer\n"
 		(exclude_from_sim no)
@@ -10221,6 +10232,17 @@
 			)
 		)
 		(uuid "562e9bcb-4cd1-46d8-a341-bb4fa7c4e388")
+	)
+	(text "Investigate why this looks like this\n"
+		(exclude_from_sim no)
+		(at 543.56 384.302 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5813e5ea-5b10-477f-a81d-d8891c3f9db6")
 	)
 	(text "alm"
 		(exclude_from_sim no)
@@ -25330,7 +25352,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "35a5d6ce-8f30-413a-be71-676b35bdac5e")
 		(property "Reference" "C31"
 			(at 752.729 302.3616 0)
@@ -25488,6 +25510,7 @@
 					(unit 1)
 					(variant
 						(name "test")
+						(dnp no)
 					)
 				)
 			)
@@ -25579,7 +25602,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3d06dde2-8990-4689-a514-cc172eb08a02")
 		(property "Reference" "C25"
 			(at 776.351 302.3616 0)
@@ -25737,6 +25760,7 @@
 					(unit 1)
 					(variant
 						(name "test")
+						(dnp no)
 					)
 				)
 			)
@@ -29478,7 +29502,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "82768c35-22bf-4297-af0f-4c7d91069c87")
 		(property "Reference" "U8"
 			(at 740.918 303.53 0)
@@ -29655,6 +29679,7 @@
 					(unit 1)
 					(variant
 						(name "test")
+						(dnp no)
 					)
 				)
 			)
@@ -29670,7 +29695,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "846f1654-b3b7-4248-8482-501d76bcc700")
 		(property "Reference" "C24"
 			(at 762.889 302.3616 0)
@@ -29828,6 +29853,7 @@
 					(unit 1)
 					(variant
 						(name "test")
+						(dnp no)
 					)
 				)
 			)
@@ -31548,7 +31574,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a5cf9483-bd91-4947-b08d-18589fe55978")
 		(property "Reference" "#PWR035"
 			(at 769.62 314.96 0)
@@ -31702,7 +31728,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a7758380-f9cf-48da-964a-ca2b6ec05ffb")
 		(property "Reference" "C23"
 			(at 764.921 318.8716 0)
@@ -31860,6 +31886,7 @@
 					(unit 1)
 					(variant
 						(name "test")
+						(dnp no)
 					)
 				)
 			)
@@ -32897,7 +32924,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c6563c71-2d53-48ac-809f-c75cba7ad0d4")
 		(property "Reference" "#PWR033"
 			(at 732.79 346.71 0)
@@ -34661,7 +34688,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "da6c837f-2cfa-4604-b772-607f53be16e9")
 		(property "Reference" "#PWR030"
 			(at 732.79 297.18 0)
