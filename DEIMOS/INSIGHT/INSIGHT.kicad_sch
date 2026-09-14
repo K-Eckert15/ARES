@@ -11471,7 +11471,7 @@
 	)
 	(wire
 		(pts
-			(xy 619.76 408.94) (xy 643.89 408.94)
+			(xy 619.76 408.94) (xy 635 408.94)
 		)
 		(stroke
 			(width 0)
@@ -23795,7 +23795,7 @@
 		(dnp no)
 		(uuid "1ec8fa11-f788-4d48-8e71-68c114fb8236")
 		(property "Reference" "TP11"
-			(at 642.874 408.94 0)
+			(at 643.128 411.226 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -35305,7 +35305,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 643.89 408.94 270)
+		(at 635 408.94 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -35315,7 +35315,7 @@
 		(dnp no)
 		(uuid "e36f22ef-fb02-4231-85cf-d52ab0bd44c0")
 		(property "Reference" "TP12"
-			(at 651.764 406.4 0)
+			(at 643.382 405.13 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -35326,7 +35326,7 @@
 			)
 		)
 		(property "Value" "TX"
-			(at 649.224 406.4 0)
+			(at 640.334 406.4 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -35337,7 +35337,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm"
-			(at 643.89 414.02 0)
+			(at 635 414.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35348,7 +35348,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 643.89 414.02 0)
+			(at 635 414.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35359,7 +35359,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35370,7 +35370,7 @@
 			)
 		)
 		(property "List" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35381,7 +35381,7 @@
 			)
 		)
 		(property "Notes" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35392,7 +35392,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35403,7 +35403,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35414,7 +35414,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35425,7 +35425,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35436,7 +35436,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35447,7 +35447,7 @@
 			)
 		)
 		(property "ID" ""
-			(at 643.89 408.94 0)
+			(at 635 408.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
