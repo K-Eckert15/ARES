@@ -773,7 +773,7 @@
         "uuid": "bf4b749c-e7df-4d18-856a-a4f784e96f1a"
       }
     ],
-    "used_designators": "C23-25,C31,C34,R17,R29-30,#PWR35,#PWR46-48,U4,XTAL1,S1",
+    "used_designators": "C23-25,C31,C34,R17-18,R29-30,Y2,#PWR35,#PWR45-48,U4,XTAL1,S1",
     "variants": [
       {
         "name": "test"
