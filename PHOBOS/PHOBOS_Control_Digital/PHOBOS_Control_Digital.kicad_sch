@@ -26305,7 +26305,7 @@
 				)
 			)
 		)
-		(property "Value" "Screw_Terminal_01x02"
+		(property "Value" "BATT"
 			(at 183.642 101.6 90)
 			(show_name no)
 			(do_not_autoplace no)
