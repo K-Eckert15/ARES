@@ -11432,7 +11432,7 @@
 	)
 	(rectangle
 		(start 703.58 287.02)
-		(end 855.98 346.71)
+		(end 824.23 346.71)
 		(stroke
 			(width 0.508)
 			(type solid)
@@ -11879,12 +11879,6 @@
 		(uuid "08512cc5-d6a1-49d5-a4f7-d136b64f2b80")
 	)
 	(junction
-		(at 791.21 308.61)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "08f7757c-ca0a-4394-8c48-3bd52dd96dc0")
-	)
-	(junction
 		(at 594.36 388.62)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -11945,6 +11939,12 @@
 		(uuid "29b4a4c1-d3a5-4bda-a251-edc0e9c372e6")
 	)
 	(junction
+		(at 791.21 317.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "30d12b21-6434-4609-9fa6-459150334169")
+	)
+	(junction
 		(at 670.56 294.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -11981,16 +11981,34 @@
 		(uuid "3f7ce443-6d7a-4479-8582-6a61f229896f")
 	)
 	(junction
+		(at 791.21 328.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "42135099-d309-4548-9072-3be80e76966d")
+	)
+	(junction
 		(at 316.23 370.84)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "46796950-828d-4680-8399-4b804c85e2d0")
 	)
 	(junction
+		(at 805.18 317.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "498db908-a2a9-41a2-90a5-09db2c00371f")
+	)
+	(junction
 		(at 621.03 351.79)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4ec19157-0b68-493d-8543-1b7ecfe0f1ac")
+	)
+	(junction
+		(at 725.17 323.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4f45ae97-2f30-4af2-ad27-4d927fc9b120")
 	)
 	(junction
 		(at 482.6 299.72)
@@ -12095,6 +12113,12 @@
 		(uuid "85bd350f-0d47-42d7-a426-42882ad6a8ad")
 	)
 	(junction
+		(at 805.18 309.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "874cdff5-ec81-4831-9b00-6468b1fdd82a")
+	)
+	(junction
 		(at 670.56 297.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -12189,6 +12213,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9ed8918b-8b11-4a87-ac6e-9b2e3305e317")
+	)
+	(junction
+		(at 805.18 299.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9f6f1dd8-64f5-4fb7-9745-ae1e80e352af")
 	)
 	(junction
 		(at 497.84 354.33)
@@ -12431,12 +12461,6 @@
 		(uuid "ef2a3254-5efd-4370-8647-603c6a079577")
 	)
 	(junction
-		(at 791.21 328.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f085c117-496b-4e8e-8728-3d7fbb92d275")
-	)
-	(junction
 		(at 655.32 307.34)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -12640,6 +12664,16 @@
 	)
 	(wire
 		(pts
+			(xy 784.86 306.07) (xy 797.56 306.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06603a44-1eb8-4c9f-b23a-91442025e806")
+	)
+	(wire
+		(pts
 			(xy 372.11 408.94) (xy 372.11 410.21)
 		)
 		(stroke
@@ -12810,6 +12844,16 @@
 	)
 	(wire
 		(pts
+			(xy 791.21 317.5) (xy 805.18 317.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "120ad2c5-4e7e-43b1-8474-78f129923b66")
+	)
+	(wire
+		(pts
 			(xy 478.79 364.49) (xy 476.25 364.49)
 		)
 		(stroke
@@ -12887,6 +12931,16 @@
 			(type default)
 		)
 		(uuid "1a6970e4-18b7-45fa-ad27-f91b8bb90922")
+	)
+	(wire
+		(pts
+			(xy 805.18 299.72) (xy 815.34 299.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b33204d-3dde-4223-a3c3-cfbc526191c5")
 	)
 	(wire
 		(pts
@@ -13290,7 +13344,7 @@
 	)
 	(wire
 		(pts
-			(xy 725.17 313.69) (xy 725.17 328.93)
+			(xy 725.17 313.69) (xy 725.17 323.85)
 		)
 		(stroke
 			(width 0)
@@ -13580,6 +13634,16 @@
 	)
 	(wire
 		(pts
+			(xy 784.86 303.53) (xy 797.56 303.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f0bfc2b-48a2-44f1-9f1a-1b82fb44abe1")
+	)
+	(wire
+		(pts
 			(xy 557.53 368.3) (xy 557.53 367.03)
 		)
 		(stroke
@@ -13850,6 +13914,16 @@
 	)
 	(wire
 		(pts
+			(xy 805.18 317.5) (xy 815.34 317.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53f9533f-9360-4f15-aeb6-7f28fe4f1656")
+	)
+	(wire
+		(pts
 			(xy 717.55 440.69) (xy 722.63 440.69)
 		)
 		(stroke
@@ -13910,16 +13984,6 @@
 	)
 	(wire
 		(pts
-			(xy 784.86 306.07) (xy 791.21 306.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "573921d9-c2d9-4f1f-9c81-baebef02ff65")
-	)
-	(wire
-		(pts
 			(xy 604.52 388.62) (xy 604.52 391.16)
 		)
 		(stroke
@@ -13967,6 +14031,16 @@
 			(type default)
 		)
 		(uuid "5b2e9fbc-d418-4880-a1cb-284a55600f1f")
+	)
+	(wire
+		(pts
+			(xy 791.21 308.61) (xy 791.21 317.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bf41bd1-a96d-4206-a7f8-294a1a707e36")
 	)
 	(wire
 		(pts
@@ -14137,6 +14211,16 @@
 			(type default)
 		)
 		(uuid "6507a425-b087-4a1c-a19f-f07603019a45")
+	)
+	(wire
+		(pts
+			(xy 815.34 299.72) (xy 815.34 309.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65383201-37c3-4e57-8ff4-499d1c5cb537")
 	)
 	(wire
 		(pts
@@ -14350,6 +14434,16 @@
 	)
 	(wire
 		(pts
+			(xy 797.56 303.53) (xy 797.56 299.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77fb8e75-dc5a-4a96-b168-11f38df16a47")
+	)
+	(wire
+		(pts
 			(xy 800.1 323.85) (xy 803.91 323.85)
 		)
 		(stroke
@@ -14457,6 +14551,16 @@
 			(type default)
 		)
 		(uuid "7e4bef55-70ec-4f11-8e43-d9b925f2c4ef")
+	)
+	(wire
+		(pts
+			(xy 731.52 323.85) (xy 725.17 323.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f25fed9-1a9f-469e-8a52-560cb0a45238")
 	)
 	(wire
 		(pts
@@ -14990,6 +15094,16 @@
 	)
 	(wire
 		(pts
+			(xy 791.21 317.5) (xy 791.21 328.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d77bba9-65c7-4f7c-9923-d5f5b4f3355b")
+	)
+	(wire
+		(pts
 			(xy 679.45 462.28) (xy 679.45 463.55)
 		)
 		(stroke
@@ -15147,6 +15261,16 @@
 			(type default)
 		)
 		(uuid "ae475fcc-7d4a-4f15-a02f-dc520f69362e")
+	)
+	(wire
+		(pts
+			(xy 797.56 299.72) (xy 805.18 299.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af8c93de-aa4f-4a4c-b512-8f55f4d65147")
 	)
 	(wire
 		(pts
@@ -15560,6 +15684,16 @@
 	)
 	(wire
 		(pts
+			(xy 725.17 323.85) (xy 725.17 328.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ccc4d2c3-66f4-4b2a-8f59-bf4be1c37f35")
+	)
+	(wire
+		(pts
 			(xy 621.03 360.68) (xy 621.03 363.22)
 		)
 		(stroke
@@ -15697,6 +15831,16 @@
 			(type default)
 		)
 		(uuid "d7546172-e725-4f96-9b20-8967eb6596b5")
+	)
+	(wire
+		(pts
+			(xy 797.56 306.07) (xy 797.56 309.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d77b8183-5875-485c-9457-681f6d443d6e")
 	)
 	(wire
 		(pts
@@ -15857,6 +16001,16 @@
 			(type default)
 		)
 		(uuid "e13165d1-3993-4089-a6c2-71ad26d4ba02")
+	)
+	(wire
+		(pts
+			(xy 797.56 309.88) (xy 805.18 309.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1461bd8-1b7f-40eb-9330-c5d4bc1c6967")
 	)
 	(wire
 		(pts
@@ -16307,16 +16461,6 @@
 			(type default)
 		)
 		(uuid "fd8197b6-ddbc-4a48-8141-09fbdb0e6a8e")
-	)
-	(wire
-		(pts
-			(xy 791.21 306.07) (xy 791.21 328.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fdcd7ab6-dc73-4421-83f0-c6357b75eaa2")
 	)
 	(wire
 		(pts
@@ -27574,6 +27718,186 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 815.34 313.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3de7d0b8-a4f7-46dd-82a6-85d6325d8fd5")
+		(property "Reference" "C34"
+			(at 818.261 312.5216 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22p"
+			(at 818.261 314.833 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 816.3052 317.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "GJM1555C1H150GB01D"
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "List" "1"
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Notes" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Link" "https://www.digikey.com/en/products/detail/murata-electronics/GJM1555C1H150GB01D/2592856"
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ID" ""
+			(at 815.34 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a3bd0725-b6c4-4919-a965-ecb668ace661")
+		)
+		(pin "2"
+			(uuid "67dc9d9c-b622-47dc-8935-112ecf5e2efb")
+		)
+		(instances
+			(project "INSIGHT"
+				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
+					(reference "C34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:Crystal_GND24")
 		(at 497.84 359.41 270)
 		(unit 1)
@@ -30994,6 +31318,186 @@
 			(project "INSIGHT"
 				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 805.18 313.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7de85dfd-c9a0-4f23-bcb8-7c8df3424a05")
+		(property "Reference" "C31"
+			(at 808.101 312.5216 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22p"
+			(at 808.101 314.833 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 806.1452 317.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "GJM1555C1H150GB01D"
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "List" "1"
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Notes" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Link" "https://www.digikey.com/en/products/detail/murata-electronics/GJM1555C1H150GB01D/2592856"
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ID" ""
+			(at 805.18 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "38342c0f-5035-4c73-9275-60776ebe9320")
+		)
+		(pin "2"
+			(uuid "918098f5-d6a2-4e0f-a66c-77470a2f7046")
+		)
+		(instances
+			(project "INSIGHT"
+				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
+					(reference "C31")
 					(unit 1)
 				)
 			)
@@ -34617,7 +35121,7 @@
 	)
 	(symbol
 		(lib_id "2026-09-15_02-23-04:ABS07-32.768KHZ-7-T")
-		(at 824.23 313.69 0)
+		(at 805.18 309.88 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -34625,30 +35129,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "bd41f324-d7d5-42b0-aed0-3dc38c80d8ce")
 		(property "Reference" "XTAL1"
-			(at 829.31 306.07 0)
+			(at 819.912 298.704 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "ABS07-32.768KHZ-7-T"
-			(at 829.31 308.61 0)
+			(at 820.42 296.418 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "XTAL_ABS07-32.768KHZ-7-T_ABR"
-			(at 824.23 313.69 0)
+			(at 805.18 309.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34660,7 +35165,7 @@
 			)
 		)
 		(property "Datasheet" "ABS07-32.768KHZ-7-T"
-			(at 824.23 313.69 0)
+			(at 805.18 309.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34672,7 +35177,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 824.23 313.69 0)
+			(at 805.18 309.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
