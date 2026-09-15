@@ -773,7 +773,7 @@
         "uuid": "bf4b749c-e7df-4d18-856a-a4f784e96f1a"
       }
     ],
-    "used_designators": "S1",
+    "used_designators": "U4,S1",
     "variants": [
       {
         "name": "test"
