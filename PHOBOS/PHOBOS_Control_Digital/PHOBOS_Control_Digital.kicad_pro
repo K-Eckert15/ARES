@@ -102,7 +102,7 @@
         "footprint_filters_mismatch": "ignore",
         "footprint_symbol_field_mismatch": "warning",
         "footprint_symbol_mismatch": "warning",
-        "footprint_type_mismatch": "ignore",
+        "footprint_type_mismatch": "error",
         "hole_clearance": "error",
         "hole_to_hole": "warning",
         "holes_co_located": "warning",
@@ -634,7 +634,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "/home/kyle/Documents/ARES/PHOBOS/PHOBOS_Control_Digital/V1_Gerber/",
       "specctra_dsn": "",
       "step": "PHOBOS_Control_Digital.step",
       "vrml": ""
