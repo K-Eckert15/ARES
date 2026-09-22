@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "10.0.6-10.0.6~ubuntu26.04.1"
     },
-    "CreationDate": "2026-09-21T00:05:21-04:00"
+    "CreationDate": "2026-09-21T23:18:23-04:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -18,27 +18,27 @@
       "Y": 35.61
     },
     "LayerNumber": 4,
-    "BoardThickness": 1.547,
+    "BoardThickness": 1.5592,
     "Finish": "None",
     "ImpedanceControlled": true
   },
   "DesignRules": [
     {
       "Layers": "Outer",
-      "PadToPad": 0.127,
-      "PadToTrack": 0.127,
+      "PadToPad": 0.1397,
+      "PadToTrack": 0.1397,
       "TrackToTrack": -0.0,
-      "MinLineWidth": 0.127,
-      "TrackToRegion": 0.2,
-      "RegionToRegion": 0.2
+      "MinLineWidth": 0.2,
+      "TrackToRegion": 0.1397,
+      "RegionToRegion": 0.1397
     },
     {
       "Layers": "Inner",
       "PadToPad": 0.0,
       "PadToTrack": 0.0,
       "TrackToTrack": -0.0,
-      "TrackToRegion": 0.2,
-      "RegionToRegion": 0.2
+      "TrackToRegion": 0.1397,
+      "RegionToRegion": 0.1397
     }
   ],
   "FilesAttributes": [
@@ -114,27 +114,36 @@
     },
     {
       "Type": "Copper",
-      "Thickness": 0.0175,
+      "Thickness": 0.0343,
       "Name": "F.Cu"
     },
     {
       "Type": "Dielectric",
       "Color": "R109G116B75",
-      "Thickness": 0.196,
-      "Material": "7628 RC46",
-      "DielectricConstant": "4.74",
-      "Name": "F.Cu/In1.Cu",
-      "Notes": "Type: dielectric layer 1 (from F.Cu to In1.Cu)"
+      "Thickness": 0.1219,
+      "Material": "2116",
+      "DielectricConstant": "4.5",
+      "Name": "F.Cu/In1.Cu (1/2)",
+      "Notes": "Type: dielectric layer 1 - 1/2 (from F.Cu to In1.Cu)"
+    },
+    {
+      "Type": "Dielectric",
+      "Color": "R109G116B75",
+      "Thickness": 0.0838,
+      "Material": "2113",
+      "DielectricConstant": "3.3",
+      "Name": "F.Cu/In1.Cu (2/2)",
+      "Notes": "Type: dielectric layer 1 - 2/2 (from F.Cu to In1.Cu)"
     },
     {
       "Type": "Copper",
-      "Thickness": 0.035,
+      "Thickness": 0.0343,
       "Name": "In1.Cu"
     },
     {
       "Type": "Dielectric",
       "Color": "R109G116B75",
-      "Thickness": 1.03,
+      "Thickness": 0.9906,
       "Material": "FR4",
       "DielectricConstant": "4.6",
       "LossTangent": "0.02",
@@ -143,21 +152,30 @@
     },
     {
       "Type": "Copper",
-      "Thickness": 0.035,
+      "Thickness": 0.0343,
       "Name": "In2.Cu"
     },
     {
       "Type": "Dielectric",
       "Color": "R109G116B75",
-      "Thickness": 0.196,
-      "Material": "7628 RC46",
-      "DielectricConstant": "4.74",
-      "Name": "In2.Cu/B.Cu",
-      "Notes": "Type: dielectric layer 3 (from In2.Cu to B.Cu)"
+      "Thickness": 0.0838,
+      "Material": "2113",
+      "DielectricConstant": "4.2",
+      "Name": "In2.Cu/B.Cu (1/2)",
+      "Notes": "Type: dielectric layer 3 - 1/2 (from In2.Cu to B.Cu)"
+    },
+    {
+      "Type": "Dielectric",
+      "Color": "R109G116B75",
+      "Thickness": 0.1219,
+      "Material": "2116",
+      "DielectricConstant": "4.5",
+      "Name": "In2.Cu/B.Cu (2/2)",
+      "Notes": "Type: dielectric layer 3 - 2/2 (from In2.Cu to B.Cu)"
     },
     {
       "Type": "Copper",
-      "Thickness": 0.0175,
+      "Thickness": 0.0343,
       "Name": "B.Cu"
     },
     {
