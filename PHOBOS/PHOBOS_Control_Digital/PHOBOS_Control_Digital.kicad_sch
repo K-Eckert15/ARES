@@ -12486,7 +12486,7 @@
 			(justify left bottom)
 		)
 		(uuid "2b2b649c-5b32-4eaf-9f9e-5a10f006299b")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 371.5385 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -12522,7 +12522,7 @@
 			(justify left bottom)
 		)
 		(uuid "2da6c84b-059a-4401-80ef-90542ffd108b")
-		(property "Netclass" "PWR"
+		(property "Net Class" "PWR"
 			(at 102.2985 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12557,7 +12557,7 @@
 			(justify left bottom)
 		)
 		(uuid "31bb0929-7fa1-4522-8a34-7ce9aeffdd6f")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 332.1685 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -12593,7 +12593,7 @@
 			(justify left bottom)
 		)
 		(uuid "66d8f77f-ba78-4276-8a59-516aab8fcaf5")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 356.2985 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -12629,7 +12629,7 @@
 			(justify left bottom)
 		)
 		(uuid "f2009b32-5178-4ff3-bfc2-b88dc88a1399")
-		(property "Netclass" "PWR"
+		(property "Net Class" "PWR"
 			(at 84.5185 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12664,7 +12664,7 @@
 			(justify left bottom)
 		)
 		(uuid "f4d42b7f-b3b5-4a10-a37a-f5787d515772")
-		(property "Netclass" "RF"
+		(property "Net Class" "RF"
 			(at 385.5085 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -30059,7 +30059,7 @@
 				)
 			)
 		)
-		(property "MFG #" "CONSMA001-SMD-G-T"
+		(property "MFG #" "SMA-J-P-GF-RA-SM1"
 			(at 391.16 207.01 0)
 			(hide yes)
 			(show_name no)
