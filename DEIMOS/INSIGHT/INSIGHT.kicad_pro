@@ -773,7 +773,7 @@
         "uuid": "bf4b749c-e7df-4d18-856a-a4f784e96f1a"
       }
     ],
-    "used_designators": "S1",
+    "used_designators": "C23-25,C31,C34,R17-18,R29-30,Y2,#PWR35-37,#PWR45-50,U4,U8,XTAL1,S1",
     "variants": [
       {
         "name": "test"
@@ -783,7 +783,7 @@
   "sheets": [
     [
       "bf4b749c-e7df-4d18-856a-a4f784e96f1a",
-      "AURORA_Insight"
+      "INSIGHT"
     ]
   ],
   "text_variables": {},
