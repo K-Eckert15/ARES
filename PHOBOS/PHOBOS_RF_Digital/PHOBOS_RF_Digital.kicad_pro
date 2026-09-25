@@ -526,7 +526,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "step": "PHOBOS_RF_Digital.step",
+      "step": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -649,7 +649,7 @@
         "uuid": "a832e876-eafa-4621-93e1-871c5fe2cb31"
       }
     ],
-    "used_designators": "IC4-7,R1-3,TP1-5,J2-7,AE1-4,#PWR1-6,#PWR13-31,U1-4",
+    "used_designators": "IC4-7,R1-3,J2-7,AE1-4,#PWR1-6,#PWR13-31,U1-4,TP1-5",
     "variants": []
   },
   "sheets": [

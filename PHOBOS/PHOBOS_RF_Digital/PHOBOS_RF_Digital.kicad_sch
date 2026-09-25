@@ -4577,7 +4577,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "2.4GHz_Patch_Antenna:Patch_Antenna"
+		(property "Footprint" ""
 			(at 424.18 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -5452,7 +5452,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "2.4GHz_Patch_Antenna:Patch_Antenna"
+		(property "Footprint" ""
 			(at 426.72 316.23 0)
 			(hide yes)
 			(show_name no)
@@ -5847,7 +5847,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MAPS-010144-TR0500:QFN50P400X400X100-25N-D"
+		(property "Footprint" "QFN50P400X400X100-25N-D"
 			(at 400.05 320.98 0)
 			(hide yes)
 			(show_name no)
@@ -6651,7 +6651,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "2.4GHz_Patch_Antenna:Patch_Antenna"
+		(property "Footprint" ""
 			(at 425.45 168.91 0)
 			(hide yes)
 			(show_name no)
@@ -7196,7 +7196,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "2.4GHz_Patch_Antenna:Patch_Antenna"
+		(property "Footprint" ""
 			(at 426.72 242.57 0)
 			(hide yes)
 			(show_name no)
@@ -8460,7 +8460,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MAPS-010144-TR0500:QFN50P400X400X100-25N-D"
+		(property "Footprint" "QFN50P400X400X100-25N-D"
 			(at 400.05 394.64 0)
 			(hide yes)
 			(show_name no)
@@ -8673,7 +8673,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MAPS-010144-TR0500:QFN50P400X400X100-25N-D"
+		(property "Footprint" "QFN50P400X400X100-25N-D"
 			(at 398.78 247.32 0)
 			(hide yes)
 			(show_name no)
@@ -8964,7 +8964,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MAPS-010144-TR0500:QFN50P400X400X100-25N-D"
+		(property "Footprint" "QFN50P400X400X100-25N-D"
 			(at 397.51 159.69 0)
 			(hide yes)
 			(show_name no)

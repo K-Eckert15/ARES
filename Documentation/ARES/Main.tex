@@ -1,0 +1,54 @@
+\documentclass[11pt,twocolumn]{IEEEtran}
+
+% ========================= Packages =========================
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{csvsimple}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{cite}
+
+\pgfplotsset{compat=newest}
+
+% ========================= Project Commands =========================
+\newcommand{\comet}{C.O.M.E.T.}
+\newcommand{\ares}{A.R.E.S.}
+\newcommand{\phobos}{P.H.O.B.O.S.}
+\newcommand{\deimos}{D.E.I.M.O.S.}
+
+\begin{document}
+
+% ========================= Title =========================
+\onecolumn
+\input{Title}
+
+\tableofcontents
+
+\twocolumn
+\newpage
+
+      
+% =========================================================
+\input{Documentation/ARES/Introduction}
+
+\input{Documentation/ARES/Biographies}
+
+
+%----------------------------THIS IS THE GOALS AND OBJECTIVES SECTION-----------------------------------------------
+\input{Documentation/ARES/Goals_&_Objectives}
+
+
+
+
+
+
+
+\bibliographystyle{ieeetr}
+\bibliography{Documentation/ARES/References}
+
+\end{document}
