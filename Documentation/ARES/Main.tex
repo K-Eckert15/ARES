@@ -11,7 +11,12 @@
 \usepackage{siunitx}
 \usepackage{booktabs}
 \usepackage{hyperref}
-\usepackage{cite}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{nicematrix}
+\usepackage{array}
+
+%\usepackage{cite}
 
 \pgfplotsset{compat=newest}
 
@@ -20,6 +25,7 @@
 \newcommand{\ares}{A.R.E.S.}
 \newcommand{\phobos}{P.H.O.B.O.S.}
 \newcommand{\deimos}{D.E.I.M.O.S.}
+\newcommand{\RHeight}{12}
 
 \begin{document}
 
@@ -40,11 +46,13 @@
 
 
 %----------------------------THIS IS THE GOALS AND OBJECTIVES SECTION-----------------------------------------------
-\input{Documentation/ARES/Goals_&_Objectives}
+%\input{Documentation/ARES/Goals_&_Objectives}
 
+\input{Documentation/ARES/Use_Cases/Use_Case}
 
-
-
+\onecolumn
+\input{Documentation/ARES/Rquirements/Requirements}
+\twocolumn
 
 
 

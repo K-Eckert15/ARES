@@ -1,0 +1,202 @@
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccccc}
+    \toprule
+    \textbf{Category} & \textbf{Metric} & \textbf{Value} & \textbf{Unit} & \textbf{Notes} \\ 
+    \midrule
+
+    % ================= PHYSICAL =================
+
+    \multirow{4}{*}{Physical}
+        & Mounting Location
+        & Nose Cone
+        & --
+        & Forward avionics bay \\
+    \cmidrule(lr){2-5}
+
+        & Max Diameter
+        & 6
+        & \unit{in}
+        & Available internal space \\
+    \cmidrule(lr){2-5}
+
+        & Max Length
+        & 4
+        & \unit{in}
+        & Including antenna hardware \\
+    \cmidrule(lr){2-5}
+
+        & Max Mass
+        & 200
+        & \unit{g}
+        & Complete subsystem \\
+    \midrule
+
+    % ================= ELECTRICAL =================
+
+    \multirow{3}{*}{Electrical}
+        & Supply Voltage
+        & 9
+        & \unit{\volt}
+        & Battery or regulated input \\
+    \cmidrule(lr){2-5}
+
+        & Power Consumption
+        & 1.8
+        & \unit{\watt}
+        & Normal operation \\
+    \cmidrule(lr){2-5}
+
+        & Battery Monitoring
+        & 3.3
+        & \unit{\volt}
+        & Low-voltage threshold \\
+    \midrule
+
+    % ================= SENSORS =================
+
+    \multirow{4}{*}{Sensors}
+        & IMU Update Rate
+        & 100
+        & \unit{\hertz}
+        & Orientation measurement \\
+    \cmidrule(lr){2-5}
+
+        & GPS Update Rate
+        & 10
+        & \unit{\hertz}
+        & Proposed target \\
+    \cmidrule(lr){2-5}
+
+        & Position Accuracy
+        & 3
+        & \unit{\meter}
+        & GPS measurement \\
+    \cmidrule(lr){2-5}
+
+        & Orientation Accuracy
+        & 1
+        & \unit{\degree}
+        & To be characterized \\
+    \midrule
+
+    % ================= COMMUNICATIONS =================
+
+    \multirow{5}{*}{Communications}
+        & Operating Frequency
+        & 915
+        & \unit{\mega\hertz}
+        & Proposed telemetry band \\
+    \cmidrule(lr){2-5}
+
+        & Communication Range
+        & 4
+        & \unit{\kilo\meter}
+        & Proposed line-of-sight target \\
+    \cmidrule(lr){2-5}
+
+        & Telemetry Rate
+        & 20
+        & \unit{\hertz}
+        & Proposed transmission rate \\
+    \cmidrule(lr){2-5}
+
+        & Packet Loss
+        & TBD
+        & \unit{\percent}
+        & At specified test range \\
+    \cmidrule(lr){2-5}
+
+        & RF Output Power
+        & 1
+        & \unit{\watt}
+        & Selected radio dependent \\
+    \midrule
+
+    % ================= DATA =================
+
+    \multirow{3}{*}{Data}
+        & Storage Capacity
+        & 128
+        & Mbit
+        & Nonvolatile memory \\
+    \cmidrule(lr){2-5}
+
+        & Logging Rate
+        & 100
+        & \unit{\hertz}
+        & Sensor-dependent \\
+    \cmidrule(lr){2-5}
+
+        & Data Interface
+        & UART
+        & --
+        & Configuration and transfer \\
+
+    \bottomrule
+    \end{tabular}
+    \vspace{3mm}
+    \caption{\deimos{} System Requirements}
+    \label{tab:DEIMOS_Requirements_Table}
+\end{table}
+
+
+% =========================================================
+% FUNCTIONAL REQUIREMENTS
+% =========================================================
+
+\begin{enumerate}
+
+    \item The system shall acquire onboard inertial
+    and position measurements to characterize
+    the vehicle's motion, orientation, and trajectory.
+
+    \item The system shall transmit flight
+    measurements and system status to the
+    receiving ground station during flight.
+
+    \item The system shall record flight
+    measurements in onboard nonvolatile
+    memory independently of the RF link.
+
+    \item The system shall preserve recorded
+    data during temporary communication
+    interruptions.
+
+    \item The system shall provide telemetry
+    containing timestamps, sensor measurements,
+    position information, and system status.
+
+    \item The ground station shall receive,
+    decode, and display flight telemetry
+    in real time.
+
+    \item The ground station shall support
+    recording and exporting received
+    telemetry for postflight analysis.
+
+    \item The system shall support preflight
+    verification of sensor initialization,
+    GPS operation, power status,
+    and RF communication.
+
+    \item The system shall provide a method
+    for retrieving recorded flight data
+    following vehicle recovery.
+
+    \item The system shall maintain
+    communication compatibility with
+    the selected ground-station receiver.
+
+    \item The system shall operate
+    independently of flight-critical
+    recovery electronics and experimental
+    communications payloads.
+
+    \item The subsystem shall be securely
+    mounted within the nose cone and
+    maintain its mechanical and electrical
+    connections during flight.
+
+\end{enumerate}

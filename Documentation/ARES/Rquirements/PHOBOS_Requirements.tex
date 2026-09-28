@@ -1,0 +1,82 @@
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccccc}
+    \toprule
+    \textbf{Category} & \textbf{Metric} & \textbf{Value} & \textbf{Unit} & \textbf{Notes} \\ 
+    \midrule
+
+    \multirow{4}{*}{Physical}
+        & Diameter        & 6              & in  & Must fit vehicle envelope \\ \cmidrule{2-5}
+        & Length          & $\leq 22$      & in  & Allocated subsystem length \\ \cmidrule{2-5}
+        & Max Mass        & 2              & \unit{\kilo\gram}  & Target payload mass \\ %\cmidrule{2-5}
+    \midrule
+
+    \multirow{9}{*}{Functionality}
+        & Power Supply          & 9              & \unit{\volt}            & Battery-powered \\ \cmidrule{2-5}
+        & Range                 & $\sim 2$       & \unit{\kilo\meter}           & Design target \\ \cmidrule{2-5}
+        %\cmidrule{2-5}
+        & Beam Angle Tol.       & $\pm 25$       & \unit{\deg}          & Steering tolerance \\ \cmidrule{2-5}
+        & Frequency             & 2.4            & \unit{\giga\hertz}   & ISM band \\ \cmidrule{2-5}
+        & Tx Power              & $<1$           & \unit{\watt}            & Legal transmission limit \\ \cmidrule{2-5}
+        & Circuit Boards        & 2              &              & Control and RF boards \\ \cmidrule{2-5}
+        & Minimum \# of Patches  & 4              & Patches    & To produce a directional beam  \\ %\cmidrule{2-5}
+   
+    \bottomrule
+    \end{tabular}
+    \vspace{3mm}
+    \caption{\phobos{} System Requirements}
+    \label{tab:PHOBOS_Requirements_Table}
+\end{table}
+\begin{enumerate}
+
+    \item The system shall be securely mounted
+    within the rocket to ensure safety
+    during flight.
+
+    \item The system shall feature active beam
+    steering utilizing onboard flight data
+    to direct the transmitted signal toward
+    the receiving ground station.
+
+    \item The system shall provide experimental
+    RF measurements suitable for evaluating
+    beam-steering performance.
+
+    \item The system shall transmit decodable
+    data to the receiving ground station.
+
+    \item The system shall use locking
+    connectors for signal and power
+    connections between circuit boards
+    to maintain electrical connectivity
+    during flight.
+
+    \item The system shall electronically
+    control the relative phase of its
+    antenna elements to steer the
+    transmitted beam.
+
+    %\item The system shall support communication with the ground station throughout its designated experimental flight window.
+
+ %   \item The system shall record or
+ %   transmit sufficient experimental
+ %   measurements to evaluate antenna
+ %   performance under changing
+%    vehicle orientation.
+
+%   \item The system shall provide a
+%    method for verifying antenna
+%    steering functionality before launch.
+
+    \item The system shall support
+    laboratory characterization
+    and ground communication testing
+    prior to flight integration.
+
+    \item The system shall operate
+    without interfering with
+    flight-critical recovery
+    electronics or other onboard
+    communication systems.
+
+\end{enumerate}

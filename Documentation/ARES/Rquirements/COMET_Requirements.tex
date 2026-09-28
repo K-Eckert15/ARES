@@ -1,0 +1,190 @@
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccccc}
+    \toprule
+    \textbf{Category} & \textbf{Metric} & \textbf{Value} & \textbf{Unit} & \textbf{Notes} \\ 
+    \midrule
+
+    % ================= ELECTRICAL =================
+
+    \multirow{5}{*}{Electrical}
+        & Supply Voltage
+        & TBD
+        & \unit{\volt}
+        & Battery input \\
+    \cmidrule(lr){2-5}
+
+        & Pyro Channels
+        & 2
+        & --
+        & Drogue and main \\
+    \cmidrule(lr){2-5}
+
+        & Output Capacity
+        & 5
+        & \unit{\ampere}
+        & Proposed channel rating \\
+    \cmidrule(lr){2-5}
+
+        & Continuity
+        & 0.8
+        & \unit{\ohm}
+        & Threshold to verify \\
+    \cmidrule(lr){2-5}
+
+        & Power Monitoring
+        & TBD
+        & \unit{\volt}
+        & Low-voltage threshold \\
+    \midrule
+
+    % ================= SENSORS =================
+
+    \multirow{4}{*}{Sensors}
+        & Barometer
+        & MPL3115A2
+        & --
+        & Altitude measurement \\
+    \cmidrule(lr){2-5}
+
+        & Inertial Sensor
+        & LSM6DSO32
+        & --
+        & Orientation and motion \\
+    \cmidrule(lr){2-5}
+
+        & High-G Sensor
+        & LSM6DSO32
+        & --
+        & ADXL375 or H3LIS331 \\
+    \cmidrule(lr){2-5}
+
+        & Launch Detection
+        & 150
+        & ft AGL
+        & Design target \\
+    \midrule
+
+    % ================= RECOVERY =================
+
+    \multirow{3}{*}{Recovery}
+        & Drogue Event
+        & Apogee
+        & --
+        & Flight-event detection \\
+    \cmidrule(lr){2-5}
+
+        & Main Event
+        & TBD
+        & ft AGL
+        & Configurable altitude \\
+    \cmidrule(lr){2-5}
+
+        & Detection Delay
+        & TBD
+        & ms
+        & To be characterized \\
+    \midrule
+
+    % ================= DATA =================
+
+    \multirow{4}{*}{Data}
+        & Storage
+        & 128
+        & Mbit
+        & Flash memory target \\
+    \cmidrule(lr){2-5}
+
+        & Logging Rate
+        & TBD
+        & Hz
+        & Sensor-dependent \\
+    \cmidrule(lr){2-5}
+
+        & Telemetry
+        & UART
+        & --
+        & External interface \\
+    \cmidrule(lr){2-5}
+
+        & Data Export
+        & CSV
+        & --
+        & Postflight analysis \\
+
+    \bottomrule
+    \end{tabular}
+    \vspace{3mm}
+    \caption{\comet{} System Requirements}
+    \label{tab:COMET_Requirements_Table}
+\end{table}
+
+
+% =========================================================
+% FUNCTIONAL REQUIREMENTS
+% =========================================================
+
+\begin{enumerate}
+
+    \item The system shall detect launch, powered
+    ascent, coast, apogee, and descent using
+    onboard barometric and inertial sensors.
+
+    \item The system shall use inertial measurements
+    to prevent inappropriate barometric
+    apogee detection during transonic flight.
+
+    \item The system shall independently control
+    its designated drogue and main
+    deployment channels.
+
+    \item The system shall initiate drogue
+    deployment following valid apogee detection
+    and main deployment at the configured
+    descent altitude.
+
+    \item The system shall provide independent
+    electrical continuity monitoring for
+    each deployment channel.
+
+    \item The system shall verify battery voltage,
+    sensor initialization, and deployment
+    circuit continuity before flight.
+
+    \item The system shall provide a designated
+    external arming interface and prevent
+    unintended deployment during normal
+    preflight handling.
+
+    \item The system shall record sensor
+    measurements, flight states, battery
+    voltage, and deployment events in
+    onboard nonvolatile memory.
+
+    \item The system shall retain recorded
+    flight data following normal shutdown
+    or loss of external power.
+
+    \item The system shall provide a serial
+    interface for configuration, diagnostics,
+    and optional external telemetry.
+
+    \item The system shall provide visual
+    or audible indications of initialization,
+    arming status, and detected faults.
+
+    \item The system shall permit postflight
+    retrieval and export of recorded data
+    for performance evaluation.
+
+    \item The system shall be capable of
+    independent ground testing of its
+    sensors, flight-event detection,
+    and recovery outputs.
+
+    \item The system shall operate independently
+    of experimental payloads and
+    communications systems.
+
+\end{enumerate}
