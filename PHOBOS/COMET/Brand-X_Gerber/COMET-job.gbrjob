@@ -3,14 +3,14 @@
     "GenerationSoftware": {
       "Vendor": "KiCad",
       "Application": "Pcbnew",
-      "Version": "9.0.8-9.0.8~ubuntu24.04.1"
+      "Version": "10.0.5"
     },
-    "CreationDate": "2026-04-19T02:42:30-04:00"
+    "CreationDate": "2026-08-24T21:40:42-04:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
-      "Name": "COMET",
-      "GUID": "434f4d45-542e-46b6-9963-61645f706362",
+      "Name": "Brand-X",
+      "GUID": "4272616e-642d-4582-9e6b-696361645f70",
       "Revision": "rev?"
     },
     "Size": {
@@ -40,57 +40,57 @@
   ],
   "FilesAttributes": [
     {
-      "Path": "COMET-F_Cu.gbr",
+      "Path": "Brand-X-F_Cu.gbr",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-In1_Cu.gbr",
+      "Path": "Brand-X-In1_Cu.gbr",
       "FileFunction": "Copper,L2,Inr",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-In2_Cu.gbr",
+      "Path": "Brand-X-In2_Cu.gbr",
       "FileFunction": "Copper,L3,Inr",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-B_Cu.gbr",
+      "Path": "Brand-X-B_Cu.gbr",
       "FileFunction": "Copper,L4,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-F_Paste.gbr",
+      "Path": "Brand-X-F_Paste.gbr",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-B_Paste.gbr",
+      "Path": "Brand-X-B_Paste.gbr",
       "FileFunction": "SolderPaste,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-F_Silkscreen.gbr",
+      "Path": "Brand-X-F_Silkscreen.gbr",
       "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-B_Silkscreen.gbr",
+      "Path": "Brand-X-B_Silkscreen.gbr",
       "FileFunction": "Legend,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "COMET-F_Mask.gbr",
+      "Path": "Brand-X-F_Mask.gbr",
       "FileFunction": "SolderMask,Top",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "COMET-B_Mask.gbr",
+      "Path": "Brand-X-B_Mask.gbr",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "COMET-Edge_Cuts.gbr",
+      "Path": "Brand-X-Edge_Cuts.gbr",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }
