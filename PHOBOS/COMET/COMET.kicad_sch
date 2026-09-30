@@ -8162,6 +8162,12 @@
 		(uuid "553dddc3-c8f1-410f-8822-ffdce197744b")
 	)
 	(junction
+		(at 24.13 21.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "57c7877d-d892-4a03-8c9f-6201ce7e9400")
+	)
+	(junction
 		(at 83.82 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8510,12 +8516,6 @@
 		(uuid "fabb019d-f21f-4091-ba35-4c345729a595")
 	)
 	(junction
-		(at 26.67 21.59)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fd35577c-4e4e-4379-b26c-7385fbe23b42")
-	)
-	(junction
 		(at 96.52 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8820,6 +8820,16 @@
 			(type default)
 		)
 		(uuid "101a4c65-78db-420c-b7a7-24055d966869")
+	)
+	(wire
+		(pts
+			(xy 26.67 27.94) (xy 26.67 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11d38848-b727-4cf9-9a29-d157526e2f84")
 	)
 	(wire
 		(pts
@@ -9903,16 +9913,6 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 21.59) (xy 26.67 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5e3e0726-1d40-4270-afee-d10e39494051")
-	)
-	(wire
-		(pts
 			(xy 275.59 163.83) (xy 279.4 163.83)
 		)
 		(stroke
@@ -10420,16 +10420,6 @@
 			(type default)
 		)
 		(uuid "821e53d6-cb2d-4b93-aad4-b658c7d5838d")
-	)
-	(wire
-		(pts
-			(xy 26.67 19.05) (xy 26.67 21.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "82d722b1-3f5a-47ec-9fd4-3db94d6d2d90")
 	)
 	(wire
 		(pts
@@ -11493,7 +11483,7 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 21.59) (xy 31.75 21.59)
+			(xy 24.13 21.59) (xy 31.75 21.59)
 		)
 		(stroke
 			(width 0)
@@ -24031,6 +24021,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VCC")
+		(at 26.67 27.94 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7d29832c-be4a-47e0-bf6a-2b34dc2b4de0")
+		(property "Reference" "#PWR026"
+			(at 26.67 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "VMOS"
+			(at 25.4 24.384 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 26.67 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 26.67 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 26.67 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ff8f64e3-27f8-414f-846e-1e1c86cda8f8")
+		)
+		(instances
+			(project "COMET"
+				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
+					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 387.35 104.14 0)
 		(unit 1)
@@ -24102,84 +24170,6 @@
 			(project "COMET"
 				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
 					(reference "#PWR027")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 26.67 19.05 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "842956e7-3b38-408e-95d5-1bbac5c65b2b")
-		(property "Reference" "#PWR026"
-			(at 26.67 22.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VMOS"
-			(at 25.4 15.494 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 26.67 19.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 26.67 19.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 26.67 19.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7b669714-04e2-4c4a-8614-238fc8ff55fd")
-		)
-		(instances
-			(project "COMET"
-				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
-					(reference "#PWR026")
 					(unit 1)
 				)
 			)

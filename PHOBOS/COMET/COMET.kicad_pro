@@ -767,13 +767,13 @@
         "uuid": "bf4b749c-e7df-4d18-856a-a4f784e96f1a"
       }
     ],
-    "used_designators": "TP3-4",
+    "used_designators": "TP3-4,#PWR26",
     "variants": []
   },
   "sheets": [
     [
       "bf4b749c-e7df-4d18-856a-a4f784e96f1a",
-      "Brand-X"
+      "COMET"
     ]
   ],
   "text_variables": {},
