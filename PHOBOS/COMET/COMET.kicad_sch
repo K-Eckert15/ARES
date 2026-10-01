@@ -8192,12 +8192,6 @@
 		(uuid "5fef2294-0c2b-43e4-ab34-f4c68651ed15")
 	)
 	(junction
-		(at 88.9 68.58)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6000a199-19f4-4198-a660-3f1bd5f6626e")
-	)
-	(junction
 		(at 341.63 170.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9723,16 +9717,6 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 68.58) (xy 92.71 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50d6624a-efbb-4890-ae93-de93d659ef96")
-	)
-	(wire
-		(pts
 			(xy 314.96 193.04) (xy 314.96 191.77)
 		)
 		(stroke
@@ -10443,16 +10427,6 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 63.5) (xy 88.9 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "83a7f659-521f-4a96-8b47-704f6cc05d7e")
-	)
-	(wire
-		(pts
 			(xy 262.89 22.86) (xy 240.03 22.86)
 		)
 		(stroke
@@ -10883,7 +10857,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 68.58) (xy 83.82 68.58)
+			(xy 83.82 68.58) (xy 92.71 68.58)
 		)
 		(stroke
 			(width 0)
@@ -12580,6 +12554,76 @@
 			(justify left bottom)
 		)
 		(uuid "fd7dd932-6c00-4c9b-8d07-fb185c946ee8")
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 356.87 104.14 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "09ae511c-0b5e-4a56-a952-5725efa31592")
+		(property "Netclass" "Current"
+			(at 357.5685 101.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at -62.23 7.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 21.59 21.59 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "52f5c76f-ef30-45ae-8601-7f0f8216c26e")
+		(property "Netclass" "Current"
+			(at 22.2885 19.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at -397.51 -74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "MCU_RaspberryPi_RP2040:RP2040")
@@ -30033,84 +30077,6 @@
 			(project "COMET"
 				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
 					(reference "#PWR069")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Adafruit MPM3610-eagle-import:VIN")
-		(at 88.9 60.96 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e088fa34-7a4d-42d2-b3ba-94c80adeadc1")
-		(property "Reference" "#U$02"
-			(at 88.9 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "V+"
-			(at 88.9 58.42 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.0795)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 88.9 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 88.9 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 88.9 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e9acb153-a5be-4d7f-9c6e-b9c94a8ce0e8")
-		)
-		(instances
-			(project "COMET"
-				(path "/bf4b749c-e7df-4d18-856a-a4f784e96f1a"
-					(reference "#U$02")
 					(unit 1)
 				)
 			)
