@@ -29326,7 +29326,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Buzzer_Beeper:MagneticBuzzer_PUI_AT-0927-TT-6-R"
+		(property "Footprint" "OWMB-404020SA-40-17:OWMB-404020SA-40-17"
 			(at 267.97 191.77 0)
 			(hide yes)
 			(show_name no)
