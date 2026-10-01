@@ -6,4 +6,5 @@
 	(lib (name "SISS63DN-T1-GE3") (type "KiCad") (uri "${KIPRJMOD}/Parts/SISS63DN-T1-GE3") (options "") (descr ""))
 	(lib (name "AT-0927-TT-6-R") (type "KiCad") (uri "${KIPRJMOD}/Parts/AT-0927-TT-6-R") (options "") (descr ""))
 	(lib (name "MPL3115A2ST1") (type "KiCad") (uri "${KIPRJMOD}/Parts/MPL3115A2ST1") (options "") (descr ""))
+	(lib (name "OWMB-404020SA-40-17") (type "KiCad") (uri "${KIPRJMOD}/Parts/OWMB-404020SA-40-17/OWMB-404020SA-40-17.pretty") (options "") (descr ""))
 )
