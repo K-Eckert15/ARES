@@ -2,4 +2,8 @@
 	(version 7)
 	(lib (name "screw term") (type "") (uri "/home/kyle/Documents/C.O.M.E.T./Parts/Screw Terminal") (options "") (descr ""))
 	(lib (name "USB") (type "KiCad") (uri "${KIPRJMOD}/Parts/USB4056_03_A") (options "") (descr ""))
+	(lib (name "KMR211G LFS") (type "KiCad") (uri "${KIPRJMOD}/Parts/KMR211G LFS") (options "") (descr ""))
+	(lib (name "SISS63DN-T1-GE3") (type "KiCad") (uri "${KIPRJMOD}/Parts/SISS63DN-T1-GE3") (options "") (descr ""))
+	(lib (name "AT-0927-TT-6-R") (type "KiCad") (uri "${KIPRJMOD}/Parts/AT-0927-TT-6-R") (options "") (descr ""))
+	(lib (name "MPL3115A2ST1") (type "KiCad") (uri "${KIPRJMOD}/Parts/MPL3115A2ST1") (options "") (descr ""))
 )

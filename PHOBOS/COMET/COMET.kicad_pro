@@ -60,8 +60,8 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.127,
-          "min_island_area": 9.99999999996,
+          "min_clearance": 0.3,
+          "min_island_area": 9.9999993548,
           "min_thickness": 0.25,
           "pad_connection": 1,
           "remove_islands": 0,
@@ -578,6 +578,9 @@
       "/MP_D": [
         "Current"
       ],
+      "VBUS": [
+        "Current"
+      ],
       "VIN": [
         "Current"
       ],
@@ -813,7 +816,7 @@
         "uuid": "bf4b749c-e7df-4d18-856a-a4f784e96f1a"
       }
     ],
-    "used_designators": "TP3-4,#PWR26",
+    "used_designators": "J1",
     "variants": []
   },
   "sheets": [

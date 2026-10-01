@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MPL3115A2ST1
+D Board Mount Pressure Sensors Horizon I2C ST 1.95 V to 3.6 V,(1.62 V to 3.6 V, 40 C to 85 C
+K
+F https://www.nxp.com/docs/en/data-sheet/MPL3115A2S.pdf
+$ENDCMP
+#
+#End Doc Library
