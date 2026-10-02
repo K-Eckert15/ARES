@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <circle
+     style="fill:#d4aa00;fill-opacity:1;stroke-width:0.514572"
+     id="path3-2-9-6"
+     cx="138.99231"
+     cy="106.49388"
+     r="22" />
+  <circle
+     style="fill:#000000;fill-opacity:1;stroke-width:0.514572"
+     id="path3-2-9"
+     cx="138.99231"
+     cy="106.49388"
+     r="21" />
+  <ellipse
+     style="fill:#d4aa00;fill-opacity:1;stroke-width:0.514572"
+     id="path3-2"
+     cx="138.99231"
+     cy="106.49388"
+     rx="19.576527"
+     ry="19.321152" />
+  <circle
+     style="fill:#f9f9f9;fill-opacity:1;stroke-width:0.461838"
+     id="path3-5-9"
+     cx="138.99231"
+     cy="106.49388"
+     r="18" />
+  <g
+     id="layer1">
+    <circle
+       style="fill:#d4aa00;fill-opacity:1;stroke-width:0.264583"
+       id="path3"
+       cx="138.99231"
+       cy="106.49388"
+       r="10" />
+    <circle
+       style="fill:#f9f9f9;fill-opacity:1;stroke-width:0.19597"
+       id="path3-5"
+       cx="138.99231"
+       cy="106.49388"
+       r="8" />
+  </g>
+</svg>
