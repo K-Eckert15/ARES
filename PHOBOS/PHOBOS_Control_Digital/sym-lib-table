@@ -6,4 +6,5 @@
 	(lib (name "SMA_J_P_GF_RA_SM1") (type "KiCad") (uri "${KIPRJMOD}/Parts/SMA_J_P_GF_RA_SM1") (options "") (descr ""))
 	(lib (name "MAPS-010144-TR0500") (type "KiCad") (uri "${KIPRJMOD}/Parts/MAPS-010144-TR0500") (options "") (descr ""))
 	(lib (name "UJ20_C_H_G_SMT_1_P16_TR") (type "KiCad") (uri "${KIPRJMOD}/Parts/UJ20_C_H_G_SMT_1_P16_TR/UJ20-C-H-G-SMT-1-P16-TR.kicad_sym") (options "") (descr ""))
+	(lib (name "A-HDF 15 A-KG/T") (type "KiCad") (uri "${KIPRJMOD}/Parts/AHDF15A_KG_TASB_R") (options "") (descr ""))
 )
