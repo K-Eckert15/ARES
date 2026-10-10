@@ -9,4 +9,5 @@
 	(lib (name "A-HDF 15 A-KG/T") (type "KiCad") (uri "${KIPRJMOD}/Parts/AHDF15A_KG_TASB_R/2026-10-09_05-27-14.kicad_sym") (options "") (descr ""))
 	(lib (name "Wilkinson_Divider") (type "KiCad") (uri "${KIPRJMOD}/Parts/Wilkinson_Divider/Wilkinson_Divider.kicad_sym") (options "") (descr "") (disabled))
 	(lib (name "PD2328J5050S2HF") (type "KiCad") (uri "${KIPRJMOD}/Parts/PD2328J5050S2HF") (options "") (descr ""))
+	(lib (name "MPL3115A2ST1") (type "KiCad") (uri "${KIPRJMOD}/Parts/MPL3115A2ST1/MPL3115A2ST1") (options "") (descr ""))
 )
