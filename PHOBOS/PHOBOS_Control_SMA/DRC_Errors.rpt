@@ -1,0 +1,102 @@
+** Drc report for PHOBOS_Control_Digital.kicad_pcb **
+** Created on 2026-09-15T00:52:37 **
+** Report includes: Errors **
+
+** Found 28 DRC violations **
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 95.5915 mm): PTH pad B12 [GND] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 95.9915 mm): PTH pad B11 [unconnected-(J3-SSRXP1-PadB11)] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 96.7915 mm): PTH pad B10 [unconnected-(J3-SSRXN1-PadB10)] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 97.1915 mm): PTH pad B9 [VBUS] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 97.5915 mm): PTH pad B8 [unconnected-(J3-SBU2-PadB8)] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 97.9915 mm): PTH pad B7 [/USB_D-] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 98.7915 mm): PTH pad B6 [/USB_D+] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 99.1915 mm): PTH pad B5 [Net-(J3-CC2)] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 99.5915 mm): PTH pad B4 [VBUS] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 99.9915 mm): PTH pad B3 [unconnected-(J3-SSTXN2-PadB3)] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 100.7915 mm): PTH pad B2 [unconnected-(J3-SSTXP2-PadB2)] of J3
+[drill_out_of_range]: Hole size out of range (rule 'Pad Size' min hole 0.5000 mm; actual 0.4000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 101.1915 mm): PTH pad B1 [GND] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1500 mm)
+    Rule: Pad Size; error
+    @(132.3260 mm, 102.8815 mm): PTH pad S4 [GND] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1500 mm)
+    Rule: Pad Size; error
+    @(132.3260 mm, 93.9015 mm): PTH pad S3 [GND] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1500 mm)
+    Rule: Pad Size; error
+    @(136.7260 mm, 102.5215 mm): PTH pad S2 [GND] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1500 mm)
+    Rule: Pad Size; error
+    @(136.7260 mm, 94.2615 mm): PTH pad S1 [GND] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 95.5915 mm): PTH pad B12 [GND] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 95.9915 mm): PTH pad B11 [unconnected-(J3-SSRXP1-PadB11)] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 96.7915 mm): PTH pad B10 [unconnected-(J3-SSRXN1-PadB10)] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 97.1915 mm): PTH pad B9 [VBUS] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 97.5915 mm): PTH pad B8 [unconnected-(J3-SBU2-PadB8)] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 97.9915 mm): PTH pad B7 [/USB_D-] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 98.7915 mm): PTH pad B6 [/USB_D+] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 99.1915 mm): PTH pad B5 [Net-(J3-CC2)] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 99.5915 mm): PTH pad B4 [VBUS] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 99.9915 mm): PTH pad B3 [unconnected-(J3-SSTXN2-PadB3)] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(136.6160 mm, 100.7915 mm): PTH pad B2 [unconnected-(J3-SSTXP2-PadB2)] of J3
+[annular_width]: Annular width (rule 'Pad Size' min annular width 0.2500 mm; actual 0.1000 mm)
+    Rule: Pad Size; error
+    @(137.3160 mm, 101.1915 mm): PTH pad B1 [GND] of J3
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

@@ -929,7 +929,7 @@
         "uuid": "311bc0a8-e09e-4ed9-a164-96f32995a395"
       }
     ],
-    "used_designators": "J1,J5,J16",
+    "used_designators": "IC1-3,J1-2,J5,J16",
     "variants": []
   },
   "sheets": [

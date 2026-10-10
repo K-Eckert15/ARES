@@ -61,7 +61,7 @@
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
           "min_clearance": 0.5,
-          "min_island_area": 10.0,
+          "min_island_area": 9.99999999996,
           "min_thickness": 0.25,
           "pad_connection": 1,
           "remove_islands": 0,
@@ -539,7 +539,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "PHOBOS_RF_Digital.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -662,7 +662,7 @@
         "uuid": "a832e876-eafa-4621-93e1-871c5fe2cb31"
       }
     ],
-    "used_designators": "TP1-4,R1-3,J1-6,IC1-7,AE1-4,#PWR1-28,H1-4",
+    "used_designators": "TP1-4,R1-3,J1-6,IC1-7,AE1-4,#PWR1-28,#PWR32-40,H1-4",
     "variants": []
   },
   "sheets": [
