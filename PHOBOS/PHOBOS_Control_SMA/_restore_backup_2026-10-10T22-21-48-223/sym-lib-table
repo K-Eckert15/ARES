@@ -1,11 +1,13 @@
-(fp_lib_table
+(sym_lib_table
 	(version 7)
 	(lib (name "C1E-52.000-10-1012-X-M") (type "KiCad") (uri "${KIPRJMOD}/Parts/C1E-52.000-10-1012-X-M") (options "") (descr ""))
 	(lib (name "SX1280IMLTRT") (type "KiCad") (uri "${KIPRJMOD}/Parts/SX1280IMLTRT") (options "") (descr ""))
 	(lib (name "USB4056_03_A") (type "KiCad") (uri "${KIPRJMOD}/Parts/USB4056_03_A") (options "") (descr ""))
 	(lib (name "SMA_J_P_GF_RA_SM1") (type "KiCad") (uri "${KIPRJMOD}/Parts/SMA_J_P_GF_RA_SM1") (options "") (descr ""))
 	(lib (name "MAPS-010144-TR0500") (type "KiCad") (uri "${KIPRJMOD}/Parts/MAPS-010144-TR0500") (options "") (descr ""))
-	(lib (name "UJ20_C_H_G_SMT_1_P16_TR") (type "KiCad") (uri "${KIPRJMOD}/Parts/UJ20_C_H_G_SMT_1_P16_TR") (options "") (descr ""))
-	(lib (name "A-HDF 15 A-KG/T") (type "KiCad") (uri "${KIPRJMOD}/Parts/AHDF15A_KG_TASB_R/footprints.pretty") (options "") (descr ""))
+	(lib (name "UJ20_C_H_G_SMT_1_P16_TR") (type "KiCad") (uri "${KIPRJMOD}/Parts/UJ20_C_H_G_SMT_1_P16_TR/UJ20-C-H-G-SMT-1-P16-TR.kicad_sym") (options "") (descr ""))
+	(lib (name "A-HDF 15 A-KG/T") (type "KiCad") (uri "${KIPRJMOD}/Parts/AHDF15A_KG_TASB_R/2026-10-09_05-27-14.kicad_sym") (options "") (descr ""))
+	(lib (name "Wilkinson_Divider") (type "KiCad") (uri "${KIPRJMOD}/Parts/Wilkinson_Divider/Wilkinson_Divider.kicad_sym") (options "") (descr "") (disabled))
 	(lib (name "PD2328J5050S2HF") (type "KiCad") (uri "${KIPRJMOD}/Parts/PD2328J5050S2HF") (options "") (descr ""))
+	(lib (name "MPL3115A2ST1") (type "KiCad") (uri "${KIPRJMOD}/Parts/MPL3115A2ST1/MPL3115A2ST1") (options "") (descr ""))
 )
