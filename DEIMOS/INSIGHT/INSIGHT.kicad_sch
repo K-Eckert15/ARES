@@ -9334,12 +9334,6 @@
 		(uuid "81dcd408-a9a8-4621-b34c-388cd918930f")
 	)
 	(junction
-		(at 300.99 339.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "85bd350f-0d47-42d7-a426-42882ad6a8ad")
-	)
-	(junction
 		(at 670.56 297.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9758,8 +9752,16 @@
 		(uuid "d1a4023d-20df-4c55-adab-b4a7f13596c5")
 	)
 	(no_connect
+		(at 311.15 341.63)
+		(uuid "d1b01ec6-2f5e-4993-ace7-693f75f67497")
+	)
+	(no_connect
 		(at 619.76 457.2)
 		(uuid "de352820-031c-439f-b2f1-be0236a3ec5f")
+	)
+	(no_connect
+		(at 619.76 426.72)
+		(uuid "e5136e71-051c-4f96-9e9b-37560b6e54b0")
 	)
 	(no_connect
 		(at 685.8 307.34)
@@ -10162,16 +10164,6 @@
 			(type default)
 		)
 		(uuid "1ee63075-2e77-444c-8bfc-e2b5b99ce26a")
-	)
-	(wire
-		(pts
-			(xy 311.15 344.17) (xy 300.99 344.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1f986dd6-c540-4764-af46-ab3459185ca3")
 	)
 	(wire
 		(pts
@@ -11155,16 +11147,6 @@
 	)
 	(wire
 		(pts
-			(xy 300.99 339.09) (xy 300.99 344.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "66ab2934-102a-4215-bddc-6b48fc34d579")
-	)
-	(wire
-		(pts
 			(xy 480.06 449.58) (xy 490.22 449.58)
 		)
 		(stroke
@@ -11562,16 +11544,6 @@
 			(type default)
 		)
 		(uuid "821e53d6-cb2d-4b93-aad4-b658c7d5838d")
-	)
-	(wire
-		(pts
-			(xy 311.15 341.63) (xy 311.15 344.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "82c860a4-b5c8-4f06-8406-652e82d1ff45")
 	)
 	(wire
 		(pts
@@ -12542,16 +12514,6 @@
 			(type default)
 		)
 		(uuid "d2ea6c78-059a-4f0f-b985-ea85af5285b7")
-	)
-	(wire
-		(pts
-			(xy 619.76 426.72) (xy 635 426.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d3b79b22-ab01-4568-8aaf-5811464fe7e7")
 	)
 	(wire
 		(pts
@@ -16089,16 +16051,6 @@
 			(justify right bottom)
 		)
 		(uuid "918dc1e0-c8c0-4888-9f12-0b2c49eede9e")
-	)
-	(label "NRST"
-		(at 635 426.72 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "91c298ae-d5fd-4921-a91c-d5ad31de3204")
 	)
 	(label "MOSI"
 		(at 635 436.88 180)
