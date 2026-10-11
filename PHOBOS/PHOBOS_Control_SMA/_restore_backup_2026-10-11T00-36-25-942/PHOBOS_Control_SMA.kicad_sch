@@ -8700,12 +8700,6 @@
 		(uuid "512f0119-a9cf-403f-90d2-39039d959845")
 	)
 	(junction
-		(at 220.98 162.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "52586bc7-1714-4752-af7a-ea415b50f985")
-	)
-	(junction
 		(at 351.79 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8920,12 +8914,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b53d80b2-5708-4ec4-af3e-6dcfce9cf2da")
-	)
-	(junction
-		(at 218.44 160.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b5dc7809-2bf4-4d06-82c3-faa8942455d4")
 	)
 	(junction
 		(at 275.59 34.29)
@@ -9602,16 +9590,6 @@
 			(type default)
 		)
 		(uuid "0ed1a9a6-1a43-46bc-af33-45123eb17d5e")
-	)
-	(wire
-		(pts
-			(xy 220.98 162.56) (xy 220.98 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f1ad9fd-65cd-4b30-84af-263297d4ad16")
 	)
 	(wire
 		(pts
@@ -11645,16 +11623,6 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 162.56) (xy 223.52 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "965ae380-73ed-45d9-9752-39755c218d32")
-	)
-	(wire
-		(pts
 			(xy 179.07 139.7) (xy 179.07 142.24)
 		)
 		(stroke
@@ -12295,7 +12263,7 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 162.56) (xy 220.98 162.56)
+			(xy 194.31 162.56) (xy 223.52 162.56)
 		)
 		(stroke
 			(width 0)
@@ -13182,16 +13150,6 @@
 			(type default)
 		)
 		(uuid "fe6bf41f-81be-452f-a070-c9bd914f4148")
-	)
-	(wire
-		(pts
-			(xy 218.44 160.02) (xy 218.44 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fe78caf3-ec25-41da-88a4-6e8b65c2998e")
 	)
 	(wire
 		(pts
@@ -28330,152 +28288,6 @@
 			(project "PHOBOS_Control_SMA"
 				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
 					(reference "#PWR054")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 218.44 168.91 90)
-		(mirror x)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "967fb793-e1a4-4645-b773-8353d4066242")
-		(property "Reference" "J7"
-			(at 214.122 168.91 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TXRX"
-			(at 214.122 166.37 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TerminalBlock_4Ucon:TerminalBlock_4Ucon_1x02_P3.50mm_Horizontal"
-			(at 218.44 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 218.44 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 218.44 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" ""
-			(at 218.44 168.91 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 218.44 168.91 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 218.44 168.91 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 218.44 168.91 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 218.44 168.91 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFG #" "OSTTE020104"
-			(at 218.44 168.91 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "15addd35-2622-49e1-9789-8548f59a4824")
-		)
-		(pin "2"
-			(uuid "8b8b2e7a-9ba8-43c7-bdfe-d73b0b809528")
-		)
-		(instances
-			(project "PHOBOS_Control_SMA"
-				(path "/311bc0a8-e09e-4ed9-a164-96f32995a395"
-					(reference "J7")
 					(unit 1)
 				)
 			)
