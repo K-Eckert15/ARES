@@ -1,0 +1,9 @@
+Manufacturer=NXP
+PartNumber=MPL3115A2ST1
+PartCategory=Integrated Circuit
+PackageCategory=Other
+PinCount=8
+Version=1.4
+Released=2025-05-11 10:36:38
+Downloaded=2026-10-01 19:33:36
+3D=Y

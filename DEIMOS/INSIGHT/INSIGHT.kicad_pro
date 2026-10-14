@@ -549,7 +549,7 @@
       "plot": "COMET_BETA_Gerber/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "AURORA_Insight.stl",
+      "step": "AURORA_Insight.step",
       "svg": "",
       "vrml": ""
     },
