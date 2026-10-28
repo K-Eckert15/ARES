@@ -1,0 +1,65 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/lgord/Downloads/PAA SLED.x_t")
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Update(AllDependencies=True)
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+favorites1 = EngData.LoadFavoriteItems()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Exit()
+library1 = EngData.OpenLibrary(
+    Name="General Materials",
+    Source="General_Materials.xml")
+library2 = EngData.OpenLibrary(
+    Name="Composite Materials",
+    Source="Composite_Materials.xml")
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.ImportMaterial(
+    Name="E-Glass",
+    Source="Composite_Materials.xml")
+modelComponent1.Refresh()
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1.Edit()
+model1.Exit()
+library3 = EngData.OpenLibrary(
+    Name="Additive Manufacturing Materials",
+    Source="Additive_Manufacturing_Materials.xml")
+system2 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system1)
+system1.DisplayText = "PAA Sled"
+system2.DisplayText = "Top Centering Ring"
+geometry2 = system2.GetContainer(ComponentName="Geometry")
+geometry2.SetFile(FilePath="C:/Users/lgord/Downloads/Top Centering Ring.x_t")
+modelComponent2 = system2.GetComponent(Name="Model")
+modelComponent2.Update(AllDependencies=True)
+setup2 = system2.GetContainer(ComponentName="Setup")
+setup2.Edit()
+engineeringData2 = system2.GetContainer(ComponentName="Engineering Data")
+matl2 = engineeringData2.ImportMaterial(
+    Name="E-Glass",
+    Source="Composite_Materials.xml")
+Update()
+model2 = system2.GetContainer(ComponentName="Model")
+model2.Exit()
+system3 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system2)
+system3.DisplayText = "Lower Fin"
+geometry3 = system3.GetContainer(ComponentName="Geometry")
+geometry3.SetFile(FilePath="C:/Users/lgord/Downloads/Lower Fin.x_t")
+modelComponent3 = system3.GetComponent(Name="Model")
+modelComponent3.Update(AllDependencies=True)
+setup3 = system3.GetContainer(ComponentName="Setup")
+setup3.Edit()
+model3 = system3.GetContainer(ComponentName="Model")
+model3.Exit()
+Save(Overwrite=True)

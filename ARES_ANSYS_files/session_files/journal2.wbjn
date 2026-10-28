@@ -1,0 +1,119 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+system1 = GetSystem(Name="SYS")
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Exit()
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="PETG")
+favorites1 = EngData.LoadFavoriteItems()
+matl1.SetSuppression(Suppressed=True)
+matl1.SetSuppression(Suppressed=False)
+matlProp1 = matl1.CreateProperty(
+    Name="Density",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp2 = matl1.CreateProperty(
+    Name="Coefficient of Thermal Expansion",
+    Definition="Secant",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "Secant", "Behavior": "Isotropic"})
+matlProp3 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp1.SetData(
+    SheetName="Density",
+    SheetQualifiers={"Definition": "", "Behavior": ""},
+    Index=-1,
+    Variables=["Density"],
+    Values=[["0.00127 [kg m^-3]"]])
+matlProp1.SetData(
+    SheetName="Density",
+    SheetQualifiers={"Definition": "", "Behavior": ""},
+    Variables=["Density"],
+    Values=[["1270 [kg m^-3]"]])
+matlProp2.SetData(
+    SheetName="Coefficient of Thermal Expansion",
+    SheetQualifiers={"Definition": "Secant", "Behavior": "Isotropic"},
+    Index=-1,
+    Variables=["Coefficient of Thermal Expansion"],
+    Values=[["7E-05 [C^-1]"]])
+matlProp3.SetData(
+    SheetName="Elasticity",
+    SheetQualifiers={"Definition": "", "Behavior": "Isotropic", "Derive from": "Young's Modulus and Poisson's Ratio"},
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["2950000000 [Pa]"]])
+matlProp3.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.4"]])
+matlProp3.Delete(Behavior="Isotropic")
+matlProp4 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Orthotropic",
+    Qualifiers={"Definition": "", "Behavior": "Orthotropic"})
+matlProp4.SetData(
+    Index=-1,
+    Variables=["Young's Modulus X direction"],
+    Values=[["2100000000 [Pa]"]])
+matlProp4.SetData(
+    Variables=["Young's Modulus Y direction"],
+    Values=[["2100000000 [Pa]"]])
+matlProp4.SetData(
+    Variables=["Young's Modulus Z direction"],
+    Values=[["1500000000 [Pa]"]])
+matlProp4.SetData(
+    Variables=["Poisson's Ratio XY"],
+    Values=[["0.38"]])
+matlProp4.SetData(
+    Variables=["Poisson's Ratio YZ"],
+    Values=[["0.35"]])
+matlProp4.SetData(
+    Variables=["Poisson's Ratio XZ"],
+    Values=[["0.35"]])
+matlProp4.SetData(
+    Variables=["Shear Modulus XY"],
+    Values=[["760000000 [Pa]"]])
+matlProp4.SetData(
+    Variables=["Shear Modulus YZ"],
+    Values=[["760000000 [Pa]"]])
+matlProp4.SetData(
+    Variables=["Shear Modulus YZ"],
+    Values=[["560000000 [Pa]"]])
+matlProp4.SetData(
+    Variables=["Shear Modulus XZ"],
+    Values=[["560000000 [Pa]"]])
+matlProp2.Delete(
+    Definition="Secant",
+    Behavior="Isotropic")
+matlProp5 = matl1.CreateProperty(
+    Name="Coefficient of Thermal Expansion",
+    Definition="Secant",
+    Behavior="Orthotropic",
+    Qualifiers={"Definition": "Secant", "Behavior": "Orthotropic"})
+matlProp5.SetData(
+    SheetName="Coefficient of Thermal Expansion",
+    SheetQualifiers={"Definition": "Secant", "Behavior": "Orthotropic"},
+    Index=-1,
+    Variables=["Coefficient of Thermal Expansion X direction"],
+    Values=[["6.5E-05 [C^-1]"]])
+matlProp5.SetData(
+    SheetName="Coefficient of Thermal Expansion",
+    SheetQualifiers={"Definition": "Secant", "Behavior": "Orthotropic"},
+    Variables=["Coefficient of Thermal Expansion Y direction"],
+    Values=[["6.5E-05 [C^-1]"]])
+matlProp5.SetData(
+    SheetName="Coefficient of Thermal Expansion",
+    SheetQualifiers={"Definition": "Secant", "Behavior": "Orthotropic"},
+    Variables=["Coefficient of Thermal Expansion Z direction"],
+    Values=[["8.5E-05 [C^-1]"]])
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1.Edit()
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)

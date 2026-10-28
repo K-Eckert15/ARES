@@ -1,0 +1,44 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = GetSystem(Name="SYS")
+system2 = template1.CreateSystem(
+    Position="Below",
+    RelativeTo=system1)
+system2.DisplayText = "PAA Sled Mod"
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/lgord/Downloads/Modified PAA SLED.x_t")
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Update(AllDependencies=True)
+setup1 = system2.GetContainer(ComponentName="Setup")
+setup1.Edit()
+favorites1 = EngData.LoadFavoriteItems()
+engineeringData1 = system2.GetContainer(ComponentName="Engineering Data")
+material1 = engineeringData1.GetMaterial(Name="Structural Steel")
+material1.DisplayName = "PETG"
+material1.DisplayName = "Structural Steel"
+matl1 = engineeringData1.CreateMaterial(Name="PETG")
+engineeringData2 = system1.GetContainer(ComponentName="Engineering Data")
+material2 = engineeringData2.GetMaterial(Name="PETG")
+material2.SetSuppression(Suppressed=True)
+material2.SetSuppression(Suppressed=False)
+library1 = EngData.OpenLibrary(
+    Name="EngineeringData",
+    Source=ANSYS::Disk::C:\Users\lgord\Downloads\ARES_ANSYS_files\dp0\SYS\ENGD\EngineeringData.xml)
+library2 = EngData.OpenLibrary(
+    Name="Piezoelectric Materials",
+    Source="Piezoelectric_Materials.xml")
+matl2 = engineeringData1.ImportMaterial(
+    Name="PETG",
+    Source="C:/Users/lgord/Downloads/ARES_ANSYS_files/dp0/SYS/ENGD/EngineeringData.xml")
+matl3 = engineeringData1.ImportMaterial(
+    Name="E-Glass",
+    Source="C:/Users/lgord/Downloads/ARES_ANSYS_files/dp0/SYS/ENGD/EngineeringData.xml")
+matl1.Delete()
+matl2.DisplayName = "PETG"
+Update()
+Save(Overwrite=True)
+Save(Overwrite=True)
