@@ -22,7 +22,7 @@ The development of \ares{} builds upon experience obtained through previous AURO
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\columnwidth]{L2Rocket.jpg}
+    \includegraphics[width=\columnwidth]{Documentation/ARES/Use_Cases/Pics/L2Rocket.jpg}
     \caption{Nicholas Krupa with the AURORA high-power rocket used for his successful National Association of Rocketry Level 2 certification flight. The vehicle provided prior flight experience in stability, recovery, avionics integration, and high-power launch operations that is being applied to the development of \ares{}.}
     \label{fig:l2_rocket}
 \end{figure}
@@ -73,13 +73,13 @@ Because the system is an intentional RF radiator, regulatory compliance will be 
 The array must also operate within the geometric constraints of the 6-inch-diameter vehicle. Antenna dimensions scale with wavelength, producing a direct trade between operating frequency, available array aperture, element spacing, and achievable radiation characteristics. These constraints will be evaluated alongside communication range and link performance before the final array geometry is selected.
 
 The current \phobos{} architecture is progressing toward a distributed control and RF implementation consisting of a control board and an antenna board, as summarized in Fig.~\ref{fig:phobos_block_diagram}. The control board has entered the schematic design stage and is intended to contain the primary transceiver and microcontroller. This subsystem will process flight and communication data, control the RF system, and generate the transmitted signal. The resulting RF signal will then be routed to the antenna board, where phase adjustment and any required amplification will occur before the signal is applied to the patch antenna array.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\columnwidth]{PHOBOS/Images/PAA_Block_Diagram.png}
-    \caption{Functional block diagram of the proposed \phobos{} architecture. Control and communication functions are separated from the antenna-board RF front end so that signal generation, phase control, amplification, and antenna performance can be developed and tested as distinct subsystems.}
-    \label{fig:phobos_block_diagram}
-\end{figure}
+\input{Documentation/Pics/PAA_Diagram}
+%\begin{figure}[htbp]
+    %\centering
+    %\includegraphics[width=\columnwidth]{PHOBOS/Images/PAA_Block_Diagram.png}
+    %\caption{Functional block diagram of the proposed \phobos{} architecture. Control and communication functions are separated from the %antenna-board RF front end so that signal generation, phase control, amplification, and antenna performance can be developed and %tested as distinct subsystems.}
+%    \label{fig:phobos_block_diagram}
+%\end{figure}
 
 
 The control electronics are being developed around a dedicated PCB so that processing, communication, and RF-control functions can be integrated into a compact flight package. The current control-board design is shown in Fig.~\ref{fig:phobos_control_board}, while an example of the associated schematic development is shown in Fig.~\ref{fig:phobos_schematic}.

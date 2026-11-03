@@ -1,0 +1,60 @@
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[shape=rectangle, fill={rgb,255:red,38;green,162;blue,105}, draw, line width=1pt, minimum width=8.965cm, minimum height=5.965cm] at (13.5, 3.063){};
+	\node[shape=rectangle, fill={rgb,255:red,246;green,211;blue,45}, draw, line width=1pt, minimum width=0.965cm, minimum height=1.965cm] at (10.5, 3.063){};
+	\node[shape=rectangle, fill={rgb,255:red,246;green,211;blue,45}, draw, line width=1pt, minimum width=0.965cm, minimum height=1.965cm] at (12.5, 3.063){};
+	\node[shape=rectangle, fill={rgb,255:red,246;green,211;blue,45}, draw, line width=1pt, minimum width=0.965cm, minimum height=1.965cm] at (14.5, 3.063){};
+	\node[shape=rectangle, fill={rgb,255:red,246;green,211;blue,45}, draw, line width=1pt, minimum width=0.965cm, minimum height=1.965cm] at (16.5, 3.063){};
+	\node[bnc, xscale=-1] at (10.36, 1.952){};
+	\node[bnc, rotate=-90, yscale=-1] at (12.5, 1.813){};
+	\node[bnc, xscale=-1] at (14.36, 4.202){};
+	\node[bnc, rotate=90, yscale=-1] at (16.5, 4.313){};
+	\node[shape=rectangle, fill={rgb,255:red,38;green,162;blue,105}, draw, line width=1pt, minimum width=6.715cm, minimum height=3.965cm] at (3.375, 3.063){};
+	\node[bnc] at (6.89, 1.563){};
+	\node[bnc] at (6.89, 2.562){};
+	\node[bnc] at (6.89, 3.563){};
+	\node[bnc] at (6.89, 4.563){};
+	\draw (5.25, 4.563) to[vphaseshifter, /tikz/circuitikz/bipoles/length=0.700cm] (6.25, 4.563);
+	\draw (5.25, 3.563) to[vphaseshifter, /tikz/circuitikz/bipoles/length=0.700cm] (6.25, 3.563);
+	\draw (5.25, 2.562) to[vphaseshifter, /tikz/circuitikz/bipoles/length=0.700cm] (6.25, 2.562);
+	\draw (5.25, 1.563) to[vphaseshifter, /tikz/circuitikz/bipoles/length=0.700cm] (6.25, 1.563);
+	\node[genericsplitter, xscale=0.5, yscale=0.5] at (3.045, 3.085){};
+	\node[genericsplitter, xscale=0.5, yscale=0.5] at (4.455, 4.062){};
+	\node[genericsplitter, xscale=0.5, yscale=0.5] at (4.455, 2.063){};
+	\draw (0.75, 5.563) to[battery, /tikz/circuitikz/bipoles/length=0.700cm, v=$9v$, voltage=american] (2, 5.563);
+	\node[shape=rectangle, rotate=90, draw, line width=1pt, minimum width=0.715cm, minimum height=0.465cm] at (1.75, 3.063){} node[anchor=center, align=center, text width=0.327cm, inner sep=6pt, rotate=90] at (1.75, 3.063){\small TX};
+	\node[shape=rectangle, rotate=90, draw, line width=1pt, minimum width=0.84cm, minimum height=0.465cm] at (0.75, 3.063){} node[anchor=center, align=center, text width=0.452cm, inner sep=6pt, rotate=90] at (0.75, 3.00){\footnotesize MCU};
+	\path[draw={rgb,255:red,53;green,132;blue,228}, line width=1.5pt] (1, 3.063) -- (1.5, 3.063);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (2, 3.063) -| (2.59, 3.085);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (3.5, 3.313) -| (3.75, 4.063) -- (4, 4.063);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (3.5, 2.813) -| (3.75, 2.063) -- (4, 2.063);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (4.91, 4.29) -| (5.25, 4.563);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (4.91, 3.835) -| (5.25, 3.563);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (4.91, 2.29) -| (5.25, 2.563);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (4.91, 1.835) -| (5.25, 1.563);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (6.25, 4.563) -- (6.75, 4.563);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (6.25, 3.563) -- (6.75, 3.563);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (6.25, 2.563) -- (6.75, 2.563);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (6.25, 1.563) -- (6.75, 1.563);
+	\node[shape=rectangle, draw, line width=1pt, minimum width=0.84cm, minimum height=0.465cm] at (1.312, 4.313){} node[anchor=center, align=center, text width=0.452cm, inner sep=6pt] at (1.312, 4.313){\small Reg};
+	\path[draw={rgb,255:red,237;green,51;blue,59}, line width=1.5pt] (0.75, 5.563) |- (0.875, 4.313);
+	\path[draw={rgb,255:red,0;green,0;blue,0}, line width=1.5pt] (1.75, 5.563) -| (2, 4.313) -- (1.75, 4.313);
+	\node[shape=rectangle, draw, line width=1pt, minimum width=1.965cm, minimum height=2.09cm] at (7.25, 6.625){};
+	\path[draw={rgb,255:red,53;green,132;blue,228}, line width=1.5pt] (6.75, 6.813) -- (7.75, 6.813);
+	\node[shape=rectangle, minimum width=0.715cm, minimum height=0.09cm] at (7.25, 7){} node[anchor=north, align=center, text width=0.327cm, inner sep=6pt] at (7.25, 7.063){\tiny DATA};
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt] (6.75, 6.313) -- (7.75, 6.313);
+	\node[shape=rectangle, minimum width=0.715cm, minimum height=0.09cm] at (7.25, 6.5){} node[anchor=north, align=center, text width=0.327cm, inner sep=6pt] at (7.25, 6.563){\tiny RF};
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt, dash pattern={on 6pt off 3pt}] (6.75, 5.813) -- (7.75, 5.813);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=-0.035cm] at (7.25, 6.063){} node[anchor=north, align=center, text width=0.577cm, inner sep=6pt] at (7.25, 6.063){\tiny Cable};
+	\path[draw={rgb,255:red,237;green,51;blue,59}, line width=1.5pt] (6.75, 7.313) -- (7.75, 7.313);
+	\node[shape=rectangle, minimum width=0.715cm, minimum height=0.09cm] at (7.25, 7.5){} node[anchor=north, align=center, text width=0.327cm, inner sep=6pt] at (7.25, 7.563){\tiny Power};
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt, dash pattern={on 6pt off 3pt}] (6.89, 1.563) -| (12.5, 1.813);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt, dash pattern={on 6pt off 3pt}] (6.89, 2.562) -| (8.25, 2.063) |- (10.36, 1.952);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt, dash pattern={on 6pt off 3pt}] (6.89, 4.563) -| (16.5, 4.313);
+	\path[draw={rgb,255:red,255;green,120;blue,0}, line width=1.5pt, dash pattern={on 6pt off 3pt}] (6.89, 3.563) -| (8.25, 4.063) |- (14.36, 4.202);
+\end{tikzpicture}
+    \caption{Functional block diagram of the proposed \phobos{} architecture. Control and communication functions are separated from the antenna-board RF front end so that signal generation, phase control, amplification, and antenna performance can be developed and tested as distinct subsystems.}
+    \label{fig:PAA_Block}
+\end{figure}
